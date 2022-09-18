@@ -1,3 +1,6 @@
 <resources>
-    <string name="MoviUQ">MoviUq</string>
+    <string name="MoviUQ">MoviUQ</string>
+
+    <!-- LOGIN -->
+    <string name="lema">Creamos Experiencias</string>
 </resources>
