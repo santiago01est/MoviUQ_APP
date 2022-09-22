@@ -2,5 +2,10 @@
     <string name="MoviUQ">MoviUQ</string>
 
     <!-- LOGIN -->
-    <string name="lema">Creamos Experiencias</string>
+    <string name="lema">Bienvenido a MoviUQ</string>
+    <string name="lemasub">Comparte, Viaja y Ahorra</string>
+
+    <string name="btn_iniciar_sesion">Iniciar Sesión</string>
+    <string name="btn_registrar">Registrarse</string>
+
 </resources>
