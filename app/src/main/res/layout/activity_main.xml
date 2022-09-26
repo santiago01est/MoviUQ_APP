@@ -79,7 +79,7 @@
             android:layout_width="295dp"
             android:layout_height="58dp"
             android:fontFamily="@font/baloo_da"
-            android:textColor="@color/green_black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="20dp"
             app:elevation="50dp"
@@ -93,13 +93,13 @@
             android:layout_width="295dp"
             android:layout_height="58dp"
             android:fontFamily="@font/baloo_da"
-            android:textColor="@color/green_black"
+            android:textColor="@color/letra_02"
             android:textSize="16sp"
             android:layout_marginTop="8dp"
             app:cornerRadius="20dp"
             app:elevation="50dp"
             app:rippleColor="@color/green_main"
-            app:backgroundTint="@color/bttn_02"
+            app:backgroundTint="@color/teal_200"
             android:text="@string/btn_iniciar_sesion" />
     </LinearLayout>
 
