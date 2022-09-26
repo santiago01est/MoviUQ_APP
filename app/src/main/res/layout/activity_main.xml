@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imgv_icono_main"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,9 @@
         android:id="@+id/imgv_img_main"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgv_icono_main"
@@ -35,8 +37,8 @@
         android:fontFamily="@font/baloo_da"
         android:gravity="center"
         android:text="@string/lema"
-        android:textColor="@color/black"
-        android:textSize="36sp"
+        android:textColor="@color/green_black"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,9 +48,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="16dp"
         android:fontFamily="@font/baloo_da"
         android:gravity="center"
+        android:textColor="@color/green_black"
         android:text="@string/lemasub"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,28 +62,57 @@
         android:id="@+id/contenedor_button_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.button.MaterialButton
-            android:layout_width="295dp"
-            android:text="@string/btn_iniciar_sesion"
-            android:layout_height="58dp" />
-
-        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bttn_registrar"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
             android:layout_width="295dp"
             android:layout_height="58dp"
-            android:text="@string/btn_registrar"/>
+            android:fontFamily="@font/baloo_da"
+            android:textColor="@color/green_black"
+            android:textSize="16sp"
+            app:cornerRadius="20dp"
+            app:elevation="50dp"
+            app:rippleColor="@color/green_main"
+            app:backgroundTint="@color/bttn_01"
+            android:text="@string/btn_registrar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bttn_iniciar"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:layout_width="295dp"
+            android:layout_height="58dp"
+            android:fontFamily="@font/baloo_da"
+            android:textColor="@color/green_black"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:cornerRadius="20dp"
+            app:elevation="50dp"
+            app:rippleColor="@color/green_main"
+            app:backgroundTint="@color/bttn_02"
+            android:text="@string/btn_iniciar_sesion" />
     </LinearLayout>
 
-
-
+    <ImageView
+        android:id="@+id/imgv_line_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/txv_bienvenido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_img_main"
+        app:srcCompat="@drawable/line_color_u" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
