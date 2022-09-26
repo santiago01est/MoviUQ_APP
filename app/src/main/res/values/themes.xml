@@ -18,4 +18,18 @@
     <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <!-- Fonts Main Title-->
+    <style name="FontsMainTitle">
+        <item name="fontFamily">@font/baloo_da</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
+    <!-- Fonts little text-->
+    <style name="FontsLittleText">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
 </resources>
