@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Sign">
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -36,14 +37,14 @@
             app:layout_constraintVertical_bias="1">
 
             <TextView
-                android:id="@+id/txv_login"
+                android:id="@+id/txv_sign"
                 style="@style/FontsMainTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
-                android:text="@string/inicio_De_sesion"
+                android:text="@string/registro"
                 app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login_email"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,22 +52,7 @@
 
             </TextView>
 
-            <TextView
-                android:id="@+id/textView"
-                style="@style/FontsLittleText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/olvidar_contraseña"
-                android:textAlignment="textEnd"
-                app:layout_constraintBottom_toTopOf="@+id/btns_login"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias=".5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout_sign_pass"
-                app:layout_constraintVertical_bias=".05"
-                app:layout_constraintWidth_percent=".8"
-                tools:ignore="TouchTargetSizeCheck" />
+
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -87,7 +73,7 @@
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintWidth_percent=".8"
                 app:startIconDrawable="@drawable/ic_email_24dp"
-                app:startIconTint="@color/bttn_01">
+                app:startIconTint="@color/bttn_02">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/login_correo"
@@ -111,44 +97,71 @@
                 android:textColorHint="@color/letra_02"
                 app:boxStrokeColor="@color/letra_02"
                 app:endIconMode="password_toggle"
-                app:endIconTint="@color/bttn_01"
+                app:endIconTint="@color/bttn_02"
                 app:hintTextColor="@color/letra_02"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias=".5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout_login_email"
-                app:layout_constraintVertical_bias="0"
                 app:layout_constraintWidth_percent=".8"
                 app:startIconDrawable="@drawable/ic_password_24dp"
-                app:startIconTint="@color/bttn_01">
+                app:startIconTint="@color/bttn_02">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/sign_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:inputType="textPassword"
                     android:textColor="@color/letra_02"
-                    android:fontFamily="@font/roboto"
                     android:textSize="16dp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_sign_cofirm_pass"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/log_hint_pass_confirm"
+                android:textColorHint="@color/letra_02"
+                app:boxStrokeColor="@color/letra_02"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/bttn_02"
+                app:hintTextColor="@color/letra_02"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias=".5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout_sign_pass"
+                app:layout_constraintWidth_percent=".8"
+                app:startIconDrawable="@drawable/ic_password_24dp"
+                app:startIconTint="@color/bttn_02">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/sign_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPassword"
+                    android:textColor="@color/letra_02"
+                    android:textSize="16dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <LinearLayout
                 android:id="@+id/btns_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="179dp"
-                android:orientation="vertical"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout_sign_pass">
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout_sign_cofirm_pass">
 
 
                 <Button
@@ -158,28 +171,15 @@
                     android:layout_height="63dp"
                     android:layout_margin="10dp"
                     android:fontFamily="@font/roboto_bold"
+                    android:text="@string/sig_btn_registrar"
                     android:textColor="@color/white"
                     android:textSize="18sp"
+                    app:backgroundTint="@color/bttn_02"
                     app:cornerRadius="22dp"
                     app:elevation="50dp"
-                    app:rippleColor="@color/green_main"
-                    app:backgroundTint="@color/bttn_01"
-                    android:text="@string/log_btn_iniciar" />
+                    app:rippleColor="@color/green_main" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/FontsLittleText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="@string/opcioninicio"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias=".5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btns_login"
-                app:layout_constraintWidth_percent=".8" />
 
             <ProgressBar
                 android:id="@+id/progressBar_login"
@@ -191,26 +191,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btns_login" />
 
-            <ImageButton
-                android:id="@+id/imgbttn_google"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/MoviUQ"
-                android:elevation="35dp"
-                android:onClick="googleLog"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:srcCompat="@drawable/ic_google" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_login"
+            android:id="@+id/lottie_sign"
             android:layout_width="250dp"
             android:layout_height="160dp"
             android:layout_margin="20dp"
@@ -219,7 +205,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/login"
+            app:lottie_rawRes="@raw/sign"
             tools:ignore="ImageContrastCheck">
 
         </com.airbnb.lottie.LottieAnimationView>

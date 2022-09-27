@@ -14,9 +14,13 @@
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="31">
         <activity
-            android:name=".Login"
+            android:name=".Sign"
             android:theme="@style/ThemeActivityWelcome"
             android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false"
+            android:theme="@style/ThemeActivityWelcome" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
