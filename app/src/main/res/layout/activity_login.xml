@@ -9,7 +9,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@color/white">
+        android:src="@drawable/back_login"
+        android:scaleType="centerCrop"
+        tools:ignore="ImageContrastCheck">
 
     </ImageView>
 
@@ -28,7 +30,7 @@
             android:background="@drawable/contenedor_log"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".75"
+            app:layout_constraintHeight_percent=".74"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1">
@@ -38,10 +40,12 @@
                 style="@style/FontsMainTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/inicio_De_sesion"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="30dp"
                 android:gravity="center"
+                android:text="@string/inicio_De_sesion"
+                app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login_email"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -52,7 +56,7 @@
                 style="@style/FontsLittleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/olvidar_contraseña"
                 android:textAlignment="textEnd"
                 app:layout_constraintBottom_toTopOf="@+id/btns_login"
@@ -89,9 +93,9 @@
                     android:id="@+id/login_correo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/letra_02"
-                    android:fontFamily="@font/roboto"
                     android:textSize="16dp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -136,11 +140,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="179dp"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:paddingLeft="38dp"
-                android:paddingRight="38dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -150,12 +154,13 @@
                 <Button
                     android:id="@+id/btn_login_iniciar"
                     style="@style/Widget.Material3.Button.ElevatedButton.Icon"
-                    android:layout_width="295dp"
-                    android:layout_height="58dp"
+                    android:layout_width="290dp"
+                    android:layout_height="63dp"
+                    android:layout_margin="10dp"
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:cornerRadius="20dp"
+                    app:cornerRadius="22dp"
                     app:elevation="50dp"
                     app:rippleColor="@color/green_main"
                     app:backgroundTint="@color/bttn_01"
@@ -192,6 +197,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
                 android:background="@android:color/transparent"
+                android:contentDescription="@string/MoviUQ"
                 android:elevation="35dp"
                 android:onClick="googleLog"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -204,9 +210,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_login_movietime"
+            android:id="@+id/lottie_login"
             android:layout_width="250dp"
-            android:layout_height="150dp"
+            android:layout_height="160dp"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

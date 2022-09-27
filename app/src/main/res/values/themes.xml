@@ -11,11 +11,12 @@
 
     <!-- Colores Basicos Activity Bienvenida -->
     <style name="ThemeActivityWelcome" parent="Theme.Material3.DayNight.NoActionBar">
-    <!-- Primary brand color. -->
-    <item name="colorPrimary">@color/green</item>
-    <item name="colorPrimaryDark">@color/white</item>
-    <item name="colorAccent">@color/teal_200</item>
-    <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/bttn_01</item>
+        <item name="colorAccent">@color/teal_200</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/bttn_01</item>
+
     </style>
 
     <!-- Fonts Main Title-->

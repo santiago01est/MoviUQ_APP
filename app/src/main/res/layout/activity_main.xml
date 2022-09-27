@@ -11,7 +11,7 @@
         android:id="@+id/imgv_icono_main"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +19,7 @@
 
     <ImageView
         android:id="@+id/imgv_img_main"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="220dp"
         android:layout_marginTop="0dp"
         android:layout_marginLeft="10dp"
@@ -37,7 +37,7 @@
         android:fontFamily="@font/baloo_da"
         android:gravity="center"
         android:text="@string/lema"
-        android:textColor="@color/green_black"
+        android:textColor="@color/letra_02"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -49,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:fontFamily="@font/baloo_da"
+        android:fontFamily="@font/roboto_bold"
         android:gravity="center"
-        android:textColor="@color/green_black"
+        android:textColor="@color/letra_03"
         android:text="@string/lemasub"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -72,32 +71,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/bttn_registrar"
             style="@style/Widget.Material3.Button.ElevatedButton.Icon"
-            android:layout_width="295dp"
-            android:layout_height="58dp"
+            android:layout_width="290dp"
+            android:layout_height="63dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:cornerRadius="20dp"
+            app:cornerRadius="22dp"
             app:elevation="50dp"
-            app:rippleColor="@color/green_main"
+            app:rippleColor="@color/letra_01"
             app:backgroundTint="@color/bttn_01"
             android:text="@string/btn_registrar" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/bttn_iniciar"
             style="@style/Widget.Material3.Button.ElevatedButton.Icon"
-            android:layout_width="295dp"
-            android:layout_height="58dp"
+            android:layout_width="290dp"
+            android:layout_height="63dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/letra_02"
             android:textSize="18sp"
+            android:onClick="lanzarLogin"
             android:layout_marginTop="8dp"
-            app:cornerRadius="20dp"
+            app:cornerRadius="22dp"
             app:elevation="50dp"
-            app:rippleColor="@color/green_main"
+            app:rippleColor="@color/bttn_01"
             app:backgroundTint="@color/teal_200"
             android:text="@string/btn_iniciar_sesion" />
     </LinearLayout>
