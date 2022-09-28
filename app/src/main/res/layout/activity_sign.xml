@@ -173,6 +173,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/sig_btn_registrar"
                     android:textColor="@color/white"
+                    android:onClick="signUser"
                     android:textSize="18sp"
                     app:backgroundTint="@color/bttn_02"
                     app:cornerRadius="22dp"
@@ -182,7 +183,7 @@
 
 
             <ProgressBar
-                android:id="@+id/progressBar_login"
+                android:id="@+id/progressBar_sign"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
