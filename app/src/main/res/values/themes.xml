@@ -9,7 +9,7 @@
 
     </style>
 
-    <!-- Colores Basicos Activity Bienvenida -->
+    <!-- Primary colors welcome Activity -->
     <style name="ThemeActivityWelcome" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green</item>

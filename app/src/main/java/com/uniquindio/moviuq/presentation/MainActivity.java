@@ -1,14 +1,13 @@
-package com.uniquindio.moviuq;
+package com.uniquindio.moviuq.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.android.material.button.MaterialButton;
+import com.uniquindio.moviuq.R;
 
 public class MainActivity extends AppCompatActivity {
 

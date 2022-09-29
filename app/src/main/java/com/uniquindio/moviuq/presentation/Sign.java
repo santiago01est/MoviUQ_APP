@@ -1,4 +1,4 @@
-package com.uniquindio.moviuq;
+package com.uniquindio.moviuq.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.use_case.Case_Sign;
 
 public class Sign extends AppCompatActivity {

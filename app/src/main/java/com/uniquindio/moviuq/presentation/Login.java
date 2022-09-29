@@ -1,10 +1,11 @@
-package com.uniquindio.moviuq;
+package com.uniquindio.moviuq.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.uniquindio.moviuq.R;
 
 public class Login extends AppCompatActivity {
 
