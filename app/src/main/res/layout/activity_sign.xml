@@ -6,15 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".presentation.Sign">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/contenedor_log"
+        android:scaleType="centerCrop"
+        tools:ignore="ImageContrastCheck">
+
+    </ImageView>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/back_login"
         android:scaleType="centerCrop"
+        android:alpha="0.55"
         tools:ignore="ImageContrastCheck">
 
     </ImageView>
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,12 +38,9 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/contenedor_log"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".74"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_sign"
             app:layout_constraintVertical_bias="1">
 
             <TextView
