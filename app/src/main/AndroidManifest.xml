@@ -14,14 +14,24 @@
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".presentation.Sign"
+            android:theme="@style/ThemeActivityWelcome"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.Login"
+            android:exported="false"
+            android:theme="@style/ThemeActivityWelcome" />
+        <activity
+            android:name=".presentation.MainActivity"
+            android:exported="true"
+            android:theme="@style/ThemeActivityWelcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -7,4 +7,28 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Colores Basicos Activity Bienvenida -->
+    <style name="ThemeActivityWelcome" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/bttn_01</item>
+        <item name="colorAccent">@color/teal_200</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/bttn_01</item>
+
+    </style>
+
+    <!-- Fonts Main Title-->
+    <style name="FontsMainTitle">
+        <item name="fontFamily">@font/baloo_da</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
+    <!-- Fonts little text-->
+    <style name="FontsLittleText">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
 </resources>

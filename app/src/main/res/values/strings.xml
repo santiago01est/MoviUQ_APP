@@ -1,6 +1,24 @@
 <resources>
     <string name="MoviUQ">MoviUQ</string>
 
-    <!-- LOGIN -->
-    <string name="lema">Creamos Experiencias</string>
+    <!-- WELCOME -->
+    <string name="lema">Bienvenido a MoviUQ</string>
+    <string name="lemasub">Comparte, Viaja y Ahorra</string>
+
+    <string name="btn_iniciar_sesion">Iniciar Sesión</string>
+    <string name="btn_registrar">Registrarse</string>
+
+    <!-- lOGIN -->
+    <string name="inicio_De_sesion">Inicio de Sesión</string>
+    <string name="olvidar_contraseña">¿Olvidó su contraseña?</string>
+    <string name="log_hint_correo">Ingresa Correo Institucional</string>
+    <string name="log_hint_pass">Ingresa contraseña</string>
+    <string name="log_hint_pass_confirm">Confirma contraseña</string>
+    <string name="log_btn_iniciar">Iniciar</string>
+    <string name="opcioninicio">ó inicia con tu cuenta:</string>
+
+    <!-- SIGN -->
+    <string name="registro">Registro</string>
+    <string name="sig_btn_registrar">Registrar</string>
+
 </resources>
