@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.use_case.Case_Sign;
 
-public class Sign extends AppCompatActivity {
+public class SignActivity extends AppCompatActivity {
 
     LottieAnimationView animation;
     Case_Sign case_sign;

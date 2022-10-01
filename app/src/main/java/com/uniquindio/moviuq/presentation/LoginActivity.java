@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.airbnb.lottie.LottieAnimationView;
 import com.uniquindio.moviuq.R;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     LottieAnimationView img;
 

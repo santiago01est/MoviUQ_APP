@@ -20,16 +20,18 @@ public class MainActivity extends AppCompatActivity {
 
         animation=findViewById(R.id.lottie_main);
         animation.playAnimation();
+
+
     }
 
     public void lanzarLogin(View view) {
-        Intent i = new Intent(this, Login.class);
+        Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
      //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 
     public void lanzarSign(View view) {
-        Intent i = new Intent(this, Sign.class);
+        Intent i = new Intent(this, SignActivity.class);
         startActivity(i);
         //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }

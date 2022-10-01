@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.Sign">
+    tools:context=".presentation.SignActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/back_login"
         android:scaleType="centerCrop"
-        android:alpha="0.55"
+        android:alpha="0.5"
         tools:ignore="ImageContrastCheck">
 
     </ImageView>
