@@ -28,7 +28,7 @@ public class SignActivity extends AppCompatActivity {
         animation=findViewById(R.id.lottie_sign);
         animation.playAnimation();
 
-        sign_email=findViewById(R.id.login_correo);
+        sign_email=findViewById(R.id.sign_correo);
         sign_pass=findViewById(R.id.sign_password);
         sign_pass_confirmar=findViewById(R.id.sign_confirm_password);
         progressBar = findViewById(R.id.progressBar_sign);

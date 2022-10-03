@@ -50,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="30dp"
+                android:fontFamily="@font/baloo_da"
                 android:gravity="center"
                 android:text="@string/inicio_De_sesion"
                 app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login_email"
@@ -132,7 +133,7 @@
                 app:startIconTint="@color/bttn_01">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/sign_password"
+                    android:id="@+id/login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -168,6 +169,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
+                    android:onClick="loginUser"
                     app:cornerRadius="22dp"
                     app:elevation="50dp"
                     app:rippleColor="@color/green_main"
@@ -207,7 +209,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/MoviUQ"
                 android:elevation="35dp"
-                android:onClick="googleLog"
+                android:onClick="googleIniciarSesionUsuario"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

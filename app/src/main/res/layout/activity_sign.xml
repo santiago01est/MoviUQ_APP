@@ -83,7 +83,7 @@
                 app:startIconTint="@color/bttn_02">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_correo"
+                    android:id="@+id/sign_correo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"

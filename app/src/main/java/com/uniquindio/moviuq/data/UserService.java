@@ -5,4 +5,6 @@ import android.app.Activity;
 public interface UserService {
 
     void registrarUsuario(String email, String password, Activity activity);
+    void iniciarSesionUsuario(String email, String password, Activity activity);
+
 }
