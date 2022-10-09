@@ -57,13 +57,12 @@
                         android:textColor="@color/white" />
 
                     <TextView
+                        style="@style/FontsMediumText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
-                        android:fontFamily="@font/baloo_da"
                         android:text="Santiago Estrada"
-                        android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
