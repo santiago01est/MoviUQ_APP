@@ -65,10 +65,17 @@
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
+    <!-- Fonts Medium text-->
+    <style name="FontsMediumText">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
     <!-- Fonts little text-->
     <style name="FontsLittleText">
         <item name="fontFamily">@font/roboto_bold</item>
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 

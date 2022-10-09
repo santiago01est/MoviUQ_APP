@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.fragments.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar_movie_info"
+        android:id="@+id/appbarHome"
         android:layout_width="match_parent"
-        android:background="@android:color/transparent"
         android:layout_height="190dp"
+        android:background="@android:color/transparent"
         android:fitsSystemWindows="true"
         android:theme="@style/CollapsingTheme">
 
@@ -18,8 +18,8 @@
             android:id="@+id/collapsingHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/bttn_01"
             android:fitsSystemWindows="true"
+            app:contentScrim="@color/bttn_01"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <FrameLayout
@@ -34,6 +34,39 @@
                     app:srcCompat="@drawable/galeria3045">
 
                 </ImageView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="14dp"
+                    app:srcCompat="@drawable/user" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FontsLittleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="Buenos dias"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:fontFamily="@font/baloo_da"
+                        android:text="Santiago Estrada"
+                        android:textColor="@color/white"
+                        android:textSize="25dp" />
+
+                </LinearLayout>
+
 
             </FrameLayout>
 
@@ -65,18 +98,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:text="hola" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="hola" />
 
@@ -124,6 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:text="hola" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

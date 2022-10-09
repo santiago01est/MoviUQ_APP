@@ -34,15 +34,31 @@
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
         <item name="colorPrimary">@color/bttn_01</item>
         <item name="colorOnPrimary">@color/green_main</item>
-        <item name="itemTextAppearanceActive">@font/roboto_bold</item>
+        <item name="itemTextAppearanceActive">@font/baloo_da</item>
     </style>
 
+    <!--styles collapsing -->
+    <style name="CollapsingTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/green_main</item>
+        <item name="colorPrimaryDark">@color/green_main</item>
+        <item name="colorAccent">@color/bttn_01</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/green_black</item>
+    </style>
+
+    <style name="ExpandedAppBar">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/white</item>
+
+    </style>
 
     <!-- Lyris -->
 
     <!-- Fonts Main Title-->
     <style name="FontsMainTitle">
-        <item name="fontFamily">@font/baloo_da</item>
+        <item name="fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">28dp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
