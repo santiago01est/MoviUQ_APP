@@ -1,4 +1,4 @@
-package com.uniquindio.moviuq.presentation;
+package com.uniquindio.moviuq.presentation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,8 +25,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void lanzarLogin(View view) {
+        Intent i = new Intent(this, HomeActivity.class);
+        startActivity(i);
+        /*
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
+
+         */
      //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 

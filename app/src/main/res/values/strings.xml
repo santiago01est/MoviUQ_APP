@@ -21,6 +21,15 @@
     <string name="registro">Registro</string>
     <string name="sig_btn_registrar">Registrar</string>
 
+    <!-- Home -->
+    <string name="home_menu">Inicio</string>
+    <string name="viajes">Viajes</string>
+    <string name="solicitud">Solicitud</string>
+    <string name="chats">Chats</string>
+    <string name="perfil">Perfil</string>
+
     <string name="IdClient">718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
