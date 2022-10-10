@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.google.firebase.auth.FirebaseUser;
 import com.uniquindio.moviuq.data.UserImpl;
 import com.uniquindio.moviuq.data.UserService;
-import com.uniquindio.moviuq.presentation.MainActivity;
+import com.uniquindio.moviuq.presentation.activity.MainActivity;
 
 
 public class Case_Log {

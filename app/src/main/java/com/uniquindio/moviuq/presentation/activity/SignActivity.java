@@ -1,4 +1,4 @@
-package com.uniquindio.moviuq.presentation;
+package com.uniquindio.moviuq.presentation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
