@@ -77,17 +77,14 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
             </FrameLayout>
 
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_home"
                 android:layout_width="match_parent"
-                android:visibility="gone"
                 android:layout_height="50dp"
+                android:visibility="gone"
                 app:layout_collapseMode="pin"
                 app:titleTextAppearance="@style/ExpandedAppBar">
 
@@ -99,12 +96,11 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        android:background="@color/white">
+        android:background="@color/white"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -124,12 +120,21 @@
                     android:id="@+id/recycler_search_travel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="40dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="?attr/actionBarSize"
                     android:layout_marginRight="10dp"
                     android:visibility="gone">
 
                 </androidx.recyclerview.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/imgv_img_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginTop="82dp"
+                    android:alpha="0.9"
+                    android:src="@drawable/img_search_home"
+                    android:visibility="visible" />
 
             </LinearLayout>
 
@@ -142,9 +147,9 @@
         android:id="@+id/search_travel"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_anchorGravity="bottom"
         android:layout_margin="14dp"
         android:background="@drawable/degradado_redondeadas_search"
-        app:layout_anchor="@id/collapsingHome"/>
+        app:layout_anchor="@id/collapsingHome"
+        app:layout_anchorGravity="bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
