@@ -217,7 +217,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
 
-                    android:id="@+id/textInputLayout_profile_ciudad"
+                    android:id="@+id/textInputLayout_profile_city"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -230,7 +230,7 @@
                     app:startIconTint="@color/bttn_02">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_ciudad"
+                        android:id="@+id/profile_city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto"
@@ -247,7 +247,7 @@
                 android:layout_width="290dp"
                 android:layout_height="63dp"
                 android:fontFamily="@font/roboto_bold"
-                android:onClick="Siguiente"
+                android:onClick="createProfile"
                 android:text="@string/creat_prof_btn_continuar"
                 android:textColor="@color/white"
                 android:textSize="18dp"

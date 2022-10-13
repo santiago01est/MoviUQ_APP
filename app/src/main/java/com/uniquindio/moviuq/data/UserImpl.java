@@ -16,8 +16,10 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
+import com.uniquindio.moviuq.use_case.Case_CreateProfile;
 import com.uniquindio.moviuq.use_case.Case_Log;
 import com.uniquindio.moviuq.use_case.Case_Sign;
 
@@ -25,6 +27,7 @@ public class UserImpl implements UserService {
 
     private Case_Sign case_sign;
     private Case_Log case_log;
+
 
 
 
@@ -51,7 +54,7 @@ public class UserImpl implements UserService {
                                                     //FirebaseCFDBService.getBD().collection("users").document(email).set(user);
                                                     //create_user();
 
-                                                    case_sign.lanzarWelcome();
+                                                    case_sign.lanzarCreateProfile();
                                                 } else {
 
                                                     Toast.makeText(activity, "Ups! hubo un error inesperado", Toast.LENGTH_SHORT).show();
@@ -87,6 +90,7 @@ public class UserImpl implements UserService {
             }
         });
     }
+
 
 
 }
