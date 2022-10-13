@@ -107,7 +107,8 @@
                     android:layout_height="30dp"
                     android:layout_gravity="bottom|end"
                     android:background="@drawable/circle_drawable"
-                    android:src="@drawable/ic_photo_user" />
+                    android:src="@drawable/ic_photo_user"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
             </FrameLayout>
 
             <!-- Linear para agrupar textFields de ingreso de informacion
