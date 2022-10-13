@@ -147,7 +147,7 @@
         android:id="@+id/search_travel"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_margin="14dp"
+        android:layout_margin="15dp"
         android:background="@drawable/degradado_redondeadas_search"
         app:layout_anchor="@id/collapsingHome"
         app:layout_anchorGravity="bottom" />
