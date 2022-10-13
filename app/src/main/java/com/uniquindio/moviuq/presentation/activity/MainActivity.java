@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         animation.playAnimation();
 
 
+
     }
 
     public void lanzarLogin(View view) {

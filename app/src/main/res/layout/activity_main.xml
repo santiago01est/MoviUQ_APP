@@ -28,6 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgv_icono_main"
         app:srcCompat="@drawable/galeria3045" />
 
+
     <TextView
         android:id="@+id/txv_bienvenido"
         style="@style/FontsMainTitle"

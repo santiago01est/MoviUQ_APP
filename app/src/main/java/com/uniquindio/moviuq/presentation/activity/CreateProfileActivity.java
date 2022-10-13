@@ -44,6 +44,7 @@ public class CreateProfileActivity extends AppCompatActivity {
             || crProf_city.getText().toString().isEmpty()){
 
             Toast.makeText(this, "Ningun campo puede estar vacio, llena los campos porfavor", Toast.LENGTH_SHORT).show();
+
         }else{
             String name= crProf_name.getText().toString();
             String last_name= crProf_lastName.getText().toString();

@@ -24,6 +24,7 @@ public class Case_CreateProfile {
     /** Metodo para redireccionar los datos obtenidos atravez de la activity createProfileActivity
      *  a la capa de datos.
      **/
+
     public void create_profile(String photo,String name, String last_name, int years, long phoneNumber, int city){
         profileService.crearPerfil(photo, name, last_name, years, phoneNumber, city, activity);
     }
