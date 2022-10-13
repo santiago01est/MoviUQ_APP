@@ -51,7 +51,5 @@ public class SignActivity extends AppCompatActivity {
             Toast.makeText(this, "Vuelve a escribir tu contraseña", Toast.LENGTH_SHORT).show();
         }
 
-
-
     }
 }

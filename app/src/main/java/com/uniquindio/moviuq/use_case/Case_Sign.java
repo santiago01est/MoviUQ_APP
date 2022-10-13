@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.uniquindio.moviuq.data.UserImpl;
 import com.uniquindio.moviuq.data.UserService;
+import com.uniquindio.moviuq.presentation.activity.CreateProfileActivity;
 import com.uniquindio.moviuq.presentation.activity.LoginActivity;
 import com.uniquindio.moviuq.presentation.activity.MainActivity;
 
@@ -25,13 +26,13 @@ public class Case_Sign {
         userService.registrarUsuario(email,password,activity);
 
     }
-/*
-    public void create_user() {
-        Intent i = new Intent(activity, CreatePerfilActivity.class);
+
+    public void lanzarCreate_user() {
+        Intent i = new Intent(activity, CreateProfileActivity.class);
         activity.startActivity(i);
         activity.finish();
     }
- */
+
     public void lanzarLogin() {
         Intent i = new Intent(activity, LoginActivity.class);
         activity.startActivity(i);

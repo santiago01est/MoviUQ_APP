@@ -51,7 +51,7 @@ public class UserImpl implements UserService {
                                                     //FirebaseCFDBService.getBD().collection("users").document(email).set(user);
                                                     //create_user();
 
-                                                    case_sign.lanzarWelcome();
+                                                    case_sign.lanzarCreate_user();
                                                 } else {
 
                                                     Toast.makeText(activity, "Ups! hubo un error inesperado", Toast.LENGTH_SHORT).show();

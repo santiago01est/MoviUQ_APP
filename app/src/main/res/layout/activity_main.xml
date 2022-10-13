@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgv_icono_main"
-        app:srcCompat="@drawable/img_main" />
+        app:srcCompat="@drawable/galeria3045" />
 
 
     <TextView
