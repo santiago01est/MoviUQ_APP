@@ -95,11 +95,11 @@
                     android:id="@+id/image_user_profile"
                     android:layout_width="86dp"
                     android:layout_height="86dp"
-                    android:background="@drawable/ic_user"
+                    android:src="@drawable/ic_user"
+                    android:background="@drawable/circle_drawable"
                     android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-                    app:strokeColor="@color/green_main"
-                    app:strokeWidth="2dp" />
+                    app:strokeColor="@color/green_main" />
 
                 <ImageButton
                     android:id="@+id/select_photo"
