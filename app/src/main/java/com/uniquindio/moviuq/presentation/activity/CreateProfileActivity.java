@@ -31,6 +31,13 @@ public class CreateProfileActivity extends AppCompatActivity {
         crProf_city = findViewById(R.id.profile_city);
     }
 
+    /** Metodo createProfile
+     *
+     *  Se encarga de obtener la informacion ingresada en los TextInputEditText anteriormente referenciados,
+     *  se verifica que en ningun campo hayan informacion vacia (No ingresada ""), en caso de haber informacion vacia se
+     *  mostrara mediante un Toast un mensaje expresando una condicion necesaria, ademas guarda la informacion en variables
+     *  para ser direccionadas a la capa de casos de usos de createProfile.
+     **/
     public void createProfile(View view){
         if(crProf_name.getText().toString().isEmpty() || crProf_lastName.getText().toString().isEmpty()
             || crProf_years.getText().toString().isEmpty() || crProf_phoneNumber.getText().toString().isEmpty()
