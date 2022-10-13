@@ -24,6 +24,7 @@
     <style name="roundedImageViewRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+        <item name="android:padding">2dp</item>
     </style>
 
     <!-- Home Activity -->
