@@ -8,6 +8,8 @@
 
     </stroke>
 
-    <corners android:radius="100dp"></corners>
+    <corners android:radius="100dp">
+
+    </corners>
 
 </shape>

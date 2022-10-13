@@ -21,6 +21,7 @@
 
     <!-- Create Profile Activity -->
 
+
     <style name="roundedImageViewRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
