@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.activity.CreateProfileActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_login"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/contenedor_gradient"
+        tools:ignore="ImageContrastCheck">
+
+    </ImageView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_createProfile"
+                android:layout_width="250dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/creando_perfil"
+                tools:ignore="ImageContrastCheck">
+
+            </com.airbnb.lottie.LottieAnimationView>
+
+            <TextView
+                android:id="@+id/txv_createProfile"
+                style="@style/FontsMainTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                android:text="@string/Crea_tu_perfil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lottie_createProfile">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txv_selectPhoto"
+                style="@style/FontsMediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:text="@string/creat_prof_hint_foto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txv_createProfile">
+
+            </TextView>
+
+            <!-- Frame para agrupar componentes para la seleccion
+             foto de perfil-->
+            <FrameLayout
+                android:id="@+id/frame_layout_photo_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txv_selectPhoto">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image_user_profile"
+                    android:layout_width="86dp"
+                    android:layout_height="86dp"
+                    android:src="@drawable/ic_user"
+                    android:background="@drawable/circle_drawable"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    app:strokeColor="@color/green_main" />
+
+                <ImageButton
+                    android:id="@+id/select_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/circle_drawable"
+                    android:src="@drawable/ic_photo_user" />
+            </FrameLayout>
+
+            <!-- Linear para agrupar textFields de ingreso de informacion
+            para la creacion del perfil del usuario-->
+            <LinearLayout
+                android:id="@+id/contenedor_textfield_createProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="50dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_perfil_continuar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frame_layout_photo_profile">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_profile_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/creat_prof_hint_nombre"
+                    android:textColorHint="@color/letra_02"
+                    app:boxStrokeColor="@color/letra_02"
+                    app:hintTextColor="@color/letra_02"
+                    app:startIconDrawable="@drawable/ic_user_name"
+                    app:startIconTint="@color/bttn_02">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="text"
+                        android:textColor="@color/letra_02"
+                        android:textSize="16dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_profile_lastname"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/creat_prof_hint_apellido"
+                    android:textColorHint="@color/letra_02"
+                    app:boxStrokeColor="@color/letra_02"
+                    app:hintTextColor="@color/letra_02"
+                    app:startIconDrawable="@drawable/ic_user_name"
+                    app:startIconTint="@color/bttn_02">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_lastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="text"
+                        android:textColor="@color/letra_02"
+                        android:textSize="16dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/textInputLayout_profile_years"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/creat_prof_hint_edad"
+                    android:textColorHint="@color/letra_02"
+                    app:boxStrokeColor="@color/letra_02"
+                    app:hintTextColor="@color/letra_02"
+                    app:startIconDrawable="@drawable/ic_user_age"
+                    app:startIconTint="@color/bttn_02">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_years"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="number"
+                        android:textColor="@color/letra_02"
+                        android:textSize="16dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/textInputLayout_profile_phone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/creat_prof_hint_numero"
+                    android:textColorHint="@color/letra_02"
+                    app:boxStrokeColor="@color/letra_02"
+                    app:hintTextColor="@color/letra_02"
+                    app:startIconDrawable="@drawable/ic_user_phone"
+                    app:startIconTint="@color/bttn_02">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="phone"
+                        android:textColor="@color/letra_02"
+                        android:textSize="16dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/textInputLayout_profile_city"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/creat_prof_hint_city"
+                    android:textColorHint="@color/letra_02"
+                    app:boxStrokeColor="@color/letra_02"
+                    app:hintTextColor="@color/letra_02"
+                    app:startIconDrawable="@drawable/ic_user_city"
+                    app:startIconTint="@color/bttn_02">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="text"
+                        android:textColor="@color/letra_02"
+                        android:textSize="16dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_perfil_continuar"
+                style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                android:layout_width="290dp"
+                android:layout_height="63dp"
+                android:fontFamily="@font/roboto_bold"
+                android:onClick="createProfile"
+                android:text="@string/creat_prof_btn_continuar"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:backgroundTint="@color/green_main"
+                app:cornerRadius="22dp"
+                app:elevation="50dp"
+                android:layout_marginBottom="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:rippleColor="@color/green_main" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>
