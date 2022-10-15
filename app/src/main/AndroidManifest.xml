@@ -13,15 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="31">
-
+        <activity
+            android:name=".presentation.activity.NotificationUserActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.activity.CreateProfileActivity"
-            android:theme="@style/ThemeActivityWelcome"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/ThemeActivityWelcome" />
         <activity
             android:name=".presentation.activity.HomeActivity"
-            android:theme="@style/ThemeActivityWelcome"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/ThemeActivityWelcome" />
         <activity
             android:name=".presentation.activity.SignActivity"
             android:exported="false"
