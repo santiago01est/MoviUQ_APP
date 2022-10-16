@@ -79,7 +79,7 @@
         android:id="@+id/nestedScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/esquinas_redondeadas_only_up"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
@@ -92,7 +92,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="25dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -100,6 +101,7 @@
                 <TextView
                     android:id="@+id/txv_subtitle_desc"
                     style="@style/FontsLittleText"
+                    android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/creat_offer_desc" />
@@ -114,6 +116,7 @@
                     app:boxStrokeColor="@color/green_main"
                     app:counterEnabled="true"
                     app:counterMaxLength="120"
+                    android:textColorHint="@color/black02"
                     app:hintTextColor="@color/black02">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -123,13 +126,13 @@
                         android:layout_height="200dp"
                         android:layout_gravity="top"
                         android:gravity="top"
-                        android:hint="@string/creat_offert_hint_desc"
+                        android:hint="@string/creat_offer_hint_desc"
                         android:inputType="textMultiLine"
                         android:overScrollMode="always"
                         android:scrollbarStyle="insideInset"
                         android:scrollbars="vertical"
                         android:textAlignment="inherit"
-                        android:textColor="@color/white"
+                        android:textColor="@color/letra_02"
                         android:textCursorDrawable="@color/green_main" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -137,10 +140,44 @@
                 <TextView
                     android:id="@+id/txv_subtitle_startpoint"
                     style="@style/FontsLittleText"
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="@string/creat_offer_startpoint" />
+
+
+                <TextView
+                    style="@style/FontsLittleText"
+                    android:id="@+id/txv_from_travel"
+                    android:background="@drawable/esquinas_redondeadas_bttn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textColor="@color/letra_02"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:onClick="lugarPartida"
+                    android:text="@string/creat_offer_click_star" />
+
+
+                <TextView
+                    android:id="@+id/txv_subtitle_endpoint"
+                    style="@style/FontsLittleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/creat_offer_endpoint" />
+
+                <TextView
+                    style="@style/FontsLittleText"
+                    android:id="@+id/txv_to_travel"
+                    android:background="@drawable/esquinas_redondeadas_bttn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textColor="@color/letra_02"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:onClick="lugarLlegada"
+                    android:text="@string/creat_offer_click_end" />
 
                 <TextView
                     android:layout_width="match_parent"
