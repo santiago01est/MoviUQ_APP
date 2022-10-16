@@ -3,9 +3,7 @@ package com.uniquindio.moviuq.presentation.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
-
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
@@ -37,7 +35,6 @@ public class NotificationUserActivity extends AppCompatActivity {
         recyclerView.getItemAnimator().setChangeDuration(0);
 
         //Query query=case_notification.getNotificationUser(emailUser);
-
         Query query= FirebaseCFDBService.getBD().collection("notification").whereEqualTo("emailUserReceiver",emailUser);
         FirestoreRecyclerOptions<Notification> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Notification>().setQuery(query, Notification.class).build();
         adapterFireNotification = new AdapterFireNotification(firestoreRecyclerOptions,this);
