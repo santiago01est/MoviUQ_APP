@@ -12,11 +12,12 @@ public class User {
     private int years;
     private int city;
     private List<Post> myPost;
+    private List<Notification> myNotifications;
 
     public User() {
     }
 
-    public User(String name, String last_name, String photo, String mail, long phoneNumber, int years, int city, List<Post> myPost) {
+    public User(String name, String last_name, String photo, String mail, long phoneNumber, int years, int city, List<Post> myPost, List<Notification> myNotifications) {
         this.name = name;
         this.last_name = last_name;
         this.photo = photo;
@@ -25,6 +26,7 @@ public class User {
         this.years = years;
         this.city = city;
         this.myPost = myPost;
+        this.myNotifications = myNotifications;
     }
 
     public String getName() {
@@ -89,5 +91,13 @@ public class User {
 
     public void setMyPost(List<Post> myPost) {
         this.myPost = myPost;
+    }
+
+    public List<Notification> getMyNotifications() {
+        return myNotifications;
+    }
+
+    public void setMyNotifications(List<Notification> myNotifications) {
+        this.myNotifications = myNotifications;
     }
 }

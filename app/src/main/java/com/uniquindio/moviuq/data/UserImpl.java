@@ -88,5 +88,13 @@ public class UserImpl implements UserService {
         });
     }
 
+    @Override
+    public String getEmailUser() {
+
+        FirebaseUser userSession= FirebaseAuthService.getAuth().getCurrentUser();
+        String email= userSession.getEmail();
+        return email;
+    }
+
 
 }

@@ -74,6 +74,18 @@
                             android:textColor="@color/green_black" />
 
                     </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/imgbttn_notification"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="20dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_notification"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

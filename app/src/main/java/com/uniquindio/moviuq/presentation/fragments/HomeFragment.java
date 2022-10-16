@@ -1,5 +1,6 @@
 package com.uniquindio.moviuq.presentation.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,14 +8,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.presentation.activity.HomeActivity;
+import com.uniquindio.moviuq.presentation.activity.NotificationUserActivity;
+import com.uniquindio.moviuq.use_case.Case_Notification;
 
 
 public class HomeFragment extends Fragment {
 
+    private ImageButton notification;
+    private Case_Notification case_notification;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -40,6 +47,15 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root=inflater.inflate(R.layout.fragment_home, container, false);
+
+        case_notification=new Case_Notification(getActivity());
+        notification=root.findViewById(R.id.imgbttn_notification);
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                case_notification.lanzarNotification();
+            }
+        });
 
         /** Mecanismo del estado del appBar**/
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) root.findViewById(R.id.collapsingHome);
@@ -68,4 +84,6 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
+
 }
