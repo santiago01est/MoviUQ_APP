@@ -99,14 +99,54 @@
 
                 <TextView
                     android:id="@+id/txv_subtitle_desc"
+                    style="@style/FontsLittleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="hola" />
+                    android:text="@string/creat_offer_desc" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_desc"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start|top"
+                    app:boxStrokeColor="@color/green_main"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="120"
+                    app:hintTextColor="@color/black02">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mydesc"
+                        style="@style/FontsLittleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="top"
+                        android:gravity="top"
+                        android:hint="@string/creat_offert_hint_desc"
+                        android:inputType="textMultiLine"
+                        android:overScrollMode="always"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/white"
+                        android:textCursorDrawable="@color/green_main" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txv_subtitle_startpoint"
+                    style="@style/FontsLittleText"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/creat_offer_startpoint" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="hola" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,21 +215,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@drawable/esquinas_redondeadas_only_up"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_anchor="@id/collapsingcreateoffer"
         app:layout_anchorGravity="bottom">
 
         <TextView
             android:id="@+id/title_create_offer"
+            style="@style/FontsMediumText"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="20dp"
-            android:layout_height="wrap_content"
-            android:text="Crear Oferta de Viaje"
-            style="@style/FontsMediumText"/>
+            android:text="@string/Crea_tu_oferta" />
     </LinearLayout>
 
 
