@@ -32,7 +32,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imageView_user_profile"
+                    android:id="@+id/imageView_user_request_profile"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
@@ -43,10 +43,12 @@
                     app:strokeColor="@color/green_main" />
 
                 <TextView
+                    android:id="@+id/request_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imageView_user_profile"
                     android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_marginTop="5dp"
                     android:text="Name"
                     android:textColor="@color/letra_04"
@@ -63,7 +65,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txv_description"
+                    android:id="@+id/txv_request_startArriveP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="StartPoint-ArrivePoint"
@@ -73,7 +75,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/txv_date"
+                    android:id="@+id/txv_request_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -84,7 +86,7 @@
                     android:text="Date"
                     />
                 <TextView
-                    android:id="@+id/txv_hour"
+                    android:id="@+id/txv_request_hour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -95,7 +97,7 @@
                     android:text="Hour"
                     />
                 <TextView
-                    android:id="@+id/txv_hour"
+                    android:id="@+id/txv_request_seats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -110,7 +112,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/imgbttn_three_point"
+                android:id="@+id/imgbttn_request_three_point"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentTop="true"

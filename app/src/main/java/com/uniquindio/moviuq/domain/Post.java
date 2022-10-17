@@ -5,7 +5,7 @@ import java.util.Date;
 public class Post {
 
     private String id;
-    private Date date;
+    private String date;
     private String title;
     private String description;
     private VehicleType vehicleType;
@@ -16,7 +16,7 @@ public class Post {
     public Post() {
     }
 
-    public Post(String id, Date fecha, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint) {
+    public Post(String id, String fecha, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint) {
         this.id = id;
         this.date = fecha;
         this.title = title;
@@ -35,11 +35,11 @@ public class Post {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

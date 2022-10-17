@@ -9,7 +9,7 @@ public class Offer extends Post {
     public Offer(){
         super();
     }
-    public Offer(String id, Date date, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint,double score) {
+    public Offer(String id, String date, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint,double score) {
         super(id, date, title, description, vehicleType, seats, startPoint, arrivalPoint);
         this.score = score;
     }
