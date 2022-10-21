@@ -2,7 +2,6 @@ package com.uniquindio.moviuq.use_case;
 
 import android.app.Activity;
 import android.content.Intent;
-
 import com.google.firebase.auth.FirebaseUser;
 import com.uniquindio.moviuq.data.UserImpl;
 import com.uniquindio.moviuq.data.UserService;
@@ -30,6 +29,8 @@ public class Case_Log {
             activity.startActivity(intent);
             activity.finish();
         }
+
+
     }
 
     public void lanzarWelcome() {

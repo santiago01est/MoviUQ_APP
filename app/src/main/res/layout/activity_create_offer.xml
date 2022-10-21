@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarcreateoffer"
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="230dp"
         android:background="@android:color/transparent"
         android:fitsSystemWindows="true"
         android:theme="@style/CollapsingTheme">
@@ -155,7 +155,6 @@
                     android:textColor="@color/letra_02"
                     android:gravity="center"
                     android:layout_marginTop="10dp"
-                    android:onClick="lugarPartida"
                     android:text="@string/creat_offer_click_star" />
 
 
@@ -176,8 +175,15 @@
                     android:textColor="@color/letra_02"
                     android:gravity="center"
                     android:layout_marginTop="10dp"
-                    android:onClick="lugarLlegada"
                     android:text="@string/creat_offer_click_end" />
+
+                <fragment
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:id="@+id/map"
+                    tools:context=".MapsActivity"
+                    android:layout_marginTop="16dp"
+                    android:name="com.google.android.gms.maps.SupportMapFragment" />
 
                 <TextView
                     android:layout_width="match_parent"
