@@ -81,11 +81,23 @@
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
+    <!-- Fonts little medium text-->
+    <style name="FontsLittle_MediumText">
+        <item name="fontFamily">@font/berlin_sans_regular</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
     <!-- Fonts little text-->
     <style name="FontsLittleText">
         <item name="fontFamily">@font/berlin_sans_regular</item>
         <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/letra_02</item>
+    </style>
+
+    <!-- Style hour-->
+    <style name="PickerTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="colorAccent">@color/green</item>
     </style>
 
 </resources>

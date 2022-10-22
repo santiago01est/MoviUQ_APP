@@ -15,8 +15,8 @@
         android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:liftOnScroll="true"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:liftOnScroll="true">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
@@ -44,8 +44,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="@drawable/back_master"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/back_master">
 
 
             <LinearLayout
@@ -62,7 +62,7 @@
 
                 <TextView
                     android:id="@+id/txv_subtitle_desc"
-                    style="@style/FontsLittleText"
+                    style="@style/FontsLittle_MediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -101,7 +101,7 @@
 
                 <TextView
                     android:id="@+id/txv_subtitle_startpoint"
-                    style="@style/FontsLittleText"
+                    style="@style/FontsLittle_MediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -122,7 +122,7 @@
 
                 <TextView
                     android:id="@+id/txv_subtitle_endpoint"
-                    style="@style/FontsLittleText"
+                    style="@style/FontsLittle_MediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -141,7 +141,7 @@
 
                 <TextView
                     android:id="@+id/txv_subtitle_see_map"
-                    style="@style/FontsLittleText"
+                    style="@style/FontsLittle_MediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -166,70 +166,267 @@
                 </com.google.android.material.card.MaterialCardView>
 
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/contenedor_type_vehicle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="hola" />
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                    <TextView
+                        android:id="@+id/txv_subtitle_type_vehicle"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_type_vehicle" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                        <RadioButton
+                            android:id="@+id/radioButton_Car"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/creat_offer_type_vehicle_car"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                        <RadioButton
+                            android:id="@+id/radioButton_moto"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:text="@string/creat_offer_type_vehicle_moto"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+                    </RadioGroup>
+                </LinearLayout>
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/contenedor_seats"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="hola" />
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                    <TextView
+                        android:id="@+id/txv_subtitle_seats"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_seats" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                        <ImageView
+                            android:id="@+id/imv_seat"
+                            android:layout_width="32dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:contentDescription="TODO"
+                            app:srcCompat="@drawable/ic_seat" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                        <EditText
+                            android:id="@+id/edtText_seat"
+                            style="@style/FontsLittle_MediumText"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:cursorVisible="false"
+                            android:hint="@string/creat_offer_number_hint_seats"
+                            android:inputType="number"
+                            android:outlineAmbientShadowColor="@color/green"
+                            android:textAlignment="center"
+                            android:textColor="@color/letra_02"
+                            android:textColorHint="@color/letra_02"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="hola" />
+                </LinearLayout>
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/contenedor_fechas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="hola" />
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
 
-                <TextView
+                    <TextView
+                        android:id="@+id/txv_subtitle_date"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_date" />
+
+                    <TextView
+                        android:id="@+id/txv_offer_date"
+                        style="@style/FontsLittleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/esquinas_redondeadas_bttn"
+                        android:gravity="center"
+                        android:text="@string/creat_offer_getDate"
+                        android:textColor="@color/letra_02" />
+
+                    <TextView
+                        android:id="@+id/txv_subtitle_hour"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_hour" />
+
+                    <TextView
+                        android:id="@+id/txv_offer_hour"
+                        style="@style/FontsLittleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/esquinas_redondeadas_bttn"
+                        android:gravity="center"
+                        android:text="@string/creat_offer_getHour"
+                        android:textColor="@color/letra_02" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contenedor_conditions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="hola" />
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txv_subtitle_condition"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/creat_offer_condition" />
+
+                    <LinearLayout
+                        android:id="@+id/contenedor_main_column"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radioButton_fumar"
+                                    style="@style/FontsLittleText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/creat_offer_condition_fumar"
+                                    android:textColor="@color/letra_02"
+                                    android:textColorLink="@color/green_main"
+                                    app:buttonTint="@color/green" />
+
+                                <RadioButton
+                                    android:id="@+id/radioButton_musica"
+                                    style="@style/FontsLittleText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/creat_offer_condition_musica"
+                                    android:textColor="@color/letra_02"
+                                    android:textColorLink="@color/green_main"
+                                    app:buttonTint="@color/green" />
+                                <RadioButton
+                                    android:id="@+id/radioButton_hablar"
+                                    style="@style/FontsLittleText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/creat_offer_condition_hablar"
+                                    android:textColor="@color/letra_02"
+                                    android:textColorLink="@color/green_main"
+                                    app:buttonTint="@color/green" />
+                            </RadioGroup>
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <RadioButton
+                                    android:id="@+id/radioButton_comida"
+                                    style="@style/FontsLittleText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/creat_offer_condition_comida"
+                                    android:textColor="@color/letra_02"
+                                    android:textColorLink="@color/green_main"
+                                    app:buttonTint="@color/green" />
+
+                                <RadioButton
+                                    android:id="@+id/radioButton_mascotas"
+                                    style="@style/FontsLittleText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/creat_offer_condition_mascota"
+                                    android:textColor="@color/letra_02"
+                                    android:textColorLink="@color/green_main"
+                                    app:buttonTint="@color/green" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_post_offer"
+                    style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                    android:layout_width="290dp"
+                    android:layout_height="63dp"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/berlin_sans_demi_bold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:onClick="loginUser"
+                    app:cornerRadius="22dp"
+                    app:elevation="50dp"
+                    app:rippleColor="@color/green_main"
+                    app:backgroundTint="@color/bttn_01"
+                    android:text="@string/creat_offer_post_offer" />
 
             </LinearLayout>
 

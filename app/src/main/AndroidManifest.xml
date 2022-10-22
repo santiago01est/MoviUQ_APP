@@ -15,7 +15,8 @@
         tools:targetApi="31">
         <activity
             android:name=".presentation.activity.CreateOfferActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/ThemeActivityWelcome"/>
         <activity
             android:name=".presentation.activity.NotificationUserActivity"
             android:exported="false" />

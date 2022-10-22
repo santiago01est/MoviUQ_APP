@@ -7,15 +7,22 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
@@ -38,6 +45,7 @@ import com.uniquindio.moviuq.use_case.Case_Offer;
 import org.w3c.dom.Text;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 public class CreateOfferActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -54,6 +62,9 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private TextView from_travel;
     private TextView to_travel;
     private ScrollView mScrollView;
+    private TextView txv_date;
+    private TextView txv_hour;
+    private Button post;
 
     /**
      * Objeto Place de la libreria Google Maps
@@ -73,6 +84,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Marker mMarkerTo = null;
     private Marker mMarkerFrom = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,8 +98,101 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         /** Logica para obtener la información de los Lugares*/
         setupPlaces();
 
+        /** referencia de elementos UI para la fecha y sus respectivos onclick listeners
+         * configuración de la fecha del viaje */
+        setupDate();
+
+        /** Referencia del elemento Ui boton para crear la oferta de viaje**/
+        createOffer();
+
+
 
     }
+
+    /** Button Post Offer **/
+    private void createOffer() {
+        post=findViewById(R.id.btn_post_offer);
+
+        post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                case_offer.createOffer();
+            }
+        });
+    }
+
+    /** DATE **/
+
+    private void setupDate() {
+
+        txv_date=findViewById(R.id.txv_offer_date);
+        txv_hour=findViewById(R.id.txv_offer_hour);
+
+        txv_date.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View view) {
+                getDate();
+            }
+        });
+
+        txv_hour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getHour();
+            }
+        });
+    }
+
+
+
+
+    /**
+     * Metodo que obtiene la fecha desde el calendario fragment
+     */
+    private void getDate(){
+
+        /** Instancia fecha actual en la vista Calendar**/
+        Calendar cal = Calendar.getInstance();
+        int year= cal.get(Calendar.YEAR);
+        int month= cal.get(Calendar.MONTH);
+        int day= cal.get(Calendar.DAY_OF_MONTH);
+
+        /** Escuchador para obtener fecha ingresada por el usuario**/
+        DatePickerDialog dpd= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                String date = day+"/"+month+"/"+year;
+                /** se fija la fecha en el recurso textview**/
+                txv_date.setText(date);
+            }
+        }, year, month, day);
+        dpd.show();
+
+    }
+
+    private void getHour() {
+
+        Calendar cal=Calendar.getInstance();
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        int minutes= cal.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog= new TimePickerDialog(this, R.style.PickerTheme,new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+                String amPm="AM";
+                if(hourOfDay>=12){
+                    amPm="PM";
+                }
+                String hour =hourOfDay+":"+minute+" "+amPm;
+                txv_hour.setText(hour);
+
+            }
+        },hour,minutes,false);
+        timePickerDialog.show();
+    }
+
+
 
     /**
      * PLACES
@@ -123,7 +228,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
      *
      * @param request_code
      */
-    public void selectPlace(int request_code) {
+    private void selectPlace(int request_code) {
         // Set the fields to specify which types of place data to
         // return after the user has made a selection.
         List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
@@ -156,7 +261,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void processAutoCompleteResult(TextView txv_travel, int requestCode, int resultCode, @Nullable Intent data, LatLng latLng) {
+    private void processAutoCompleteResult(TextView txv_travel, int requestCode, int resultCode, @Nullable Intent data, LatLng latLng) {
 
         if (resultCode == RESULT_OK) {
             place = Autocomplete.getPlaceFromIntent(data);
@@ -193,7 +298,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
      *
      * @param place
      */
-    public void updatePlaceUi(Place place, TextView txv_travel) {
+    private void updatePlaceUi(Place place, TextView txv_travel) {
         txv_travel.setText("" + place.getName());
     }
 
@@ -202,7 +307,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
      * MAP
      **/
 
-    public void setupMap() {
+    private void setupMap() {
         SupportMapFragment mapFragment = ((myMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_map));
         mapFragment.getMapAsync(this);
