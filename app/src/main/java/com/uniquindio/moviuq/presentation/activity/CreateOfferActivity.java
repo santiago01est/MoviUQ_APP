@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -30,6 +32,7 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.provider.services.maps.myMapFragment;
 import com.uniquindio.moviuq.use_case.Case_Offer;
 
 import org.w3c.dom.Text;
@@ -50,6 +53,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
      **/
     private TextView from_travel;
     private TextView to_travel;
+    private ScrollView mScrollView;
 
     /**
      * Objeto Place de la libreria Google Maps
@@ -62,6 +66,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Case_Offer case_offer;
     private Place place;
     private GoogleMap mMap;
+    private LatLng mToLatLng;
+    private LatLng mFromLatLng;
+    private Marker mMarkerTo = null;
+    private Marker mMarkerFrom = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +85,11 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         setupPlaces();
 
 
-
-
     }
 
-    /**  PLACES **/
+    /**
+     * PLACES
+     **/
 
     private void setupPlaces() {
 
@@ -136,17 +144,17 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == FROM_REQUEST_CODE) {
-            processAutoCompleteResult(from_travel, requestCode, resultCode, data);
+            processAutoCompleteResult(from_travel, requestCode, resultCode, data, mFromLatLng);
             return;
         } else if (requestCode == TO_REQUEST_CODE) {
-            processAutoCompleteResult(to_travel, requestCode, resultCode, data);
+            processAutoCompleteResult(to_travel, requestCode, resultCode, data, mToLatLng);
             return;
         }
 
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void processAutoCompleteResult(TextView txv_travel, int requestCode, int resultCode, @Nullable Intent data) {
+    public void processAutoCompleteResult(TextView txv_travel, int requestCode, int resultCode, @Nullable Intent data, LatLng latLng) {
 
         if (resultCode == RESULT_OK) {
             place = Autocomplete.getPlaceFromIntent(data);
@@ -155,13 +163,21 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
 
             /** Metodo que refleja los cambios en la UI */
             updatePlaceUi(place, txv_travel);
+            latLng = place.getLatLng();
+            if (requestCode == FROM_REQUEST_CODE) {
+                setMarketFrom(latLng);
+            } else if (requestCode == TO_REQUEST_CODE) {
+                setMarketTo(latLng);
+            } else {
+
+            }
+
 
         } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
             // TODO: Handle the error.
             Status status = Autocomplete.getStatusFromIntent(data);
             Log.i(TAG, status.getStatusMessage());
         }
-
 
     }
 
@@ -178,13 +194,25 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     }
 
 
-    /**  MAP **/
+    /**
+     * MAP
+     **/
 
-    public void  setupMap()
-    {
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+    public void setupMap() {
+        SupportMapFragment mapFragment = ((myMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragment_map));
         mapFragment.getMapAsync(this);
+
+
+        mScrollView = (ScrollView) findViewById(R.id.Scroll_map);
+
+
+        ((myMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_map)).setListener(new myMapFragment.OnTouchListener() {
+            @Override
+            public void onTouch() {
+                mScrollView.requestDisallowInterceptTouchEvent(true);
+            }
+        });
     }
 
 
@@ -193,25 +221,48 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
      * Este callback se dispara cuando el mapa está listo para ser usado.
      * Aquí es donde podemos añadir marcadores o líneas, añadir oyentes o mover la cámara.
      * En este caso añadimos un marcador de inicio del viaje y otro para el destino
-     *
+     * <p>
      * Si los servicios de Google Play no están instalados en el dispositivo, se pedirá al usuario que lo instale
      * dentro del SupportMapFragment. Este método sólo se activará una vez que el usuario haya
      * instalado los servicios de Google Play y haya vuelto a la aplicación.
-
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMinZoomPreference(10);
+        mMap.setMaxZoomPreference(15);
 
-        LatLng latLng = new LatLng(-34, 151);
+        LatLng latLng = new LatLng(4.55402805, -75.6609262169371);
         addMarker(latLng,"Universidad");
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+
+
     }
 
-    public void addMarker(LatLng latLng, String nombre){
-        MarkerOptions markerOptions= new MarkerOptions().position(latLng).title(nombre);
-        mMap.addMarker(markerOptions);
+    private Marker addMarker(LatLng latLng, String nombre) {
+        MarkerOptions markerOptions = new MarkerOptions().position(latLng).title(nombre);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        return mMap.addMarker(markerOptions);
+
+    }
+
+    private void setMarketFrom(LatLng latLng) {
+        if (mMarkerFrom != null) {
+            mMarkerFrom.remove();
+        }
+
+        mMarkerFrom = addMarker(latLng, "Desde");
+
+    }
+
+    private void setMarketTo(LatLng latLng) {
+        if (mMarkerTo != null) {
+            mMarkerTo.remove();
+        }
+
+        mMarkerTo = addMarker(latLng, "Hasta");
 
     }
 }
