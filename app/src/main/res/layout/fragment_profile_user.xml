@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.fragments.ProfileUserFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txv_profileUser"
+            style="@style/FontsMainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/perfil"
+            android:textColor="#707070"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/shiv_photoProfileUser"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:background="@drawable/circle_drawable"
+            android:layout_marginTop="47dp"
+            android:src="@drawable/ic_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txv_profileUser"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/green_main" />
+
+        <TextView
+            android:id="@+id/txv_nameProfileUser"
+            style="@style/FontsMainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/letra_02"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shiv_photoProfileUser">
+
+        </TextView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="47dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txv_nameProfileUser">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.5"
+                android:scaleType="centerCrop"
+                android:src="@drawable/contenedor_gradient"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded2"
+                tools:ignore="ImageContrastCheck"
+                />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ly_myRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        android:gravity="center">
+
+                        <FrameLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="49dp"
+                            android:background="@drawable/circle_drawable3">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_list"
+                                android:layout_gravity="center" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="24dp"
+                            style="@style/FontsMediumText"
+                            android:textColor="#707070"
+                            android:textSize="18dp"
+                            android:text="@string/prof_mis_solicitudes"/>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="78dp"
+                            android:layout_marginRight="49dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_arrow_next"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ly_myTravels"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        android:gravity="center">
+
+                        <FrameLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="49dp"
+                            android:background="@drawable/circle_drawable3">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_list" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="24dp"
+                            style="@style/FontsMediumText"
+                            android:textColor="#707070"
+                            android:textSize="18dp"
+                            android:text="@string/prof_mis_viajes"/>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="78dp"
+                            android:layout_marginRight="49dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_arrow_next"
+                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ly_editProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        android:gravity="center">
+
+                        <FrameLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="49dp"
+                            android:background="@drawable/circle_drawable3">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_edit_some"
+                                tools:ignore="ImageContrastCheck" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="24dp"
+                            style="@style/FontsMediumText"
+                            android:textColor="#707070"
+                            android:textSize="18dp"
+                            android:text="@string/prof_editar_perfil"/>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="78dp"
+                            android:layout_marginRight="49dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_arrow_next"
+                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/line_color_u"
+                        android:layout_margin="34dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/ly_contactUs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <FrameLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="49dp"
+                            android:background="@drawable/circle_drawable3">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_contact_us"
+                                android:layout_gravity="center" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="24dp"
+                            style="@style/FontsMediumText"
+                            android:textColor="#707070"
+                            android:textSize="18dp"
+                            android:text="@string/prof_contactenos"/>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="78dp"
+                            android:layout_marginRight="49dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_arrow_next"
+                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ly_signOff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        android:gravity="center">
+
+                        <FrameLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="49dp"
+                            android:background="@drawable/circle_drawable3">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_exit"
+                                android:layout_gravity="center" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="24dp"
+                            style="@style/FontsMediumText"
+                            android:textColor="#707070"
+                            android:textSize="18dp"
+                            android:text="@string/prof_cerrar_sesion"/>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="78dp"
+                            android:layout_marginRight="49dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_arrow_next"
+                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

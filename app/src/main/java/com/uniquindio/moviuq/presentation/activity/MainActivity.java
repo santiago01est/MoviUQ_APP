@@ -28,17 +28,10 @@ public class MainActivity extends AppCompatActivity {
     public void lanzarLogin(View view) {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
-        /*
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
-
-         */
-     //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 
     public void lanzarSign(View view) {
         Intent i = new Intent(this, SignActivity.class);
         startActivity(i);
-        //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 }

@@ -42,6 +42,14 @@
     <!-- Notification -->
     <string name="Notificaciones">Notificaciones</string>
 
+    <!-- Profile -->
+    <string name="Perfil">Perfil</string>
+    <string name="prof_mis_solicitudes">Mis solicitudes</string>
+    <string name="prof_mis_viajes">Mis viajes</string>
+    <string name="prof_editar_perfil">Editar perfil</string>
+    <string name="prof_contactenos">Contactenos</string>
+    <string name="prof_cerrar_sesion">Cerrar sesion</string>
+
     <string name="IdClient">718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
