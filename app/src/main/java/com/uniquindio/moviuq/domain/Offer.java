@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class Offer extends Post {
 
-    private double score;
+    private Rute rute;
 
     public Offer(){
         super();
     }
-    public Offer(String id, Date date, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint,double score) {
+    public Offer(String id, Date date, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint,Rute rute) {
         super(id, date, title, description, vehicleType, seats, startPoint, arrivalPoint);
-        this.score = score;
+        this.rute = rute;
     }
 
-    public double getScore() {
-        return score;
+    public Rute getRute() {
+        return rute;
     }
 
-    public void setScore(double score) {
-        this.score = score;
+    public void setRute(Rute rute) {
+        this.rute = rute;
     }
 }
