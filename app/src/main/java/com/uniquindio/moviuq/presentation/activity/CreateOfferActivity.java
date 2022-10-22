@@ -66,6 +66,8 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Case_Offer case_offer;
     private Place place;
     private GoogleMap mMap;
+    private Place placeFrom;
+    private Place placeTo;
     private LatLng mToLatLng;
     private LatLng mFromLatLng;
     private Marker mMarkerTo = null;
@@ -166,8 +168,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
             latLng = place.getLatLng();
             if (requestCode == FROM_REQUEST_CODE) {
                 setMarketFrom(latLng);
+                placeFrom=place;
             } else if (requestCode == TO_REQUEST_CODE) {
                 setMarketTo(latLng);
+                placeTo=place;
             } else {
 
             }
@@ -204,7 +208,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         mapFragment.getMapAsync(this);
 
 
-        mScrollView = (ScrollView) findViewById(R.id.Scroll_map);
+        mScrollView = (ScrollView) findViewById(R.id.scroll_offer);
 
 
         ((myMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_map)).setListener(new myMapFragment.OnTouchListener() {
@@ -233,7 +237,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         mMap.setMaxZoomPreference(15);
 
         LatLng latLng = new LatLng(4.55402805, -75.6609262169371);
-        addMarker(latLng,"Universidad");
+       // addMarker(latLng,"Universidad");
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
@@ -241,6 +245,14 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
 
     }
 
+    /**
+     * Metodo que añade un marcador al mapa segun el lugar que el usuario
+     * ingresó, para fijar un marcador se debe enviar
+     * latitud y longitud del lugar (LatLng)
+     * @param latLng
+     * @param nombre
+     * @return
+     */
     private Marker addMarker(LatLng latLng, String nombre) {
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title(nombre);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
@@ -248,6 +260,11 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
 
     }
 
+    /**
+     * Metodo que recoge los datos para fijar el marcador
+     * del lugar de partida del viaje
+     * @param latLng
+     */
     private void setMarketFrom(LatLng latLng) {
         if (mMarkerFrom != null) {
             mMarkerFrom.remove();
@@ -257,6 +274,11 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
 
     }
 
+    /**
+     * Metodo que recoge los datos para fijar el marcador
+     * del lugar de destino del viaje
+     * @param latLng
+     */
     private void setMarketTo(LatLng latLng) {
         if (mMarkerTo != null) {
             mMarkerTo.remove();

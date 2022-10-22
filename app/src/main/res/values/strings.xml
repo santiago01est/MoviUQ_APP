@@ -48,6 +48,7 @@
     <string name="creat_offer_hint_desc">Descripción del viaje</string>
     <string name="creat_offer_startpoint">Lugar de partida</string>
     <string name="creat_offer_endpoint">Destino</string>
+    <string name="creat_offer_see_map">Visualización del mapa</string>
 
     <string name="creat_offer_click_star">De</string>
     <string name="creat_offer_click_end">A</string>
