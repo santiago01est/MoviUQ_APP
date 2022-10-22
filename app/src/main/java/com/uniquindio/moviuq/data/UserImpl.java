@@ -1,25 +1,19 @@
 package com.uniquindio.moviuq.data;
 
-import static com.android.volley.VolleyLog.TAG;
-
 import android.app.Activity;
-import android.content.Intent;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.widget.Autocomplete;
-import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Log;
@@ -31,6 +25,18 @@ public class UserImpl  implements UserService {
     private Case_Log case_log;
 
 
+
+    @Override
+    public void getUser(String email) {
+        DocumentReference docRef = FirebaseCFDBService.getBD().collection("user").document(email);
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                User user = documentSnapshot.toObject(User.class);
+
+            }
+        });
+    }
 
     @Override
     public void registrarUsuario(String email, String password, Activity activity) {

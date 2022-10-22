@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.uniquindio.moviuq.data.UserImpl;
 import com.uniquindio.moviuq.data.UserService;
 
-public class Case_User {
+public class Case_User  {
 
     private Activity activity;
     private UserService userService = new UserImpl();
@@ -17,4 +17,8 @@ public class Case_User {
     public String getEmailUser (){
         return userService.getEmailUser();
     }
+
+
+
+
 }

@@ -5,26 +5,52 @@ import java.util.Date;
 public class Post {
 
     private String id;
-    private Date date;
+    private String creationDate;
     private String title;
     private String description;
+    private String dateTravel;
+    private String hourTravel;
+    private Rute rute;
     private VehicleType vehicleType;
     private int seats;
-    private String startPoint;
-    private String arrivalPoint;
 
     public Post() {
     }
 
-    public Post(String id, Date fecha, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint) {
+    public Post(String id, String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats) {
         this.id = id;
-        this.date = fecha;
+        this.creationDate = creationDate;
         this.title = title;
         this.description = description;
+        this.dateTravel = dateTravel;
+        this.hourTravel = hourTravel;
+        this.rute = rute;
         this.vehicleType = vehicleType;
         this.seats = seats;
-        this.startPoint = startPoint;
-        this.arrivalPoint = arrivalPoint;
+    }
+
+    public String getDateTravel() {
+        return dateTravel;
+    }
+
+    public void setDateTravel(String dateTravel) {
+        this.dateTravel = dateTravel;
+    }
+
+    public String getHourTravel() {
+        return hourTravel;
+    }
+
+    public void setHourTravel(String hourTravel) {
+        this.hourTravel = hourTravel;
+    }
+
+    public Rute getRute() {
+        return rute;
+    }
+
+    public void setRute(Rute rute) {
+        this.rute = rute;
     }
 
     public String getId() {
@@ -35,12 +61,12 @@ public class Post {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public String getCreationDate() {
+        return creationDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
     }
 
     public String getTitle() {
@@ -75,19 +101,5 @@ public class Post {
         this.seats = seats;
     }
 
-    public String getStartPoint() {
-        return startPoint;
-    }
 
-    public void setStartPoint(String startPoint) {
-        this.startPoint = startPoint;
-    }
-
-    public String getArrivalPoint() {
-        return arrivalPoint;
-    }
-
-    public void setArrivalPoint(String arrivalPoint) {
-        this.arrivalPoint = arrivalPoint;
-    }
 }

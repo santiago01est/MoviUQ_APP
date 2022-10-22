@@ -7,7 +7,11 @@ import android.widget.DatePicker;
 
 import androidx.annotation.RequiresApi;
 
+import com.uniquindio.moviuq.domain.Condition;
+import com.uniquindio.moviuq.domain.VehicleType;
+
 import java.util.Calendar;
+import java.util.List;
 
 public class Case_Offer {
 
@@ -19,9 +23,7 @@ public class Case_Offer {
     }
 
 
-    public void createOffer(){
 
+    public void createOffer(String title, String toString, CharSequence text, CharSequence text1, VehicleType vehicleType, String toString1, List<Condition> myCondition) {
     }
-
-
 }

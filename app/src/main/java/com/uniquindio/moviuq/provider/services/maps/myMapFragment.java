@@ -7,9 +7,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
 import com.google.android.gms.maps.SupportMapFragment;
 
+
+/**
+ * La creación de esta clase se basa en la solución dada por el usuario @Gaucho en una publicación relacionada en stackoverflow
+ * y por cambios que se realizaron por el usuario del blog de Lorenz en http://www.londatiga.net/it/programming/android/how-to-make-android-map-scrollable-inside-a-scrollview-layout/
+ */
 public class myMapFragment extends SupportMapFragment {
 
     private OnTouchListener mListener;

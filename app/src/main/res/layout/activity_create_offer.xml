@@ -326,50 +326,43 @@
                         android:orientation="horizontal">
 
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginTop="10dp"
+                            android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
 
-                                <RadioButton
-                                    android:id="@+id/radioButton_fumar"
-                                    style="@style/FontsLittleText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/creat_offer_condition_fumar"
-                                    android:textColor="@color/letra_02"
-                                    android:textColorLink="@color/green_main"
-                                    app:buttonTint="@color/green" />
+                            <CheckBox
+                                android:id="@+id/cbx_fumar"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_fumar"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
 
-                                <RadioButton
-                                    android:id="@+id/radioButton_musica"
-                                    style="@style/FontsLittleText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/creat_offer_condition_musica"
-                                    android:textColor="@color/letra_02"
-                                    android:textColorLink="@color/green_main"
-                                    app:buttonTint="@color/green" />
-                                <RadioButton
-                                    android:id="@+id/radioButton_hablar"
-                                    style="@style/FontsLittleText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/creat_offer_condition_hablar"
-                                    android:textColor="@color/letra_02"
-                                    android:textColorLink="@color/green_main"
-                                    app:buttonTint="@color/green" />
-                            </RadioGroup>
+                            <CheckBox
+                                android:id="@+id/cbx_musica"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_musica"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
 
+                            <CheckBox
+                                android:id="@+id/cbx_hablar"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_hablar"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
 
 
                         </LinearLayout>
@@ -377,35 +370,31 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginTop="10dp"
+                            android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
 
-                                <RadioButton
-                                    android:id="@+id/radioButton_comida"
-                                    style="@style/FontsLittleText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/creat_offer_condition_comida"
-                                    android:textColor="@color/letra_02"
-                                    android:textColorLink="@color/green_main"
-                                    app:buttonTint="@color/green" />
+                            <CheckBox
+                                android:id="@+id/cbx_comida"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_comida"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
 
-                                <RadioButton
-                                    android:id="@+id/radioButton_mascotas"
-                                    style="@style/FontsLittleText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/creat_offer_condition_mascota"
-                                    android:textColor="@color/letra_02"
-                                    android:textColorLink="@color/green_main"
-                                    app:buttonTint="@color/green" />
-                            </RadioGroup>
+                            <CheckBox
+                                android:id="@+id/cbx_mascota"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_mascota"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -419,14 +408,14 @@
                     android:layout_height="63dp"
                     android:layout_margin="20dp"
                     android:fontFamily="@font/berlin_sans_demi_bold"
+                    android:onClick="loginUser"
+                    android:text="@string/creat_offer_post_offer"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:onClick="loginUser"
+                    app:backgroundTint="@color/bttn_01"
                     app:cornerRadius="22dp"
                     app:elevation="50dp"
-                    app:rippleColor="@color/green_main"
-                    app:backgroundTint="@color/bttn_01"
-                    android:text="@string/creat_offer_post_offer" />
+                    app:rippleColor="@color/green_main" />
 
             </LinearLayout>
 

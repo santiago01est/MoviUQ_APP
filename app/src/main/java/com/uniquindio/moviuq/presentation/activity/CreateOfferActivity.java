@@ -19,7 +19,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -38,12 +41,18 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.android.material.textfield.TextInputEditText;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.domain.Condition;
+import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.provider.services.maps.myMapFragment;
 import com.uniquindio.moviuq.use_case.Case_Offer;
+import com.uniquindio.moviuq.use_case.Case_User;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -59,12 +68,17 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     /**
      * Elementos UI
      **/
+    private TextInputEditText desc;
     private TextView from_travel;
     private TextView to_travel;
+    private RadioButton rdb_moto;
+    private RadioButton rdb_car;
+    private EditText seats;
     private ScrollView mScrollView;
     private TextView txv_date;
     private TextView txv_hour;
     private Button post;
+    private CheckBox cbx_fumar,cbx_hablar,cbx_comida,cbx_musica,cbx_mascota;
 
     /**
      * Objeto Place de la libreria Google Maps
@@ -83,6 +97,8 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private LatLng mFromLatLng;
     private Marker mMarkerTo = null;
     private Marker mMarkerFrom = null;
+    private List<Condition> myCondition=new ArrayList<>();
+
 
 
     @Override
@@ -91,6 +107,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         setContentView(R.layout.activity_create_offer);
 
         case_offer = new Case_Offer(this);
+        //myCondition.add(Condition.NINGUNA);
+
+
+        referencesElements();
 
         /** Configuración de Google Maps*/
         setupMap();
@@ -102,12 +122,49 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
          * configuración de la fecha del viaje */
         setupDate();
 
+
+
         /** Referencia del elemento Ui boton para crear la oferta de viaje**/
         createOffer();
 
 
 
     }
+
+    private void setupConditions() {
+
+
+        if(cbx_hablar.isChecked()){
+            myCondition.add(Condition.HABLAR);
+        }
+        if(cbx_fumar.isChecked()){
+            myCondition.add(Condition.FUMAR);
+        }
+        if(cbx_comida.isChecked()){
+            myCondition.add(Condition.COMIDA);
+        }
+        if(cbx_mascota.isChecked()){
+            myCondition.add(Condition.MASCOTA);
+        }
+        if(cbx_musica.isChecked()){
+            myCondition.add(Condition.MUSICA);
+        }
+    }
+
+
+    /** Conexion con los elementos ui*/
+    private void referencesElements() {
+        desc=findViewById(R.id.mydesc);
+        rdb_car=findViewById(R.id.radioButton_Car);
+        rdb_moto=findViewById(R.id.radioButton_moto);
+        cbx_hablar=findViewById(R.id.cbx_hablar);
+        cbx_comida=findViewById(R.id.cbx_comida);
+        cbx_mascota=findViewById(R.id.cbx_mascota);
+        cbx_musica=findViewById(R.id.cbx_musica);
+        seats= findViewById(R.id.edtText_seat);
+    }
+
+
 
     /** Button Post Offer **/
     private void createOffer() {
@@ -116,9 +173,37 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                case_offer.createOffer();
+                if(verificarCampos()){
+                    /** se crea titulo con el nombre de los 2 lugares seleccionados*/
+                    String title=placeFrom.getName()+" - " +placeTo.getName();
+                    /** Asigna vehiculo segun lo seleccionado */
+                    VehicleType vehicleType=VehicleType.MOTO;
+                    if(rdb_car.isActivated()) {
+                        vehicleType = VehicleType.CARRO;
+                    }
+                    /** recolectar condiciones seleccionadas*/
+                    setupConditions();
+                    /** Envia datos para procesarlos a la BD**/
+                    case_offer.createOffer(title, desc.getText().toString(),txv_date.getText(), txv_hour.getText(),vehicleType, seats.getText().toString(), myCondition);
+                }else{
+                    Toast.makeText(CreateOfferActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
+    }
+
+    private boolean verificarCampos() {
+        boolean centinela=true;
+
+        if(desc.getText().toString().isEmpty() || from_travel.getText()=="De" ||
+                to_travel.getText()=="A" || !rdb_car.isActivated() || !rdb_moto.isActivated() ||
+                seats.getText().toString().isEmpty() || txv_date.getText().toString().isEmpty()){
+            centinela=false;
+
+        }
+
+        return  centinela;
     }
 
     /** DATE **/
@@ -149,6 +234,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
 
     /**
      * Metodo que obtiene la fecha desde el calendario fragment
+     * Documentación de google -DatePickerDialog-
      */
     private void getDate(){
 
@@ -171,6 +257,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
 
     }
 
+    /**
+     * Metodo que obtiene la hora desde timePickerDialog
+     * Documentación de google -timePickerDialog-
+     */
     private void getHour() {
 
         Calendar cal=Calendar.getInstance();
