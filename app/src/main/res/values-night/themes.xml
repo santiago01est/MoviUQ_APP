@@ -59,8 +59,8 @@
 
     <style name="ExpandedAppBar">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">22dp</item>
-        <item name="android:textColor">@color/letra_02</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/white</item>
 
     </style>
 
@@ -97,5 +97,15 @@
     <!-- Style hour-->
     <style name="PickerTheme" parent="Theme.Material3.DayNight.Dialog">
         <item name="colorAccent">@color/green</item>
+    </style>
+
+    <style name="PauseDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/zoom_in</item>
+        <item name="android:windowExitAnimation">@anim/zoom_out</item>
+    </style>
+
+    <!-- animation dialog zoom-->
+    <style name="PauseDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
     </style>
 </resources>

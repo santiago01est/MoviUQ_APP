@@ -122,4 +122,9 @@
         <item name="colorAccent">@color/green</item>
     </style>
 
+    <!-- animation dialog zoom-->
+    <style name="PauseDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
+    </style>
+
 </resources>
