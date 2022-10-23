@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.auth.FirebaseUser;
+import com.uniquindio.moviuq.DetailOfferTravelActivity;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuthService.getAuth().getCurrentUser();
 
         if(user!=null){
-            Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+            Intent intent = new Intent(getApplicationContext(), DetailOfferTravelActivity.class);
             startActivity(intent);
             finish();
         }
