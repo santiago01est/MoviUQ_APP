@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_my_request_list_profile"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:background="@drawable/circle_drawable2"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation= "horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/ly_photoName"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView_user_request_profile"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_drawable"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_user"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    app:strokeColor="@color/green_main" />
+
+                <TextView
+                    android:id="@+id/request_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageView_user_profile"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="Name"
+                    android:textColor="@color/letra_04"
+                    style="@style/FontsMediumLittleText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_toStartOf="@+id/imgbttn_three_point"
+                android:layout_toEndOf="@id/ly_photoName"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txv_request_startArriveP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="StartPoint-ArrivePoint"
+                    android:textAlignment="gravity"
+                    style="@style/FontsMediumLittleText"
+                    android:textColor="@color/letra_04"
+                    />
+
+                <TextView
+                    android:id="@+id/txv_request_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:drawablePadding="20dp"
+                    style="@style/FontsLittleText"
+                    android:textColor="@color/letra_04"
+                    android:text="Date"
+                    />
+                <TextView
+                    android:id="@+id/txv_request_hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@drawable/ic_hour"
+                    android:drawablePadding="20dp"
+                    style="@style/FontsLittleText"
+                    android:textColor="@color/letra_04"
+                    android:text="Hour"
+                    />
+                <TextView
+                    android:id="@+id/txv_request_seats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@drawable/ic_seat"
+                    android:drawablePadding="20dp"
+                    style="@style/FontsLittleText"
+                    android:textColor="@color/letra_04"
+                    android:text="Seats"
+                    />
+
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/imgbttn_request_three_point"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_points_edit"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
