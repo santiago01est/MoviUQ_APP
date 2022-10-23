@@ -1,6 +1,7 @@
 package com.uniquindio.moviuq.data;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,10 +12,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.presentation.activity.MainActivity;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
@@ -25,7 +28,6 @@ public class ProfileImpl implements ProfileService{
 
     private Case_Profile case_createProfile;
     private Case_User case_user;
-    private User user;
     private FirebaseUser userSession;
 
 
@@ -69,18 +71,30 @@ public class ProfileImpl implements ProfileService{
     }
 
     @Override
-    public void cargarDatosPerfil(TextView txv_nameProfileUser, Activity activity) {
-        userSession= FirebaseAuthService.getAuth().getCurrentUser();
-        String email= userSession.getEmail();
+    public void logOutFromProfile(Activity activity) {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(activity, MainActivity.class);
+        activity.startActivity(intent);
+        activity.finish();
+    }
 
-        DocumentReference documentReference = FirebaseCFDBService.getBD().collection("user").document(email);
-        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                user = documentSnapshot.toObject(User.class);
-                txv_nameProfileUser.setText(user.getName());
-            }
-        });
+    @Override
+    public void updateInformation(String name, String lastName, String numberPhone, String city, String years, Activity activity) {
+
+        if(name.isEmpty()||lastName.isEmpty()||numberPhone.isEmpty()||city.isEmpty()||years.isEmpty()){
+            Toast.makeText(activity, "No puedes actualizar con campos vacios", Toast.LENGTH_SHORT).show();
+        } else{
+            userSession= FirebaseAuthService.getAuth().getCurrentUser();
+            String email= userSession.getEmail();
+            DocumentReference userUpdate = FirebaseCFDBService.getBD().collection("user").document(email);
+            userUpdate.update("name", name);
+            userUpdate.update("last_name", lastName);
+            userUpdate.update("phoneNumber", Long.parseLong(numberPhone));
+            userUpdate.update("city", Integer.parseInt(city));
+            userUpdate.update("years", Integer.parseInt(years));
+        }
+
 
     }
+
 }

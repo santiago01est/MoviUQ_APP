@@ -96,4 +96,9 @@
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
+    <!-- animation dialog zoom-->
+    <style name="PauseDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
+    </style>
+
 </resources>
