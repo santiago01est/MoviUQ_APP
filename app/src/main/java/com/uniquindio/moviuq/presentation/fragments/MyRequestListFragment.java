@@ -62,8 +62,7 @@ public class MyRequestListFragment extends Fragment {
         recyclerView.getItemAnimator().setChangeDuration(0);
 
         /** Consulta para fijar Adaptador**/
-        DocumentReference documentReference=FirebaseCFDBService.getBD().collection("request").document(case_user.getEmailUser());
-        Query query= documentReference.collection("request");
+        Query query= FirebaseCFDBService.getBD().collection("request").whereEqualTo("idUser", case_user.getEmailUser());
         FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
         adapterFireMyRequestList = new AdapterFireMyRequestList(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireMyRequestList);
