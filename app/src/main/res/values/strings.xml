@@ -87,6 +87,18 @@
     <!-- My Request list -->
     <string name="MyRequestsList">Mis Solicitudes</string>
 
+    <!-- DETAIL OFFER -->
+    <string name="detail_offer_title">De - A</string>
+    <string name="detail_offer_info">Información del Viaje</string>
+    <string name="creat_detail_offer_type_vehicle">Vehículo: Carro</string>
+    <string name="creat_detail_offer_seats">Cupos: 0</string>
+    <string name="creat_detail_offer_date">Fecha: dd/mm/yyyy</string>
+    <string name="creat_detail_offer_hour">Hora: 00:00</string>
+    <string name="creat_detail_offer_conditions">Condiciones de Viaje</string>
+
+
+
+
     <string name="IdClient">718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com</string>
     <string name="mapsApi">AIzaSyB2kesCG1Vhjcv35rT5dObdlRpoqZq9jkM</string>
 

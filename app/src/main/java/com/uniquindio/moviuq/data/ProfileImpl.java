@@ -48,7 +48,7 @@ public class ProfileImpl implements ProfileService{
         //Se obtiene al usuario en sesion activa
         userSession= FirebaseAuthService.getAuth().getCurrentUser();
         String email= userSession.getEmail();
-        User user= new User(name, last_name, photo, email, phoneNumber, years, city, null, null);
+        User user= new User(name, last_name, photo, email, phoneNumber, years, city);
 
         /*Se obtiene la coleccion del usuario con dicho email para setearle los datos ingresados en la creacion de perfil,
           ademas se utiliza un listener para comprobar si hubo algun error durante el proceso de creacion de perfil
