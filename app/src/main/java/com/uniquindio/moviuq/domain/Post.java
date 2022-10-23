@@ -15,6 +15,7 @@ public class Post {
     private VehicleType vehicleType;
     private int seats;
 
+
     public Post() {
     }
 

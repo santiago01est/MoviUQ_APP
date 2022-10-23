@@ -1,6 +1,5 @@
 package com.uniquindio.moviuq.presentation.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,8 +12,6 @@ import android.widget.ImageButton;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.uniquindio.moviuq.R;
-import com.uniquindio.moviuq.presentation.activity.HomeActivity;
-import com.uniquindio.moviuq.presentation.activity.NotificationUserActivity;
 import com.uniquindio.moviuq.use_case.Case_Notification;
 
 

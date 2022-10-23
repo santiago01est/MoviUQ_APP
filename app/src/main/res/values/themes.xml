@@ -67,6 +67,13 @@
 
     <!-- Lyris -->
 
+    <!-- Font Main request and travel-->
+    <style name="FontsMainTitleRT">
+        <item name="fontFamily">@font/berlin_sans_demi_bold</item>
+        <item name="android:textSize">38dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
     <!-- Fonts Main Title-->
     <style name="FontsMainTitle">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
@@ -85,6 +92,13 @@
     <style name="FontsLittle_MediumText">
         <item name="fontFamily">@font/berlin_sans_regular</item>
         <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
+    <!-- Fonts little text-->
+    <style name="FontsMediumLittleText">
+        <item name="fontFamily">@font/berlin_sans_demi_bold</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
