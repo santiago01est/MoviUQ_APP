@@ -40,7 +40,7 @@ public class ProfileImpl implements ProfileService{
 
 
     @Override
-    public void crearPerfil(String photo, String name, String last_name, int years, long phoneNumber, int city, Activity activity) {
+    public void crearPerfil(String photo, String name, String last_name, int years, long phoneNumber, String city, Activity activity) {
 
         //Se crea el caso de uso para tener acceso al metodo de lanzarHome (Entrar a la siguiente ventana de la app)
         case_createProfile= new Case_Profile(activity);

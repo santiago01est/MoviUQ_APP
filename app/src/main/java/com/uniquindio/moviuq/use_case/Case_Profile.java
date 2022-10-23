@@ -28,7 +28,7 @@ public class Case_Profile {
      *  a la capa de datos.
      **/
 
-    public void create_profile(String photo,String name, String last_name, int years, long phoneNumber, int city){
+    public void create_profile(String photo,String name, String last_name, int years, long phoneNumber, String city){
         profileService.crearPerfil(photo, name, last_name, years, phoneNumber, city, activity);
     }
 
