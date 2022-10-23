@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -38,6 +39,7 @@ public class CreateProfileActivity extends AppCompatActivity {
     private TextInputEditText crProf_name, crProf_lastName, crProf_years, crProf_phoneNumber, crProf_city;
     private  ProgressBar cargando;
     private  ImageView foto_perfil;
+    private Button create;
     /** Objetos */
     private String emailUser;
     FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -67,6 +69,13 @@ public class CreateProfileActivity extends AppCompatActivity {
             }
         });
 
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createProfile();
+            }
+        });
+
     }
 
 
@@ -86,6 +95,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         add_photo=findViewById(R.id.select_photo);
         cargando=findViewById(R.id.progressBar_create_user);
         foto_perfil=findViewById(R.id.image_user_profile);
+        create=findViewById(R.id.btn_perfil_continuar);
     }
 
     private void openGallery() {
@@ -110,7 +120,7 @@ public class CreateProfileActivity extends AppCompatActivity {
      *  mostrara mediante un Toast un mensaje expresando una condicion necesaria, ademas guarda la informacion en variables
      *  para ser direccionadas a la capa de casos de usos de createProfile.
      **/
-    public void createProfile(View view){
+    public void createProfile(){
         if(crProf_name.getText().toString().isEmpty() || crProf_lastName.getText().toString().isEmpty()
             || crProf_years.getText().toString().isEmpty() || crProf_phoneNumber.getText().toString().isEmpty()
             || crProf_city.getText().toString().isEmpty()){
@@ -118,6 +128,7 @@ public class CreateProfileActivity extends AppCompatActivity {
             Toast.makeText(this, "Ningun campo puede estar vacio, llena los campos porfavor", Toast.LENGTH_SHORT).show();
 
         }else{
+            cargando.setVisibility(View.VISIBLE);
             String name= crProf_name.getText().toString();
             String last_name= crProf_lastName.getText().toString();
             int years = Integer.parseInt(crProf_years.getText().toString());

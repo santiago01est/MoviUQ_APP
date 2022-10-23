@@ -96,10 +96,11 @@
                     android:id="@+id/image_user_profile"
                     android:layout_width="86dp"
                     android:layout_height="86dp"
-                    android:src="@drawable/ic_user"
-                    android:background="@drawable/circle_drawable"
+                    android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    app:srcCompat="@drawable/ic_user"
+                    app:strokeWidth="1dp"
                     app:strokeColor="@color/green_main" />
 
                 <ImageButton
@@ -261,7 +262,6 @@
                 android:layout_width="290dp"
                 android:layout_height="63dp"
                 android:fontFamily="@font/berlin_sans_regular"
-                android:onClick="createProfile"
                 android:text="@string/creat_prof_btn_continuar"
                 android:textColor="@color/white"
                 android:textSize="18dp"
