@@ -21,13 +21,21 @@
 
     <!-- Create Profile Activity -->
 
-
     <style name="roundedImageViewRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
         <item name="android:padding">2dp</item>
     </style>
 
+    <!-- Profile user Activity -->
+
+    <style name="roundedImageViewRounded2">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">15%</item>
+        <item name="cornerSizeTopRight">15%</item>
+        <item name="android:padding">2dp</item>
+
+    </style>
     <!-- Home Activity -->
 
     <!-- MenuBar -->

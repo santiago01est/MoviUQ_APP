@@ -8,11 +8,11 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.uniquindio.moviuq.R;
-import com.uniquindio.moviuq.use_case.Case_CreateProfile;
+import com.uniquindio.moviuq.use_case.Case_Profile;
 
 public class CreateProfileActivity extends AppCompatActivity {
 
-    private Case_CreateProfile case_createProfile;
+    private Case_Profile case_createProfile;
     TextInputEditText crProf_name, crProf_lastName, crProf_years, crProf_phoneNumber, crProf_city;
 
     @Override
@@ -21,7 +21,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_profile);
 
         /** USE CASE **/
-        case_createProfile=new Case_CreateProfile(this);
+        case_createProfile=new Case_Profile(this);
 
         /** REFERENCE ELEMETS**/
         crProf_name =findViewById(R.id.profile_name);

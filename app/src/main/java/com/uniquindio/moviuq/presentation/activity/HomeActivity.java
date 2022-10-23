@@ -11,6 +11,7 @@ import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.presentation.fragments.HomeFragment;
 import com.uniquindio.moviuq.presentation.fragments.OfferTravelFragment;
 import com.uniquindio.moviuq.presentation.fragments.RequestFragment;
+import com.uniquindio.moviuq.presentation.fragments.ProfileUserFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -43,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
                    // replaceFragments(new SocialFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));
                     break;
                 case R.id.perfil:
-                    //replaceFragments(new MylistFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));
+                    replaceFragments(new ProfileUserFragment().newInstance());
                     break;
 
             }
