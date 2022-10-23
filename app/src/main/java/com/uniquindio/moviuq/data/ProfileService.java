@@ -8,7 +8,7 @@ import com.uniquindio.moviuq.domain.User;
 public interface ProfileService {
 
 
-    void crearPerfil(String photo, String name, String last_name, int years, long phoneNumber, int city, Activity activity);
+    void crearPerfil(String photo, String name, String last_name, int years, long phoneNumber, String city, Activity activity);
     void logOutFromProfile(Activity activity);
     void updateInformation (String name, String lastName, String numberPhone, String city, String years, Activity activity);
 }

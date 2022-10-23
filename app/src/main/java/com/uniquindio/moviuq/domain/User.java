@@ -11,13 +11,13 @@ public class User implements Serializable {
     private String mail;
     private long phoneNumber;
     private int years;
-    private int city;
+    private String city;
 
 
     public User() {
     }
 
-    public User(String name, String last_name, String photo, String mail, long phoneNumber, int years, int city) {
+    public User(String name, String last_name, String photo, String mail, long phoneNumber, int years, String city) {
         this.name = name;
         this.last_name = last_name;
         this.photo = photo;
@@ -76,11 +76,11 @@ public class User implements Serializable {
         this.years = years;
     }
 
-    public int getCity() {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(int city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
