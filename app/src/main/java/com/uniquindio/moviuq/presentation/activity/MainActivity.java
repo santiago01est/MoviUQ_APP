@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
         FirebaseUser user = FirebaseAuthService.getAuth().getCurrentUser();
 
         if(user!=null){
@@ -40,17 +39,12 @@ public class MainActivity extends AppCompatActivity {
         animation.playAnimation();
 
 
-
     }
 
     public void lanzarLogin(View view) {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
-        /*
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
 
-         */
      //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
     }
 
