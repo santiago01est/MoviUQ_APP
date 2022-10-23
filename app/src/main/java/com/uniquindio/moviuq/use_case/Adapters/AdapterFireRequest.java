@@ -33,11 +33,11 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
     @Override
     protected void onBindViewHolder(@NonNull AdapterFireRequest.ViewHolder holder, int position, @NonNull Request model) {
 
-        String ubication= model.getStartPoint()+model.getArrivalPoint();
+
         holder.name.setText(model.getDescription());
-        holder.startArriveP.setText(ubication);
-        holder.date.setText(model.getDate());
-        holder.hour.setText(model.getDate());
+        holder.startArriveP.setText(model.getTitle());
+        holder.date.setText(model.getDateTravel());
+        holder.hour.setText(model.getHourTravel());
         holder.seats.setText(""+model.getSeats());
 
         //Glide.with(context)
