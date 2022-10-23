@@ -72,6 +72,7 @@
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/activity_main.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/activity_my_offer_list.xml" value="0.2" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/activity_my_request_list.xml" value="0.2046875" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/activity_notification_user.xml" value="0.2" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/activity_profile_user.xml" value="0.27666151468315303" />
@@ -80,10 +81,15 @@
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/dialog_edit_profile_user.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_home.xml" value="0.176" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_my_request_list.xml" value="0.25" />
+        <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_offer_travel.xml" value="0.25" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_profile_user.xml" value="0.2046875" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_profile_user_initial.xml" value="0.25" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_request.xml" value="0.25" />
+        <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_tab_my_offers_list.xml" value="0.25" />
+        <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/fragment_tab_my_travels_list.xml" value="0.25" />
+        <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/list_my_offer_list.xml" value="0.25" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/list_my_request_list.xml" value="0.4" />
+        <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/list_my_travel_list.xml" value="0.25" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/list_notification.xml" value="0.264" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/list_offer_travel.xml" value="0.536" />
         <entry key="..\:/Users/nikor/OneDrive/Escritorio/Software III/moviuq2/app/src/main/res/layout/list_request.xml" value="0.4" />

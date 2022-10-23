@@ -72,6 +72,8 @@
     <!-- OFFER TRAVEL-->
     <string name="offerTravel_title">Viajes</string>
 
+    <!-- My Offer list-->
+    <string name="MyOfferList">Mis Viajes</string>
 
     <!-- Request -->
     <string name="Requests">Solicitudes</string>
