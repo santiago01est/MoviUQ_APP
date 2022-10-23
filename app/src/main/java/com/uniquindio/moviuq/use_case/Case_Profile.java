@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.data.ProfileImpl;
 import com.uniquindio.moviuq.data.ProfileService;
 import com.uniquindio.moviuq.data.UserImpl;
@@ -12,6 +16,7 @@ import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.presentation.activity.EditProfileUserActivity;
 import com.uniquindio.moviuq.presentation.activity.HomeActivity;
 import com.uniquindio.moviuq.presentation.activity.MainActivity;
+import com.uniquindio.moviuq.presentation.activity.MyRequestListActivity;
 
 public class Case_Profile {
 
@@ -47,6 +52,14 @@ public class Case_Profile {
         //activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         activity.finish();
     }
+
+    public void lanzarMyRequest() {
+        Intent i = new Intent(activity, MyRequestListActivity.class);
+        activity.startActivity(i);
+        //activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        activity.finish();
+    }
+
     public void lanzarEditProfileUser() {
         Intent i = new Intent(activity, EditProfileUserActivity.class);
         activity.startActivity(i);

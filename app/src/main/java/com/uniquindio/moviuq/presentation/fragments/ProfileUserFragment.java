@@ -26,7 +26,7 @@ public class ProfileUserFragment extends Fragment {
 
     private View view;
     private TextView txv_nameProfileUser;
-    private LinearLayout ly_signOff, ly_editProfile;
+    private LinearLayout ly_signOff, ly_editProfile, ly_myRequest;
     private Case_Profile case_profile;
     private Case_User case_user;
     private User user;
@@ -76,6 +76,14 @@ public class ProfileUserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 case_profile.lanzarEditProfileUser();
+            }
+        });
+
+        ly_myRequest= view.findViewById(R.id.ly_myRequest);
+        ly_myRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                case_profile.lanzarMyRequest();
             }
         });
 
