@@ -1,9 +1,427 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     tools:context=".DetailOfferTravelActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_detail_offer"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="@android:color/transparent"
+        android:fitsSystemWindows="true"
+        android:theme="@style/CollapsingTheme">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingDetailOffer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/grey"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/portada_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_place01">
+
+                </ImageView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="150dp"
+                    android:background="@drawable/degradado_detail_offer">
+
+                </ImageView>
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_movie"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:titleTextAppearance="@style/ExpandedAppBar">
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_detail_offer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey"
+        android:contentDescription="@string/IdClient"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/txv_offer_subtitle_title"
+                    style="@style/FontsMainTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/detail_offer_title" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/contenedor_user_offer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@+id/imgv_chat_offer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/circle_drawable"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                    app:strokeColor="@color/green_main" />
+
+                <TextView
+                    android:id="@+id/txv_offer_subtitle_nameuser"
+                    style="@style/FontsLittleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="left"
+                    android:text="@string/detail_offer_title" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgv_chat_offer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_chat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <LinearLayout
+                android:id="@+id/contenedor_desc_offer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contenedor_user_offer">
+
+
+                <TextView
+                    android:id="@+id/txv_offer_subtitle_desc"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/creat_offer_hint_desc" />
+
+                <TextView
+                    android:id="@+id/txv_offer_content_desc"
+                    style="@style/FontsLittleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/creat_offer_hint_desc" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/contenedor_info_offer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contenedor_desc_offer">
+
+
+                <TextView
+                    android:id="@+id/txv_offer_subtitle_desc"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_offer_info" />
+
+                <LinearLayout
+                    android:id="@+id/contenedor_main_column"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/txv_detail_offer_vehicle"
+                            style="@style/FontsLittleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:drawableLeft="@drawable/ic_car"
+                            android:drawablePadding="14dp"
+                            android:gravity="center"
+                            android:text="@string/creat_detail_offer_type_vehicle"
+                            android:textAlignment="textStart" />
+
+                        <TextView
+                            android:id="@+id/txv_detail_offer_seats"
+                            style="@style/FontsLittleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:drawableLeft="@drawable/ic_seat"
+                            android:drawablePadding="14dp"
+                            android:gravity="center"
+                            android:text="@string/creat_detail_offer_seats"
+                            android:textAlignment="textStart" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/txv_detail_offer_calendar"
+                            style="@style/FontsLittleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:drawableLeft="@drawable/ic_calendar"
+                            android:drawablePadding="14dp"
+                            android:gravity="center"
+                            android:text="@string/creat_detail_offer_date"
+                            android:textAlignment="textStart" />
+
+                        <TextView
+                            android:id="@+id/txv_detail_offer_hour"
+                            style="@style/FontsLittleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:drawableLeft="@drawable/ic_hour"
+                            android:drawablePadding="14dp"
+                            android:gravity="center"
+                            android:text="@string/creat_detail_offer_hour"
+                            android:textAlignment="textStart" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contenedor_conditions_offer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contenedor_info_offer">
+
+
+                <TextView
+                    android:id="@+id/txv_offer_subtitle_desc"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/creat_detail_offer_conditions" />
+
+                <LinearLayout
+                    android:id="@+id/contenedor_main_column"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <CheckBox
+                            android:id="@+id/cbx_detail_offer_fumar"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:text="@string/creat_offer_condition_fumar"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+
+                        <CheckBox
+                            android:id="@+id/cbx_detail_offer_musica"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:text="@string/creat_offer_condition_musica"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+
+                        <CheckBox
+                            android:id="@+id/cbx_detail_offer_hablar"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:text="@string/creat_offer_condition_hablar"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <CheckBox
+                            android:id="@+id/cbx_detail_offer_comida"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:text="@string/creat_offer_condition_comida"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+
+                        <CheckBox
+                            android:id="@+id/cbx_detail_offer_mascota"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:text="@string/creat_offer_condition_mascota"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contenedor_conditions_offer">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:strokeColor="@color/green_main">
+
+                    <fragment
+                        android:id="@+id/fragment_map_detail_offer"
+                        android:name="com.uniquindio.moviuq.provider.services.maps.myMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:context=".MapsActivity" />
+
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        app:cardBackgroundColor="@color/bttn_01"
+        app:cardCornerRadius="26dp"
+        app:strokeColor="@color/grey">
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
