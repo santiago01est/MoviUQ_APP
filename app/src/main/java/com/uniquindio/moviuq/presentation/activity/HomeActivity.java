@@ -10,6 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.presentation.fragments.HomeFragment;
 import com.uniquindio.moviuq.presentation.fragments.OfferTravelFragment;
+import com.uniquindio.moviuq.presentation.fragments.RequestFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -36,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
                     replaceFragments(new OfferTravelFragment().newInstance());
                     break;
                 case R.id.solicitud:
-                   // replaceFragments(new SearchFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));
+                    replaceFragments(new RequestFragment().newInstance());
                     break;
                 case R.id.chats:
                    // replaceFragments(new SocialFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));
