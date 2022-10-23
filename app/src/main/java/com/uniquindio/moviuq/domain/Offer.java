@@ -11,8 +11,8 @@ public class Offer extends Post implements Serializable {
     public Offer(){
         super();
     }
-    public Offer(String id, String idUser,String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, List<Condition> myConditions) {
-        super( id, idUser, creationDate,  title,  description,  dateTravel,  hourTravel,  rute,  vehicleType,  seats);
+    public Offer(String id, String idUser,String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, EstadoPost estadoPost,List<Condition> myConditions) {
+        super( id, idUser, creationDate,  title,  description,  dateTravel,  hourTravel,  rute,  vehicleType,  seats,estadoPost);
         this.myConditions = myConditions;
     }
 
