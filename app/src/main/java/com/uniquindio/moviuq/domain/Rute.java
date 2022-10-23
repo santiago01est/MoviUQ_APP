@@ -24,6 +24,7 @@ public class Rute {
         this.placeTo = placeTo;
     }
 
+
     public String getId() {
         return id;
     }

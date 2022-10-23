@@ -10,8 +10,8 @@ public class Offer extends Post {
     public Offer(){
         super();
     }
-    public Offer(String id, String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, List<Condition> myConditions) {
-        super( id,  creationDate,  title,  description,  dateTravel,  hourTravel,  rute,  vehicleType,  seats);
+    public Offer(String id, String idUser,String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, List<Condition> myConditions) {
+        super( id, idUser, creationDate,  title,  description,  dateTravel,  hourTravel,  rute,  vehicleType,  seats);
         this.myConditions = myConditions;
     }
 

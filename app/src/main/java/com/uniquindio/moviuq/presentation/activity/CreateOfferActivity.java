@@ -27,6 +27,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -41,6 +42,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Condition;
@@ -78,6 +80,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private TextView txv_date;
     private TextView txv_hour;
     private Button post;
+    private MaterialToolbar toolbar;
     private CheckBox cbx_fumar,cbx_hablar,cbx_comida,cbx_musica,cbx_mascota;
 
     /**
@@ -128,6 +131,15 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         createOffer();
 
 
+        /** boton de navegacion Back de la toolbar**/
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+
+            }
+        });
 
     }
 
@@ -162,6 +174,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         cbx_mascota=findViewById(R.id.cbx_mascota);
         cbx_musica=findViewById(R.id.cbx_musica);
         seats= findViewById(R.id.edtText_seat);
+        toolbar=findViewById(R.id.topAppBar);
     }
 
 
@@ -171,6 +184,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         post=findViewById(R.id.btn_post_offer);
 
         post.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 if(verificarCampos()){
@@ -184,7 +198,8 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
                     /** recolectar condiciones seleccionadas*/
                     setupConditions();
                     /** Envia datos para procesarlos a la BD**/
-                    case_offer.createOffer(title, desc.getText().toString(),txv_date.getText(), txv_hour.getText(),vehicleType, seats.getText().toString(), myCondition);
+
+                    case_offer.createOffer(title, desc.getText().toString(),txv_date.getText().toString(), txv_hour.getText().toString(),vehicleType, Integer.parseInt(seats.getText().toString()) , myCondition,mMarkerFrom, mMarkerTo,placeTo,placeFrom);
                 }else{
                     Toast.makeText(CreateOfferActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
                 }
