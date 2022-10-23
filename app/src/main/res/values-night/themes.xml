@@ -95,6 +95,13 @@
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
+    <!-- Fonts Very little text-->
+    <style name="FontsVeryLittleText">
+        <item name="fontFamily">@font/berlin_sans_regular</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
     <!-- Style hour-->
     <style name="PickerTheme" parent="Theme.Material3.DayNight.Dialog">
         <item name="colorAccent">@color/green</item>
