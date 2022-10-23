@@ -13,12 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="31">
-        <activity android:name=".presentation.activity.EditProfileUserActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".DetailOfferTravelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activity.EditProfileUserActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.activity.CreateOfferActivity"
             android:exported="false"
-            android:theme="@style/ThemeActivityWelcome"/>
+            android:theme="@style/ThemeActivityWelcome" />
         <activity
             android:name=".presentation.activity.NotificationUserActivity"
             android:exported="false" />

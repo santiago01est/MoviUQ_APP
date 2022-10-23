@@ -15,12 +15,13 @@ public class Post implements Serializable {
     private Rute rute;
     private VehicleType vehicleType;
     private int seats;
+    private EstadoPost estadoPost;
 
 
     public Post() {
     }
 
-    public Post(String id, String idUser, String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats) {
+    public Post(String id, String idUser, String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, EstadoPost estadoPost) {
         this.id = id;
         this.idUser = idUser;
         this.creationDate = creationDate;
@@ -31,6 +32,7 @@ public class Post implements Serializable {
         this.rute = rute;
         this.vehicleType = vehicleType;
         this.seats = seats;
+        this.estadoPost=estadoPost;
     }
 
     public String getDateTravel() {
@@ -111,5 +113,13 @@ public class Post implements Serializable {
 
     public void setIdUser(String idUser) {
         this.idUser = idUser;
+    }
+
+    public EstadoPost getEstadoPost() {
+        return estadoPost;
+    }
+
+    public void setEstadoPost(EstadoPost estadoPost) {
+        this.estadoPost = estadoPost;
     }
 }
