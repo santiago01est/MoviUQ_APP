@@ -13,6 +13,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.uniquindio.moviuq.data.OfferImpl;
 import com.uniquindio.moviuq.data.OfferService;
 import com.uniquindio.moviuq.domain.Condition;
+import com.uniquindio.moviuq.domain.EstadoPost;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.Offer;
 import com.uniquindio.moviuq.domain.Rute;
@@ -47,7 +48,7 @@ public class Case_Offer {
         DateCalculator dateCalculator = new DateCalculator(date);
         String idViaje="OV"+emailUser+dateCalculator.getCompleteHourId();
         rute=new Rute("R"+emailUser+dateCalculator.getCompleteHourId(),idViaje,placeFrom,placeTo);
-        offer=new Offer(idViaje,emailUser,dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats,myCondition);
+        offer=new Offer(idViaje,emailUser,dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats, EstadoPost.DISPONIBLE,myCondition);
         offerService.createOffer(offer, emailUser, activity);
     }
 
