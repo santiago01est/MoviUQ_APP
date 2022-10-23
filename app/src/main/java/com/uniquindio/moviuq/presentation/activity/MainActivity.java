@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void lanzarLogin(View view) {
-        Intent i = new Intent(this, CreateOfferActivity.class);
+        Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
         /*
         Intent i = new Intent(this, LoginActivity.class);
