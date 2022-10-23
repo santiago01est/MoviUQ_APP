@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".presentation.activity.CreateOfferActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_create_offer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:liftOnScroll="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/grey"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/Crea_tu_oferta"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/ExpandedAppBar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_offer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar_create_offer">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/back_master">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/txv_subtitle_desc"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/creat_offer_desc" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editText_desc"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start|top"
+                    android:textColorHint="@color/black02"
+                    app:boxStrokeColor="@color/green_main"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="120"
+                    app:hintTextColor="@color/black02">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mydesc"
+                        style="@style/FontsLittleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="top"
+                        android:gravity="top"
+                        android:hint="@string/creat_offer_hint_desc"
+                        android:inputType="textMultiLine"
+                        android:overScrollMode="always"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/letra_02"
+                        android:textCursorDrawable="@color/green_main" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txv_subtitle_startpoint"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/creat_offer_startpoint" />
+
+
+                <TextView
+                    android:id="@+id/txv_from_travel"
+                    style="@style/FontsLittleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/esquinas_redondeadas_bttn"
+                    android:gravity="center"
+                    android:text="@string/creat_offer_click_star"
+                    android:textColor="@color/letra_02" />
+
+
+                <TextView
+                    android:id="@+id/txv_subtitle_endpoint"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/creat_offer_endpoint" />
+
+                <TextView
+                    android:id="@+id/txv_to_travel"
+                    style="@style/FontsLittleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/esquinas_redondeadas_bttn"
+                    android:gravity="center"
+                    android:text="@string/creat_offer_click_end"
+                    android:textColor="@color/letra_02" />
+
+                <TextView
+                    android:id="@+id/txv_subtitle_see_map"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/creat_offer_see_map" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:strokeColor="@color/green_main">
+
+                    <fragment
+
+                        android:id="@+id/fragment_map"
+                        android:name="com.uniquindio.moviuq.provider.services.maps.myMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:context=".MapsActivity" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <LinearLayout
+                    android:id="@+id/contenedor_type_vehicle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txv_subtitle_type_vehicle"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_type_vehicle" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioButton_Car"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/creat_offer_type_vehicle_car"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton_moto"
+                            style="@style/FontsLittleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:text="@string/creat_offer_type_vehicle_moto"
+                            android:textColor="@color/letra_02"
+                            android:textColorLink="@color/green_main"
+                            app:buttonTint="@color/green" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contenedor_seats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txv_subtitle_seats"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_seats" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imv_seat"
+                            android:layout_width="32dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:contentDescription="TODO"
+                            app:srcCompat="@drawable/ic_seat" />
+
+                        <EditText
+                            android:id="@+id/edtText_seat"
+                            style="@style/FontsLittle_MediumText"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:cursorVisible="false"
+                            android:hint="@string/creat_offer_number_hint_seats"
+                            android:inputType="number"
+                            android:outlineAmbientShadowColor="@color/green"
+                            android:textAlignment="center"
+                            android:textColor="@color/letra_02"
+                            android:textColorHint="@color/letra_02"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contenedor_fechas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txv_subtitle_date"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_date" />
+
+                    <TextView
+                        android:id="@+id/txv_offer_date"
+                        style="@style/FontsLittleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/esquinas_redondeadas_bttn"
+                        android:gravity="center"
+                        android:text="@string/creat_offer_getDate"
+                        android:textColor="@color/letra_02" />
+
+                    <TextView
+                        android:id="@+id/txv_subtitle_hour"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/creat_offer_hour" />
+
+                    <TextView
+                        android:id="@+id/txv_offer_hour"
+                        style="@style/FontsLittleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/esquinas_redondeadas_bttn"
+                        android:gravity="center"
+                        android:text="@string/creat_offer_getHour"
+                        android:textColor="@color/letra_02" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contenedor_conditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txv_subtitle_condition"
+                        style="@style/FontsLittle_MediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/creat_offer_condition" />
+
+                    <LinearLayout
+                        android:id="@+id/contenedor_main_column"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+                            <CheckBox
+                                android:id="@+id/cbx_fumar"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_fumar"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
+
+                            <CheckBox
+                                android:id="@+id/cbx_musica"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_musica"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
+
+                            <CheckBox
+                                android:id="@+id/cbx_hablar"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_hablar"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+                            <CheckBox
+                                android:id="@+id/cbx_comida"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_comida"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
+
+                            <CheckBox
+                                android:id="@+id/cbx_mascota"
+                                style="@style/FontsLittleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_offer_condition_mascota"
+                                android:textColor="@color/letra_02"
+                                android:textColorLink="@color/green_main"
+                                app:buttonTint="@color/green" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_post_offer"
+                    style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                    android:layout_width="290dp"
+                    android:layout_height="63dp"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/berlin_sans_demi_bold"
+                    android:onClick="loginUser"
+                    android:text="@string/creat_offer_post_offer"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:backgroundTint="@color/bttn_01"
+                    app:cornerRadius="22dp"
+                    app:elevation="50dp"
+                    app:rippleColor="@color/green_main" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,25 @@
 package com.uniquindio.moviuq.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class Offer extends Post {
 
-    private double score;
+    private List<Condition> myConditions;
 
     public Offer(){
         super();
     }
-    public Offer(String id, Date date, String title, String description, VehicleType vehicleType, int seats, String startPoint, String arrivalPoint,double score) {
-        super(id, date, title, description, vehicleType, seats, startPoint, arrivalPoint);
-        this.score = score;
+    public Offer(String id, String idUser,String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, List<Condition> myConditions) {
+        super( id, idUser, creationDate,  title,  description,  dateTravel,  hourTravel,  rute,  vehicleType,  seats);
+        this.myConditions = myConditions;
     }
 
-    public double getScore() {
-        return score;
+    public List<Condition> getMyConditions() {
+        return myConditions;
     }
 
-    public void setScore(double score) {
-        this.score = score;
+    public void setMyConditions(List<Condition> myConditions) {
+        this.myConditions = myConditions;
     }
 }

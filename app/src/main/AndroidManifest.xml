@@ -14,8 +14,9 @@
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activity.EditProfileUserActivity"
-            android:exported="false" />
+            android:name=".presentation.activity.CreateOfferActivity"
+            android:exported="false"
+            android:theme="@style/ThemeActivityWelcome"/>
         <activity
             android:name=".presentation.activity.NotificationUserActivity"
             android:exported="false" />
@@ -49,6 +50,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/mapsApi" />
     </application>
 
 </manifest>

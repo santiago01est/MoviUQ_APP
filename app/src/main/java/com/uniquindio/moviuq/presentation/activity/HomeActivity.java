@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.presentation.fragments.HomeFragment;
+import com.uniquindio.moviuq.presentation.fragments.OfferTravelFragment;
+import com.uniquindio.moviuq.presentation.fragments.RequestFragment;
 import com.uniquindio.moviuq.presentation.fragments.ProfileUserFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -33,10 +35,10 @@ public class HomeActivity extends AppCompatActivity {
                     replaceFragments(new HomeFragment().newInstance());
                     break;
                 case R.id.viajes:
-                   // replaceFragments(new GalleryFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));
+                    replaceFragments(new OfferTravelFragment().newInstance());
                     break;
                 case R.id.solicitud:
-                   // replaceFragments(new SearchFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));
+                    replaceFragments(new RequestFragment().newInstance());
                     break;
                 case R.id.chats:
                    // replaceFragments(new SocialFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));

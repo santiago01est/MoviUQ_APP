@@ -42,6 +42,37 @@
     <!-- Notification -->
     <string name="Notificaciones">Notificaciones</string>
 
+    <!-- CREATE OFFER -->
+    <string name="Crea_tu_oferta">Crea Oferta de Viaje</string>
+    <string name="creat_offer_desc">Descripción *</string>
+    <string name="creat_offer_hint_desc">Descripción del viaje</string>
+    <string name="creat_offer_startpoint">Lugar de partida *</string>
+    <string name="creat_offer_endpoint">Destino *</string>
+    <string name="creat_offer_see_map">Visualización del mapa</string>
+    <string name="creat_offer_type_vehicle">Tipo de Vehículo *</string>
+    <string name="creat_offer_type_vehicle_car">Carro</string>
+    <string name="creat_offer_type_vehicle_moto">Moto</string>
+    <string name="creat_offer_seats">Cupos *</string>
+    <string name="creat_offer_number_hint_seats">1</string>
+    <string name="creat_offer_date">Fecha del Viaje *</string>
+    <string name="creat_offer_hour">Hora del Viaje</string>
+    <string name="creat_offer_getDate">DD/MM/AA</string>
+    <string name="creat_offer_getHour">00:00 M</string>
+    <string name="creat_offer_condition">Condiciones de Viaje</string>
+    <string name="creat_offer_condition_fumar">Fumar</string>
+    <string name="creat_offer_condition_musica">Música</string>
+    <string name="creat_offer_condition_hablar">Hablar</string>
+    <string name="creat_offer_condition_comida">Comida</string>
+    <string name="creat_offer_condition_mascota">Mascotas</string>
+    <string name="creat_offer_post_offer">Publicar Viaje</string>
+
+    <string name="creat_offer_click_star">De</string>
+    <string name="creat_offer_click_end">A</string>
+
+
+    <!-- Request -->
+    <string name="Requests">Solicitudes</string>
+
     <!-- Profile -->
     <string name="Perfil">Perfil</string>
     <string name="prof_mis_solicitudes">Mis solicitudes</string>
@@ -51,7 +82,10 @@
     <string name="prof_cerrar_sesion">Cerrar sesion</string>
 
     <string name="IdClient">718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com</string>
+    <string name="mapsApi">AIzaSyB2kesCG1Vhjcv35rT5dObdlRpoqZq9jkM</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
