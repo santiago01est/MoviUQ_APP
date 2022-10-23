@@ -2,15 +2,10 @@ package com.uniquindio.moviuq.presentation.activity;
 
 import static com.android.volley.VolleyLog.TAG;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -23,11 +18,11 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -46,13 +41,10 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Condition;
-import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.provider.services.maps.myMapFragment;
 import com.uniquindio.moviuq.use_case.Case_Offer;
-import com.uniquindio.moviuq.use_case.Case_User;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -82,9 +74,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Button post;
     private MaterialToolbar toolbar;
     private CheckBox cbx_fumar,cbx_hablar,cbx_comida,cbx_musica,cbx_mascota;
+    private RadioGroup radioGroup;
 
     /**
-     * Objeto Place de la libreria Google Maps
+     * Objeto MyPlace de la libreria Google Maps
      **/
     private Place from_place_travel;
 
@@ -94,10 +87,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Case_Offer case_offer;
     private Place place;
     private GoogleMap mMap;
-    private Place placeFrom;
-    private Place placeTo;
-    private LatLng mToLatLng;
-    private LatLng mFromLatLng;
+    private MyPlace placeFrom;
+    private MyPlace placeTo;
+    private LatLng mToLatLng=null;
+    private LatLng mFromLatLng=null;
     private Marker mMarkerTo = null;
     private Marker mMarkerFrom = null;
     private List<Condition> myCondition=new ArrayList<>();
@@ -110,6 +103,8 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         setContentView(R.layout.activity_create_offer);
 
         case_offer = new Case_Offer(this);
+        placeTo=new MyPlace();
+        placeFrom=new MyPlace();
         //myCondition.add(Condition.NINGUNA);
 
 
@@ -170,11 +165,13 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         rdb_car=findViewById(R.id.radioButton_Car);
         rdb_moto=findViewById(R.id.radioButton_moto);
         cbx_hablar=findViewById(R.id.cbx_hablar);
+        cbx_fumar=findViewById(R.id.cbx_fumar);
         cbx_comida=findViewById(R.id.cbx_comida);
         cbx_mascota=findViewById(R.id.cbx_mascota);
         cbx_musica=findViewById(R.id.cbx_musica);
         seats= findViewById(R.id.edtText_seat);
         toolbar=findViewById(R.id.topAppBar);
+        radioGroup=findViewById(R.id.radiogroup);
     }
 
 
@@ -192,7 +189,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
                     String title=placeFrom.getName()+" - " +placeTo.getName();
                     /** Asigna vehiculo segun lo seleccionado */
                     VehicleType vehicleType=VehicleType.MOTO;
-                    if(rdb_car.isActivated()) {
+                    if(rdb_car.isChecked()) {
                         vehicleType = VehicleType.CARRO;
                     }
                     /** recolectar condiciones seleccionadas*/
@@ -212,7 +209,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         boolean centinela=true;
 
         if(desc.getText().toString().isEmpty() || from_travel.getText()=="De" ||
-                to_travel.getText()=="A" || !rdb_car.isActivated() || !rdb_moto.isActivated() ||
+                to_travel.getText()=="A"  || radioGroup.getCheckedRadioButtonId() == -1 ||
                 seats.getText().toString().isEmpty() || txv_date.getText().toString().isEmpty()){
             centinela=false;
 
@@ -371,17 +368,24 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         if (resultCode == RESULT_OK) {
             place = Autocomplete.getPlaceFromIntent(data);
 
-            Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
+            Log.i(TAG, "MyPlace: " + place.getName() + ", " + place.getId());
 
             /** Metodo que refleja los cambios en la UI */
             updatePlaceUi(place, txv_travel);
             latLng = place.getLatLng();
             if (requestCode == FROM_REQUEST_CODE) {
                 setMarketFrom(latLng);
-                placeFrom=place;
+
+                placeFrom.setName(place.getName());
+                placeFrom.setAddress(place.getAddress());
+                placeFrom.setLatitude(latLng.latitude);
+                placeFrom.setLongitude(latLng.longitude);
             } else if (requestCode == TO_REQUEST_CODE) {
                 setMarketTo(latLng);
-                placeTo=place;
+                placeTo.setAddress(place.getAddress());
+                placeTo.setName(place.getName());
+                placeTo.setLatitude(latLng.latitude);
+                placeTo.setLongitude(latLng.longitude);
             } else {
 
             }

@@ -53,7 +53,7 @@
     <string name="creat_offer_type_vehicle_car">Carro</string>
     <string name="creat_offer_type_vehicle_moto">Moto</string>
     <string name="creat_offer_seats">Cupos *</string>
-    <string name="creat_offer_number_hint_seats">1</string>
+    <string name="creat_offer_number_hint_seats">0</string>
     <string name="creat_offer_date">Fecha del Viaje *</string>
     <string name="creat_offer_hour">Hora del Viaje</string>
     <string name="creat_offer_getDate">DD/MM/AA</string>

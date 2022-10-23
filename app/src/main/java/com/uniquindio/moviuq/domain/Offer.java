@@ -1,9 +1,10 @@
 package com.uniquindio.moviuq.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Offer extends Post {
+public class Offer extends Post implements Serializable {
 
     private List<Condition> myConditions;
 

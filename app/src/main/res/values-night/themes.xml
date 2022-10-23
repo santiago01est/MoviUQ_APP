@@ -59,8 +59,9 @@
 
     <style name="ExpandedAppBar">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">26dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/green_main</item>
 
     </style>
 
@@ -94,6 +95,13 @@
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
+    <!-- Fonts Very little text-->
+    <style name="FontsVeryLittleText">
+        <item name="fontFamily">@font/berlin_sans_regular</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/letra_02</item>
+    </style>
+
     <!-- Style hour-->
     <style name="PickerTheme" parent="Theme.Material3.DayNight.Dialog">
         <item name="colorAccent">@color/green</item>
@@ -107,5 +115,23 @@
     <!-- animation dialog zoom-->
     <style name="PauseDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
+    </style>
+
+    <!-- Floating button -->
+    <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="colorContainer">@color/green</item>
+        <item name="colorOnContainer">@color/green_main</item>
+        <item name="strokeColor">@color/green_black</item>
+        <item name="elevation">@dimen/design_bottom_navigation_elevation</item>
+    </style>
+
+    <!-- shape button-->
+    <style name="shapeButtom">
+        <item name="cornerSize">50%</item>
+
     </style>
 </resources>

@@ -3,23 +3,22 @@ package com.uniquindio.moviuq.domain;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.libraries.places.api.model.Place;
 
-public class Rute {
+import java.io.Serializable;
+
+public class Rute implements Serializable {
 
     private String id;
     private String idViaje;
-    private Marker mMarkerFrom;
-    private Marker mMarkerTo;
-    private Place placeFrom;
-    private Place placeTo;
+    private MyPlace placeFrom;
+    private MyPlace placeTo;
 
     public Rute() {
     }
 
-    public Rute(String id, String idViaje, Marker mMarkerFrom, Marker mMarkerTo, Place placeFrom, Place placeTo) {
+    public Rute(String id, String idViaje, MyPlace placeFrom, MyPlace placeTo) {
         this.id = id;
         this.idViaje = idViaje;
-        this.mMarkerFrom = mMarkerFrom;
-        this.mMarkerTo = mMarkerTo;
+
         this.placeFrom = placeFrom;
         this.placeTo = placeTo;
     }
@@ -41,35 +40,20 @@ public class Rute {
         this.idViaje = idViaje;
     }
 
-    public Marker getmMarkerFrom() {
-        return mMarkerFrom;
-    }
 
-    public void setmMarkerFrom(Marker mMarkerFrom) {
-        this.mMarkerFrom = mMarkerFrom;
-    }
-
-    public Marker getmMarkerTo() {
-        return mMarkerTo;
-    }
-
-    public void setmMarkerTo(Marker mMarkerTo) {
-        this.mMarkerTo = mMarkerTo;
-    }
-
-    public Place getPlaceFrom() {
+    public MyPlace getPlaceFrom() {
         return placeFrom;
     }
 
-    public void setPlaceFrom(Place placeFrom) {
+    public void setPlaceFrom(MyPlace placeFrom) {
         this.placeFrom = placeFrom;
     }
 
-    public Place getPlaceTo() {
+    public MyPlace getPlaceTo() {
         return placeTo;
     }
 
-    public void setPlaceTo(Place placeTo) {
+    public void setPlaceTo(MyPlace placeTo) {
         this.placeTo = placeTo;
     }
 }

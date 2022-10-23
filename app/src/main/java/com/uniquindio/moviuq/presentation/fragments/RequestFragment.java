@@ -59,6 +59,7 @@ public class RequestFragment extends Fragment{
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.getItemAnimator().setChangeDuration(0);
 
+        /** Consulta para fijar Adaptador**/
         Query query= FirebaseCFDBService.getBD().collection("request");
         FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
         adapterFireRequest = new AdapterFireRequest(firestoreRecyclerOptions,getContext());
