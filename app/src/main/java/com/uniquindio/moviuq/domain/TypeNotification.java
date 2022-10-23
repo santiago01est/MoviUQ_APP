@@ -1,6 +1,8 @@
 package com.uniquindio.moviuq.domain;
 
-public enum TypeNotification {
+import java.io.Serializable;
+
+public enum TypeNotification  implements Serializable {
 
     CALIFICACION, CONTRATO_VIAJE, RESPUESTA_VIAJE, CHAT
 }

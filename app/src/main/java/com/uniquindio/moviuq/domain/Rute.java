@@ -5,7 +5,7 @@ import com.google.android.libraries.places.api.model.Place;
 
 import java.io.Serializable;
 
-public class Rute implements Serializable {
+public class Rute implements Serializable  {
 
     private String id;
     private String idViaje;

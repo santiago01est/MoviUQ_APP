@@ -1,8 +1,9 @@
 package com.uniquindio.moviuq.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Notification {
+public class Notification implements Serializable {
 
     private String id;
     private String date;

@@ -2,7 +2,9 @@ package com.uniquindio.moviuq.domain;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class MyPlace {
+import java.io.Serializable;
+
+public class MyPlace implements Serializable {
     private String name;
     private double latitude;
     private double longitude;

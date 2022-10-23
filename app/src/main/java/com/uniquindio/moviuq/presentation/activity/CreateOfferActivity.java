@@ -105,7 +105,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         case_offer = new Case_Offer(this);
         placeTo=new MyPlace();
         placeFrom=new MyPlace();
-        //myCondition.add(Condition.NINGUNA);
+
 
 
         referencesElements();
@@ -155,6 +155,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         }
         if(cbx_musica.isChecked()){
             myCondition.add(Condition.MUSICA);
+        }
+
+        if(myCondition.isEmpty()){
+            myCondition.add(Condition.NINGUNA);
         }
     }
 
