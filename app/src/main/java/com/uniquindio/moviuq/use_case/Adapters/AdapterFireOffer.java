@@ -1,6 +1,8 @@
 package com.uniquindio.moviuq.use_case.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.uniquindio.moviuq.DetailOfferTravelActivity;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Offer;
 import com.uniquindio.moviuq.domain.Request;
@@ -21,7 +24,6 @@ import com.uniquindio.moviuq.domain.VehicleType;
 public class AdapterFireOffer extends FirestoreRecyclerAdapter<Offer, AdapterFireOffer.ViewHolder> {
 
     private Context context;
-    protected View.OnClickListener onClickListener;
     /**
      * Create a new RecyclerView adapter that listens to a Firestore Query.
      */
@@ -44,55 +46,22 @@ public class AdapterFireOffer extends FirestoreRecyclerAdapter<Offer, AdapterFir
         }
 
 
-        //Glide.with(context)
-        //      .load(model.getPerfil())
-        //    .into(holder.avatar);
-
-
-
-        /** Clic button three_Points */
-        /*holder.like.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(model.getIslike()==true){
-
-                    /* actualiza no like en review/
-                    //model.setIslike(false);
-
-                    /* MODIFICAR ID DOCUMENTO POR ID REVIEW/
-                    DocumentReference commentsUpdate = FirebaseCFDBService.getBD().collection("comments_gallery").document(model.getId());
-                    commentsUpdate.update("islike", false);
-                    commentsUpdate.update("numLike", model.getNumLike()-1);
-                    holder.like.setImageResource(R.drawable.ic_likecero);
-
-                }else
-                if (model.getIslike()==false){
-
-
-                    //model.setIslike(true);
-                    DocumentReference commentsUpdate = FirebaseCFDBService.getBD().collection("comments_gallery").document(model.getId());
-                    commentsUpdate.update("islike", true);
-                    commentsUpdate.update("numLike", model.getNumLike()+1);
-
-                    holder.like.setImageResource(R.drawable.ic_likeone);
-
-
-
-                }
+                Intent i=new Intent(holder.itemView.getContext(), DetailOfferTravelActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("offer", model);
+                i.putExtras(bundle);
+                holder.itemView.getContext().startActivity(i);
             }
         });
 
-*/
-
 
 
 
     }
 
-
-    public void setOnClickListener(View.OnClickListener onClickListener){
-        this.onClickListener=onClickListener;
-    }
 
     public static  class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -119,12 +88,13 @@ public class AdapterFireOffer extends FirestoreRecyclerAdapter<Offer, AdapterFir
         }
 
 
+
+
     }
 
     @Override
     public AdapterFireOffer.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_offer_travel,viewGroup,false);
-        //  v.setOnClickListener(onClickListener);
         return new AdapterFireOffer.ViewHolder(v);
     }
 }

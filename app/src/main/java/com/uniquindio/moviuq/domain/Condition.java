@@ -1,6 +1,8 @@
 package com.uniquindio.moviuq.domain;
 
-public enum Condition {
+import java.io.Serializable;
+
+public enum Condition implements Serializable {
 
     FUMAR, MUSICA, HABLAR, COMIDA, MASCOTA, NINGUNA
 }

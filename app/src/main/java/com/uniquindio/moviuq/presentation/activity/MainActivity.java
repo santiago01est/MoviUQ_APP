@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuthService.getAuth().getCurrentUser();
 
         if(user!=null){
-            Intent intent = new Intent(getApplicationContext(), DetailOfferTravelActivity.class);
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intent);
             finish();
         }

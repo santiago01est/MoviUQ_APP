@@ -7,6 +7,7 @@ public class Post implements Serializable {
 
     private String id;
     private String idUser;
+    private String photoUser;
     private String creationDate;
     private String title;
     private String description;
@@ -21,9 +22,10 @@ public class Post implements Serializable {
     public Post() {
     }
 
-    public Post(String id, String idUser, String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, EstadoPost estadoPost) {
+    public Post(String id, String idUser,String photoUser, String creationDate, String title, String description, String dateTravel, String hourTravel, Rute rute, VehicleType vehicleType, int seats, EstadoPost estadoPost) {
         this.id = id;
         this.idUser = idUser;
+        this.photoUser = photoUser;
         this.creationDate = creationDate;
         this.title = title;
         this.description = description;
@@ -33,6 +35,14 @@ public class Post implements Serializable {
         this.vehicleType = vehicleType;
         this.seats = seats;
         this.estadoPost=estadoPost;
+    }
+
+    public String getPhotoUser() {
+        return photoUser;
+    }
+
+    public void setPhotoUser(String photoUser) {
+        this.photoUser = photoUser;
     }
 
     public String getDateTravel() {

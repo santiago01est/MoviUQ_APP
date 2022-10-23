@@ -43,12 +43,13 @@ public class Case_Offer {
         case_user=new Case_User(activity);
         String emailUser=case_user.getEmailUser();
         Offer offer;
+        // user Local
         Rute rute;
         Date date = new Date();
         DateCalculator dateCalculator = new DateCalculator(date);
         String idViaje="OV"+emailUser+dateCalculator.getCompleteHourId();
         rute=new Rute("R"+emailUser+dateCalculator.getCompleteHourId(),idViaje,placeFrom,placeTo);
-        offer=new Offer(idViaje,emailUser,dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats, EstadoPost.DISPONIBLE,myCondition);
+        offer=new Offer(idViaje,emailUser,"",dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats, EstadoPost.DISPONIBLE,myCondition);
         offerService.createOffer(offer, emailUser, activity);
     }
 

@@ -1,4 +1,6 @@
 package com.uniquindio.moviuq.domain;
 
-public class Chat {
+import java.io.Serializable;
+
+public class Chat implements Serializable {
 }
