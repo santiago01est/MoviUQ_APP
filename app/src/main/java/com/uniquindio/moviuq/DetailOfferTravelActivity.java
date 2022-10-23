@@ -1,10 +1,15 @@
 package com.uniquindio.moviuq;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 import android.os.Bundle;
-import android.widget.ScrollView;
-
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -12,29 +17,146 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.uniquindio.moviuq.domain.Condition;
+import com.uniquindio.moviuq.domain.MyPlace;
+import com.uniquindio.moviuq.domain.Offer;
+import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.provider.services.maps.myMapFragment;
+import com.uniquindio.moviuq.use_case.Case_User;
+
+import java.util.List;
 
 public class DetailOfferTravelActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     /** Elements UI**/
-    private ScrollView mScrollView;
+    private NestedScrollView mScrollView;
+    private TextView txv_title;
+    private TextView txv_nameUser;
+    private TextView txv_desc;
+    private TextView txv_vehicle;
+    private TextView txv_seats;
+    private TextView txv_date;
+    private TextView txv_hour;
+    private CheckBox cbx_fumar,cbx_hablar,cbx_comida,cbx_musica,cbx_mascota;
+    private LinearLayout contenedor_noconditions;
+    private LinearLayout contenedor_main_conditions;
+    private ImageView photoUser;
+    private Toolbar toolbar;
 
+
+    /** Objets**/
+    private Offer offer;
+    private String emailUser;
     private GoogleMap mMap;
     private Marker mMarkerTo = null;
     private Marker mMarkerFrom = null;
+
+    /** Case use**/
+    Case_User case_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_offer_travel);
 
+        /** Inicializar objetos**/
+        init();
         referencesElementsUI();
 
+        /** metodo que recibe la informacion del adapter */
+        getData();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+    }
+
+    private void init(){
+        case_user= new Case_User(this);
+        emailUser=case_user.getEmailUser();
+
+    }
+
+    private void getData() {
+        /** Recibir objeto */
+        Bundle objeto=getIntent().getExtras();
+        offer=new Offer();
+        if(objeto!=null){
+            offer=(Offer) objeto.getSerializable("offer");
+            setupData(offer);
+        }
+
+    }
+
+    private void setupData(Offer offer) {
+
+        txv_title.setText(offer.getTitle());
+        txv_nameUser.setText(emailUser);
+        //cargar photo user
+        txv_desc.setText(offer.getDescription());
+        VehicleType vehicleType=offer.getVehicleType();
+        txv_vehicle.setText("Vehículo: "+ vehicleType.tostring(vehicleType));
+        txv_seats.setText("Cupos: "+offer.getSeats());
+        txv_date.setText("Fecha: "+offer.getDateTravel());
+        txv_hour.setText("Hora: "+offer.getHourTravel());
+        setupConditions(offer.getMyConditions());
         setupMap();
+
+
+    }
+
+    private void setupConditions(List<Condition> myConditions) {
+
+
+        for (Condition c: myConditions) {
+            if(c==Condition.NINGUNA){
+                contenedor_noconditions.setVisibility(View.VISIBLE);
+                contenedor_main_conditions.setVisibility(View.GONE);
+
+            }else{
+                if(c==Condition.FUMAR){
+                    cbx_fumar.setChecked(true);
+                }
+                if(c==Condition.HABLAR){
+                    cbx_hablar.setChecked(true);
+                }
+                if(c==Condition.COMIDA){
+                    cbx_comida.setChecked(true);
+                }
+                if(c==Condition.MASCOTA){
+                    cbx_mascota.setChecked(true);
+                }
+                if(c==Condition.MUSICA){
+                    cbx_musica.setChecked(true);
+                }
+            }
+
+        }
     }
 
     public void referencesElementsUI(){
         mScrollView = findViewById(R.id.scroll_detail_offer);
+        txv_title=findViewById(R.id.txv_offer_subtitle_title);
+        txv_nameUser=findViewById(R.id.txv_offer_subtitle_nameuser);
+        txv_desc=findViewById(R.id.txv_offer_content_desc);
+        txv_vehicle=findViewById(R.id.txv_detail_offer_vehicle);
+        txv_seats=findViewById(R.id.txv_detail_offer_seats);
+        txv_date=findViewById(R.id.txv_detail_offer_calendar);
+        txv_hour=findViewById(R.id.txv_detail_offer_hour);
+        cbx_hablar=findViewById(R.id.cbx_detail_offer_hablar);
+        cbx_fumar=findViewById(R.id.cbx_detail_offer_fumar);
+        cbx_comida=findViewById(R.id.cbx_detail_offer_comida);
+        cbx_mascota=findViewById(R.id.cbx_detail_offer_mascota);
+        cbx_musica=findViewById(R.id.cbx_detail_offer_musica);
+        contenedor_noconditions=findViewById(R.id.contenedor_no_conditions);
+        contenedor_main_conditions=findViewById(R.id.contenedor_main_column);
+        photoUser=findViewById(R.id.imageView_photo_user);
+        toolbar=findViewById(R.id.toolbar_detail_offer);
     }
 
 
@@ -74,13 +196,28 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         mMap.setMinZoomPreference(10);
         mMap.setMaxZoomPreference(15);
 
+        /** Se incia el mapa con un enfoque hacia la universidad del Quindío**/
         LatLng latLng = new LatLng(4.55402805, -75.6609262169371);
-        // addMarker(latLng,"Universidad");
+
+        /** obtener coordenadas de los lugares para crear marcadores*/
+        getLatLng();
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
 
 
+    }
+
+    private void getLatLng() {
+
+        MyPlace placeFrom= offer.getRute().getPlaceFrom();
+        MyPlace placeTo= offer.getRute().getPlaceTo();
+        final  LatLng LatLngPlaceFrom = new LatLng(placeFrom.getLatitude(),placeFrom.getLongitude());
+        final  LatLng LatLngPlaceTo = new LatLng(placeTo.getLatitude(),placeTo.getLongitude());
+
+        /** Añadir marcadores de los lugares del viaje**/
+        addMarker(LatLngPlaceFrom,"Inicio");
+        addMarker(LatLngPlaceTo,"Destino");
     }
 
     /**

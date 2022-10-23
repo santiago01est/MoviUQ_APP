@@ -1,6 +1,8 @@
 package com.uniquindio.moviuq.domain;
 
-public enum EstadoPost {
+import java.io.Serializable;
+
+public enum EstadoPost implements Serializable {
 
     DISPONIBLE, PENDIENTE, CONTRATADO
 }
