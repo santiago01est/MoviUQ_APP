@@ -66,47 +66,45 @@
 
                 <TextView
                     android:id="@+id/txv_request_startArriveP"
+                    style="@style/FontsMediumLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="StartPoint-ArrivePoint"
                     android:textAlignment="gravity"
-                    style="@style/FontsMediumLittleText"
-                    android:textColor="@color/letra_04"
-                    />
+                    android:textColor="@color/letra_04" />
 
                 <TextView
                     android:id="@+id/txv_request_date"
+                    style="@style/FontsLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawableLeft="@drawable/ic_calendar"
                     android:drawablePadding="20dp"
-                    style="@style/FontsLittleText"
-                    android:textColor="@color/letra_04"
                     android:text="Date"
-                    />
+                    android:textColor="@color/letra_04" />
+
                 <TextView
                     android:id="@+id/txv_request_hour"
+                    style="@style/FontsLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawableLeft="@drawable/ic_hour"
                     android:drawablePadding="20dp"
-                    style="@style/FontsLittleText"
-                    android:textColor="@color/letra_04"
                     android:text="Hour"
-                    />
+                    android:textColor="@color/letra_04" />
+
                 <TextView
                     android:id="@+id/txv_request_seats"
+                    style="@style/FontsLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawableLeft="@drawable/ic_seat"
                     android:drawablePadding="20dp"
-                    style="@style/FontsLittleText"
-                    android:textColor="@color/letra_04"
                     android:text="Seats"
-                    />
+                    android:textColor="@color/letra_04" />
 
 
             </LinearLayout>

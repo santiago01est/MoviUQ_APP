@@ -19,7 +19,7 @@ public class OfferImpl implements OfferService{
 
         case_offer=new Case_Offer(activity);
 
-        FirebaseCFDBService.getBD().collection("offers").document(email).set(offer).addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseCFDBService.getBD().collection("offers").document(offer.getId()).set(offer).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                case_offer.lanzarHome();
