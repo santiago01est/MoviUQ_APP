@@ -26,14 +26,19 @@ public class NotificationUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_user);
 
+        /** USE CASE **/
         case_user= new Case_User(this);
         case_notification= new Case_Notification(this);
+
         emailUser= case_user.getEmailUser();
+
+        /** REFERENCE ELEMETS**/
         recyclerView= findViewById(R.id.recycler_notifications);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.getItemAnimator().setChangeDuration(0);
 
+        /** Consulta para fijar Adaptador**/
         //Query query=case_notification.getNotificationUser(emailUser);
         Query query= FirebaseCFDBService.getBD().collection("notification").whereEqualTo("emailUserReceiver",emailUser);
         FirestoreRecyclerOptions<Notification> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Notification>().setQuery(query, Notification.class).build();
@@ -41,6 +46,13 @@ public class NotificationUserActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapterFireNotification);
         adapterFireNotification.notifyDataSetChanged();
     }
+
+    /** onStart
+     *
+     *  Este metodo se encarga de limpiar el reciclerView donde estan contenidos los card request
+     *  ademas de empezar a cargar cada request existente en la lista del recyclerView
+     *
+     **/
     @Override
     public void onStart(){
         super.onStart();

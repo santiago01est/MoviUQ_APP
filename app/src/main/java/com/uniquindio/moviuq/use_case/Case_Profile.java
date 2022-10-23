@@ -36,11 +36,15 @@ public class Case_Profile {
     public void create_profile(String photo,String name, String last_name, int years, long phoneNumber, int city){
         profileService.crearPerfil(photo, name, last_name, years, phoneNumber, city, activity);
     }
-
+    /** Metodo para accionar la funcionalidad de cerrar sesion desde profileUserFragment
+     **/
     public void logOutFromProfile(){
         profileService.logOutFromProfile(activity);
     }
 
+    /** Metodo para redireccionar los datos al servicio e implementacion de actualizacion de informacion
+     *  accionada en el editProfileUserActivity
+     **/
     public void updateInformation(String name, String lastName, String numberPhone, String city, String years){
         profileService.updateInformation(name, lastName, numberPhone, city, years, activity);
     }
@@ -53,6 +57,7 @@ public class Case_Profile {
         activity.finish();
     }
 
+    /** Metodo para entrar en la ventana de mi solicitudes**/
     public void lanzarMyRequest() {
         Intent i = new Intent(activity, MyRequestListActivity.class);
         activity.startActivity(i);
@@ -60,6 +65,7 @@ public class Case_Profile {
         activity.finish();
     }
 
+    /** Metodo para entrar en la ventana de editar perfil del usurio**/
     public void lanzarEditProfileUser() {
         Intent i = new Intent(activity, EditProfileUserActivity.class);
         activity.startActivity(i);

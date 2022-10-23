@@ -30,6 +30,10 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
         this.context=context;
     }
 
+    /**
+     * Se carga la infomacion consultada desde la base de datos a los campos enlazados del card
+     */
+
     @Override
     protected void onBindViewHolder(@NonNull AdapterFireRequest.ViewHolder holder, int position, @NonNull Request model) {
 
@@ -90,6 +94,9 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
         this.onClickListener=onClickListener;
     }
 
+    /**
+     * Crea las variables del diseño del card para luego enlazarlos mediante el id respectivo en el xml
+     */
     public static  class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView photoUser;
@@ -119,6 +126,9 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
 
     }
 
+    /**
+     * Enlaza el adaptador con el card del request (list_request)
+     */
     @Override
     public AdapterFireRequest.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_request,viewGroup,false);

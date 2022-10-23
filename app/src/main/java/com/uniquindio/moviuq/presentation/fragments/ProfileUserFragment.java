@@ -51,10 +51,17 @@ public class ProfileUserFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_profile_user, container, false);
 
+        /** USE CASE **/
         case_profile= new Case_Profile(getActivity());
         case_user= new Case_User(getActivity());
-        txv_nameProfileUser=view.findViewById(R.id.txv_nameProfileUser);
 
+        /** REFERENCE ELEMETS**/
+        txv_nameProfileUser=view.findViewById(R.id.txv_nameProfileUser);
+        ly_myRequest= view.findViewById(R.id.ly_myRequest);
+        ly_signOff=view.findViewById(R.id.ly_signOff);
+        ly_editProfile= view.findViewById(R.id.ly_editProfile);
+
+        /** Actualizar nombre del perfil con el del usuario en sesion**/
         DocumentReference docRef = FirebaseCFDBService.getBD().collection("user").document(case_user.getEmailUser());
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -63,7 +70,8 @@ public class ProfileUserFragment extends Fragment {
                 txv_nameProfileUser.setText(user.getName());
             }
         });
-        ly_signOff=view.findViewById(R.id.ly_signOff);
+
+        /** Funcionalidad de cerrar sesion desde el perfil**/
         ly_signOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +79,7 @@ public class ProfileUserFragment extends Fragment {
             }
         });
 
-        ly_editProfile= view.findViewById(R.id.ly_editProfile);
+        /** Funcionalidad para lanzar la edicion del perfil del usuario**/
         ly_editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +87,7 @@ public class ProfileUserFragment extends Fragment {
             }
         });
 
-        ly_myRequest= view.findViewById(R.id.ly_myRequest);
+        /** Funcionalidad para lanzar mis solicitudes en el perfil dle usuario**/
         ly_myRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
