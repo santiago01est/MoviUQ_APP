@@ -84,6 +84,9 @@
     <string name="prof_contactenos">Contactenos</string>
     <string name="prof_cerrar_sesion">Cerrar sesion</string>
 
+    <!-- My Request list -->
+    <string name="MyRequestsList">Mis Solicitudes</string>
+
     <string name="IdClient">718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com</string>
     <string name="mapsApi">AIzaSyB2kesCG1Vhjcv35rT5dObdlRpoqZq9jkM</string>
 
