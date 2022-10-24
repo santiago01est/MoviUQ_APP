@@ -25,6 +25,7 @@ import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Notification;
+import com.uniquindio.moviuq.use_case.Case_User;
 
 
 public class HomeFragment extends Fragment {
@@ -40,6 +41,7 @@ public class HomeFragment extends Fragment {
      * Casos de uso
      **/
     private Case_Notification case_notification;
+    private Case_User case_user;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -72,6 +74,7 @@ public class HomeFragment extends Fragment {
 
 
         case_notification = new Case_Notification(getActivity());
+        case_user=new Case_User(getActivity());
         notification = root.findViewById(R.id.imgbttn_notification);
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +100,6 @@ public class HomeFragment extends Fragment {
                 if (documentSnapshot.exists()) {
 
                     User user = documentSnapshot.toObject(User.class);
-                    //updateToken(user);
                     DataLocal.setUser(user);
                     txv_nameUser.setText(user.getName());
                     /** Mediante glide se busca la photo de perfil
@@ -105,6 +107,8 @@ public class HomeFragment extends Fragment {
                     Glide.with(getActivity() )
                             .load(DataLocal.getUser().getPhoto())
                             .into(imgv_photo_user);
+
+                    case_user.updateToken();
 
                 }
             }

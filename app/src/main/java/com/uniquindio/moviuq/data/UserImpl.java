@@ -58,7 +58,8 @@ public class UserImpl  implements UserService {
 
     }
 
-    private void updateToken(User user) {
+    @Override
+    public void updateToken(User user) {
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {

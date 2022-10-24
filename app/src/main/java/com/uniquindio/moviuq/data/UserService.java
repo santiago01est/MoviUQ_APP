@@ -2,6 +2,8 @@ package com.uniquindio.moviuq.data;
 
 import android.app.Activity;
 
+import com.uniquindio.moviuq.domain.User;
+
 
 public interface UserService {
 
@@ -12,5 +14,7 @@ public interface UserService {
     String getEmailUser();
 
     void getUser();
+
+    void updateToken(User user);
 
 }
