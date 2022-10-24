@@ -176,6 +176,10 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         seats= findViewById(R.id.edtText_seat);
         toolbar=findViewById(R.id.topAppBar);
         radioGroup=findViewById(R.id.radiogroup);
+        from_travel = findViewById(R.id.txv_from_travel);
+        to_travel = findViewById(R.id.txv_to_travel);
+        txv_date=findViewById(R.id.txv_offer_date);
+        txv_hour=findViewById(R.id.txv_offer_hour);
     }
 
 
@@ -226,8 +230,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
 
     private void setupDate() {
 
-        txv_date=findViewById(R.id.txv_offer_date);
-        txv_hour=findViewById(R.id.txv_offer_hour);
+
 
         txv_date.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -310,8 +313,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         Places.initialize(getApplicationContext(), getString(R.string.mapsApi));
 
         /**Reference elements*/
-        from_travel = findViewById(R.id.txv_from_travel);
-        to_travel = findViewById(R.id.txv_to_travel);
+
 
         from_travel.setOnClickListener(new View.OnClickListener() {
             @Override
