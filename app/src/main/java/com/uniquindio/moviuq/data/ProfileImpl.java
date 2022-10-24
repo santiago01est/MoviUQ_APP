@@ -111,6 +111,12 @@ public class ProfileImpl implements ProfileService{
 
 
 
+    /** Metodo logOutFromProfile
+     *
+     *  Metodo que solamente cierra la sesion del usuario activo y que posteriormente le redirige al la pantalla principal de
+     *  la aplicacion
+     *
+     **/
     @Override
     public void logOutFromProfile(Activity activity) {
         FirebaseAuth.getInstance().signOut();
@@ -119,6 +125,14 @@ public class ProfileImpl implements ProfileService{
         activity.finish();
     }
 
+    /** Metodo updateInformation
+     *
+     *  Metodo para actualizar la informacion del perfil, este obtiene toda la informacion necesaria, verificando campos
+     *  vacios que si en tal caso hay 1 se advierte al usuario, y en caso contrario se obtiene el documento de dicho
+     *  usuario referenciado con el email a la base de datos y que con update se actualiza cada campo con la informacion
+     *  ya obtenida.
+     *
+     **/
     @Override
     public void updateInformation(String name, String lastName, String numberPhone, String city, String years, Activity activity) {
 

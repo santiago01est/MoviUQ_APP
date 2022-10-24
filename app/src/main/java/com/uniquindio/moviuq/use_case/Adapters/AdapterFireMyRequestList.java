@@ -14,16 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.uniquindio.moviuq.R;
-import com.uniquindio.moviuq.domain.Notification;
+import com.uniquindio.moviuq.domain.Request;
 
-public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notification, AdapterFireNotification.ViewHolder> {
+public class AdapterFireMyRequestList extends FirestoreRecyclerAdapter<Request, AdapterFireMyRequestList.ViewHolder> {
 
     private Context context;
     protected View.OnClickListener onClickListener;
     /**
      * Create a new RecyclerView adapter that listens to a Firestore Query.
      */
-    public AdapterFireNotification(@NonNull FirestoreRecyclerOptions<Notification> options, Context context) {
+    public AdapterFireMyRequestList(@NonNull FirestoreRecyclerOptions<Request> options, Context context) {
         super(options);
         this.context=context;
     }
@@ -33,14 +33,18 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
      */
 
     @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Notification model) {
+    protected void onBindViewHolder(@NonNull AdapterFireMyRequestList.ViewHolder holder, int position, @NonNull Request model) {
 
-        holder.description.setText(model.getDescription());
-        holder.date.setText(model.getDate());
+
+        holder.name.setText(model.getDescription());
+        holder.startArriveP.setText(model.getTitle());
+        holder.date.setText(model.getDateTravel());
+        holder.hour.setText(model.getHourTravel());
+        holder.seats.setText(""+model.getSeats());
 
         //Glide.with(context)
-          //      .load(model.getPerfil())
-            //    .into(holder.avatar);
+        //      .load(model.getPerfil())
+        //    .into(holder.avatar);
 
 
 
@@ -94,19 +98,27 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
     public static  class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView photoUser;
-        public TextView description;
+        public TextView name;
+        public TextView startArriveP;
         public TextView date;
+        public TextView hour;
+        public TextView seats;
         public ImageButton three_point;
+        public TextView status;
 
 
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            photoUser=itemView.findViewById(R.id.imageView_user_profile);
-            description=itemView.findViewById(R.id.txv_description);
-            date=itemView.findViewById(R.id.txv_date);
-            three_point=itemView.findViewById(R.id.imgbttn_three_point);
+            photoUser=itemView.findViewById(R.id.imgv_mrl_user);
+            name=itemView.findViewById(R.id.txv_mrl_name);
+            startArriveP=itemView.findViewById(R.id.txv_mrl_DeA);
+            date=itemView.findViewById(R.id.txv_mrl_date);
+            hour=itemView.findViewById(R.id.txv_mrl_hour);
+            seats=itemView.findViewById(R.id.txv_mrl_seats);
+            three_point=itemView.findViewById(R.id.imgbttn_mrl_three_point);
+            status=itemView.findViewById(R.id.txv_mrl_status);
 
 
         }
@@ -115,12 +127,12 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
     }
 
     /**
-     * Enlaza el adaptador con el card de notification (list_notification)
+     * Enlaza el adaptador con el card de my request list (list_my_request_list)
      */
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_notification,viewGroup,false);
+    public AdapterFireMyRequestList.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_my_request_list,viewGroup,false);
         //  v.setOnClickListener(onClickListener);
-        return new ViewHolder(v);
+        return new AdapterFireMyRequestList.ViewHolder(v);
     }
 }

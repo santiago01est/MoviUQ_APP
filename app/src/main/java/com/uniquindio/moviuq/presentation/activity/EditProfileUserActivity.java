@@ -41,9 +41,11 @@ public class EditProfileUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile_user);
 
+        /** USE CASE **/
         case_profile= new Case_Profile(this);
         case_user= new Case_User(this);
 
+        /** REFERENCE ELEMETS**/
         txil_name_editProfileUser= findViewById(R.id.txil_name_editProfileUser);
         txil_lastName_editProfileUser= findViewById(R.id.txil_lastName_editProfileUser);
         txil_numberPhone_editProfileUser= findViewById(R.id.txil_numberPhone_editProfileUser);
@@ -57,7 +59,13 @@ public class EditProfileUserActivity extends AppCompatActivity {
         txiet_years_editProfileUser= findViewById(R.id.txiet_years_editProfileUser);
 
         btn_actualizarPerfil= findViewById(R.id.btn_actualizarPerfil);
+
+
         updateDate();
+        /** Funcionalidad que se acciona en el diseño de edit_profile_user_activity,
+         *  se obtienen los datos que se quieren editar del perfil ingresados en los campos de texto y
+         *  se llama el caso de uso con el metodo correspondiente a dicha funcionalidad
+         **/
         btn_actualizarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +82,12 @@ public class EditProfileUserActivity extends AppCompatActivity {
 
     }
 
+    /** updateDate
+     *
+     *  Este metodo es propio de esta actividad y se encarga de mantener actualizado los datos
+     *  cuando el usuario haga una edicion a algun tipo de su informacion
+     *
+     **/
     public void updateDate(){
         DocumentReference docRef = FirebaseCFDBService.getBD().collection("user").document(case_user.getEmailUser());
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

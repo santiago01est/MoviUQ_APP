@@ -58,7 +58,10 @@ public class RequestFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        /** USE CASE **/
         case_request= new Case_Request(getActivity());
+
+        /** REFERENCE ELEMETS**/
         view = inflater.inflate(R.layout.fragment_request, container, false);
         collap=view.findViewById(R.id.collapsing_request);
         create=view.findViewById(R.id.floating_add_request);
@@ -109,6 +112,12 @@ public class RequestFragment extends Fragment{
 
     }
 
+    /** onStart
+     *
+     *  Este metodo se encarga de limpiar el reciclerView donde estan contenidos los card request
+     *  ademas de empezar a cargar cada request existente en la lista del recyclerView
+     *
+     **/
     @Override
     public void onStart(){
         super.onStart();

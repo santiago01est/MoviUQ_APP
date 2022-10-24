@@ -72,6 +72,8 @@
     <!-- OFFER TRAVEL-->
     <string name="offerTravel_title">Viajes</string>
 
+    <!-- My Offer list-->
+    <string name="MyOfferList">Mis Viajes</string>
 
     <!-- Request -->
     <string name="Requests">Solicitudes</string>
@@ -84,6 +86,9 @@
     <string name="prof_editar_perfil">Editar perfil</string>
     <string name="prof_contactenos">Contactenos</string>
     <string name="prof_cerrar_sesion">Cerrar sesion</string>
+
+    <!-- My Request list -->
+    <string name="MyRequestsList">Mis Solicitudes</string>
 
     <!-- DETAIL OFFER -->
     <string name="detail_offer_title">De - A</string>
