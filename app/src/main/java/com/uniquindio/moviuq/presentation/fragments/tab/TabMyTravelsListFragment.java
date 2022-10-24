@@ -24,11 +24,8 @@ import com.uniquindio.moviuq.use_case.Case_User;
 
 public class TabMyTravelsListFragment extends Fragment {
 
-    private CollapsingToolbarLayout collap;
-    private AppBarLayout appBarLayout;
     private RecyclerView recyclerView;
     private AdapterFireOffer adapterFireOffer;
-    private FloatingActionButton addOffer;
     private Case_Offer case_offer;
     private Case_User case_user;
 
@@ -53,19 +50,18 @@ public class TabMyTravelsListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root=inflater.inflate(R.layout.fragment_offer_travel, container, false);
+        View root=inflater.inflate(R.layout.fragment_tab_my_travels_list, container, false);
         case_offer=new Case_Offer(getActivity());
+        case_user= new Case_User(getActivity());
         /** References UI**/
-        collap=root.findViewById(R.id.collapsingOffer);
-        recyclerView = root.findViewById(R.id.recycler_offer_travel);
-        addOffer= root.findViewById(R.id.floating_add_offer_travel);
+        recyclerView = root.findViewById(R.id.recycler_MyTravelList);
 
         /** Configuración del recycler**/
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.getItemAnimator().setChangeDuration(0);
 
         /** Consulta para fijar Adaptador**/
-        Query query= FirebaseCFDBService.getBD().collection("offers");
+        Query query= FirebaseCFDBService.getBD().collection("offers").whereEqualTo("idUser", case_user.getEmailUser());
         FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
         adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireOffer);

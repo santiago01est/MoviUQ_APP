@@ -56,7 +56,7 @@ public class MyOfferListActivity extends AppCompatActivity {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    collap.setTitle("Viajes");
+                    collap.setTitle("Mis Viajes");
                     collap.setCollapsedTitleTextAppearance(R.style.ExpandedAppBar);
                     isShow = true;
                 } else if (isShow) {
