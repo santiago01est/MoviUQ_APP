@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentReference;
@@ -26,6 +27,7 @@ public class MyRequestListFragment extends Fragment {
 
     private View view;
     private RecyclerView recyclerView;
+
     private Case_Request case_request;
     private Case_User case_user;
     private AdapterFireMyRequestList adapterFireMyRequestList;
@@ -58,6 +60,7 @@ public class MyRequestListFragment extends Fragment {
         case_user= new Case_User(getActivity());
         recyclerView = view.findViewById(R.id.recycler_requests);
 
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.getItemAnimator().setChangeDuration(0);
 
@@ -67,6 +70,10 @@ public class MyRequestListFragment extends Fragment {
         adapterFireMyRequestList = new AdapterFireMyRequestList(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireMyRequestList);
         adapterFireMyRequestList.notifyDataSetChanged();
+
+
+
+
         return view;
     }
 

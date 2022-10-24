@@ -1,5 +1,6 @@
 package com.uniquindio.moviuq.presentation.fragments;
 
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,15 +9,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
 import com.uniquindio.moviuq.use_case.Case_User;
@@ -26,7 +30,8 @@ public class ProfileUserFragment extends Fragment {
 
     private View view;
     private TextView txv_nameProfileUser;
-    private LinearLayout ly_signOff, ly_editProfile, ly_myRequest;
+    private ImageView photoUser;
+    private LinearLayout ly_signOff, ly_editProfile, ly_myRequest,ly_myTravels;
     private Case_Profile case_profile;
     private Case_User case_user;
     private User user;
@@ -59,17 +64,11 @@ public class ProfileUserFragment extends Fragment {
         txv_nameProfileUser=view.findViewById(R.id.txv_nameProfileUser);
         ly_myRequest= view.findViewById(R.id.ly_myRequest);
         ly_signOff=view.findViewById(R.id.ly_signOff);
+        ly_myTravels=view.findViewById(R.id.ly_myTravels);
         ly_editProfile= view.findViewById(R.id.ly_editProfile);
+        photoUser=view.findViewById(R.id.shiv_photoProfileUser);
 
-        /** Actualizar nombre del perfil con el del usuario en sesion**/
-        DocumentReference docRef = FirebaseCFDBService.getBD().collection("user").document(case_user.getEmailUser());
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                user = documentSnapshot.toObject(User.class);
-                txv_nameProfileUser.setText(user.getName());
-            }
-        });
+        getData();
 
         /** Funcionalidad de cerrar sesion desde el perfil**/
         ly_signOff.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +94,23 @@ public class ProfileUserFragment extends Fragment {
             }
         });
 
+        ly_myTravels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                case_profile.lanzarMyOffer();
+            }
+        });
+
         return view;
+    }
+
+    public void getData(){
+
+        user= DataLocal.getUser();
+        /** Get photo**/
+        Glide.with(this )
+                .load(DataLocal.getUser().getPhoto())
+                .into(photoUser);
+        txv_nameProfileUser.setText(user.getName());
     }
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
     tools:context=".presentation.activity.EditProfileUserActivity">
 
     <TextView
@@ -34,7 +35,9 @@ android:layout_height="match_parent"
             android:id="@+id/shiv_photoProfileUser"
             android:layout_width="86dp"
             android:layout_height="86dp"
-            android:background="@drawable/circle_drawable"
+            app:srcCompat="@drawable/ic_user"
+            app:strokeWidth="1dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_user"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
             app:strokeColor="@color/green_main" />
@@ -63,12 +66,12 @@ android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/contenedor_gradient"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded2"
-            tools:ignore="ImageContrastCheck"
-            />
+            tools:ignore="ImageContrastCheck" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -76,8 +79,8 @@ android:layout_height="match_parent"
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center|top">
+                    android:gravity="center|top"
+                    android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txil_name_editProfileUser"
@@ -126,6 +129,7 @@ android:layout_height="match_parent"
                             android:textSize="16dp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txil_city_editProfileUser"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -149,6 +153,7 @@ android:layout_height="match_parent"
                             android:textSize="16dp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txil_numberPhone_editProfileUser"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -172,6 +177,7 @@ android:layout_height="match_parent"
                             android:textSize="16dp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txil_years_editProfileUser"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -195,6 +201,7 @@ android:layout_height="match_parent"
                             android:textSize="16dp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <Button
                         android:id="@+id/btn_actualizarPerfil"
                         style="@style/FontsMediumText"

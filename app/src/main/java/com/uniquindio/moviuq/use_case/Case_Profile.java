@@ -16,6 +16,7 @@ import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.presentation.activity.EditProfileUserActivity;
 import com.uniquindio.moviuq.presentation.activity.HomeActivity;
 import com.uniquindio.moviuq.presentation.activity.MainActivity;
+import com.uniquindio.moviuq.presentation.activity.MyOfferListActivity;
 import com.uniquindio.moviuq.presentation.activity.MyRequestListActivity;
 
 public class Case_Profile {
@@ -53,24 +54,30 @@ public class Case_Profile {
     public void lanzarHome() {
         Intent i = new Intent(activity, HomeActivity.class);
         activity.startActivity(i);
-        //activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        activity.finish();
+
     }
 
     /** Metodo para entrar en la ventana de mi solicitudes**/
     public void lanzarMyRequest() {
         Intent i = new Intent(activity, MyRequestListActivity.class);
         activity.startActivity(i);
-        //activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        activity.finish();
+
+    }
+
+    /** Metodo para entrar en la ventana de mi solicitudes**/
+    public void lanzarMyOffer() {
+        Intent i = new Intent(activity, MyOfferListActivity.class);
+        activity.startActivity(i);
+
     }
 
     /** Metodo para entrar en la ventana de editar perfil del usurio**/
     public void lanzarEditProfileUser() {
         Intent i = new Intent(activity, EditProfileUserActivity.class);
         activity.startActivity(i);
-        //activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        activity.finish();
+
     }
+
+
 
 }

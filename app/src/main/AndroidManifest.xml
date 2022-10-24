@@ -17,14 +17,13 @@
             android:name=".CreateRequestActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.activity.DetailOfferTravelActivity"
             android:name=".presentation.activity.MyOfferListActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.MyRequestListActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailOfferTravelActivity"
+            android:name=".presentation.activity.DetailOfferTravelActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.EditProfileUserActivity"

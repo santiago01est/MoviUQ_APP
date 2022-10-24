@@ -5,7 +5,7 @@ import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,14 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.presentation.activity.MainActivity;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
-import com.uniquindio.moviuq.provider.notificacion.MyFirebaseMessagingService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
@@ -33,9 +29,10 @@ import com.google.firebase.firestore.Query;
 
 public class ProfileImpl implements ProfileService{
 
-    private Case_Profile case_createProfile;
+
     private Case_User case_user;
     private FirebaseUser userSession;
+    private Case_Profile case_createProfile;
 
 
     /** Metodo CrearPerfil
@@ -140,13 +137,14 @@ public class ProfileImpl implements ProfileService{
             Toast.makeText(activity, "No puedes actualizar con campos vacios", Toast.LENGTH_SHORT).show();
         } else{
             userSession= FirebaseAuthService.getAuth().getCurrentUser();
-            String email= userSession.getEmail();
+            String email= DataLocal.getUser().getMail();
             DocumentReference userUpdate = FirebaseCFDBService.getBD().collection("user").document(email);
             userUpdate.update("name", name);
             userUpdate.update("last_name", lastName);
             userUpdate.update("phoneNumber", Long.parseLong(numberPhone));
             userUpdate.update("city", Integer.parseInt(city));
             userUpdate.update("years", Integer.parseInt(years));
+            obtenerToken(email);
         }
 
 

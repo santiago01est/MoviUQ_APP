@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -20,6 +22,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
 import com.uniquindio.moviuq.use_case.Case_User;
@@ -28,12 +31,10 @@ public class EditProfileUserActivity extends AppCompatActivity {
 
     private Case_Profile case_profile;
     private Case_User case_user;
-    private TextInputLayout txil_name_editProfileUser, txil_lastName_editProfileUser, txil_city_editProfileUser,
+    private TextInputEditText txil_name_editProfileUser, txil_lastName_editProfileUser, txil_city_editProfileUser,
             txil_numberPhone_editProfileUser, txil_years_editProfileUser;
-    private TextInputEditText txiet_name_editProfileUser, txiet_lastName_editProfileUser, txiet_city_editProfileUser,
-            txiet_numberPhone_editProfileUser, txiet_years_editProfileUser;
     private Button btn_actualizarPerfil;
-    private String name, lastName, numberPhone, city, years;
+    private ImageView photoUser;
     private User user;
 
     @Override
@@ -44,24 +45,27 @@ public class EditProfileUserActivity extends AppCompatActivity {
         /** USE CASE **/
         case_profile= new Case_Profile(this);
         case_user= new Case_User(this);
+        user=DataLocal.getUser();
 
         /** REFERENCE ELEMETS**/
-        txil_name_editProfileUser= findViewById(R.id.txil_name_editProfileUser);
-        txil_lastName_editProfileUser= findViewById(R.id.txil_lastName_editProfileUser);
-        txil_numberPhone_editProfileUser= findViewById(R.id.txil_numberPhone_editProfileUser);
-        txil_city_editProfileUser= findViewById(R.id.txil_city_editProfileUser);
-        txil_years_editProfileUser= findViewById(R.id.txil_years_editProfileUser);
+        txil_name_editProfileUser= findViewById(R.id.txiet_name_editProfileUser);
+        txil_lastName_editProfileUser= findViewById(R.id.txiet_lastName_editProfileUser);
+        txil_numberPhone_editProfileUser= findViewById(R.id.txiet_numberPhone_editProfileUser);
+        txil_city_editProfileUser= findViewById(R.id.txiet_city_editProfileUser);
+        txil_years_editProfileUser= findViewById(R.id.txiet_years_editProfileUser);
+        photoUser=findViewById(R.id.shiv_photoProfileUser);
 
-        txiet_name_editProfileUser= findViewById(R.id.txiet_name_editProfileUser);
-        txiet_lastName_editProfileUser= findViewById(R.id.txiet_lastName_editProfileUser);
-        txiet_numberPhone_editProfileUser= findViewById(R.id.txiet_numberPhone_editProfileUser);
-        txiet_city_editProfileUser= findViewById(R.id.txiet_city_editProfileUser);
-        txiet_years_editProfileUser= findViewById(R.id.txiet_years_editProfileUser);
+
+
+
+
 
         btn_actualizarPerfil= findViewById(R.id.btn_actualizarPerfil);
 
 
+        /** Obtener datos del usuario en sesion**/
         updateDate();
+
         /** Funcionalidad que se acciona en el diseño de edit_profile_user_activity,
          *  se obtienen los datos que se quieren editar del perfil ingresados en los campos de texto y
          *  se llama el caso de uso con el metodo correspondiente a dicha funcionalidad
@@ -69,13 +73,13 @@ public class EditProfileUserActivity extends AppCompatActivity {
         btn_actualizarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name=txiet_name_editProfileUser.getText().toString();
-                lastName=txiet_lastName_editProfileUser.getText().toString();
-                numberPhone=txiet_numberPhone_editProfileUser.getText().toString();
-                city=txiet_city_editProfileUser.getText().toString();
-                years=txiet_years_editProfileUser.getText().toString();
+                String name=txil_name_editProfileUser.getText().toString();
+                String lastName=txil_lastName_editProfileUser.getText().toString();
+                String numberPhone=txil_numberPhone_editProfileUser.getText().toString();
+                String city=txil_city_editProfileUser.getText().toString();
+                String years=txil_years_editProfileUser.getText().toString();
                 case_profile.updateInformation(name, lastName, numberPhone, city, years);
-                updateDate();
+
 
             }
         });
@@ -89,17 +93,15 @@ public class EditProfileUserActivity extends AppCompatActivity {
      *
      **/
     public void updateDate(){
-        DocumentReference docRef = FirebaseCFDBService.getBD().collection("user").document(case_user.getEmailUser());
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                user = documentSnapshot.toObject(User.class);
-                txil_name_editProfileUser.setHint(user.getName());
-                txil_lastName_editProfileUser.setHint(user.getLast_name());
-                txil_numberPhone_editProfileUser.setHint(""+user.getPhoneNumber());
-                txil_city_editProfileUser.setHint(""+user.getCity());
-                txil_years_editProfileUser.setHint(""+user.getYears());
-            }
-        });
+                txil_name_editProfileUser.setText(user.getName());
+                txil_lastName_editProfileUser.setText(user.getLast_name());
+                txil_numberPhone_editProfileUser.setText(String.valueOf(user.getPhoneNumber()));
+                txil_city_editProfileUser.setText(user.getCity());
+                txil_years_editProfileUser.setText(String.valueOf(user.getYears()));
+                /** Get photo**/
+                Glide.with(this )
+                        .load(DataLocal.getUser().getPhoto())
+                        .into(photoUser);
+
     }
 }
