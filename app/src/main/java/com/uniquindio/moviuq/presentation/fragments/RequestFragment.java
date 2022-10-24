@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Notification;
@@ -24,8 +27,12 @@ import com.uniquindio.moviuq.use_case.Case_Request;
 
 public class RequestFragment extends Fragment{
 
+    /** Elementos UI**/
     private View view;
     private RecyclerView recyclerView;
+    private CollapsingToolbarLayout collap;
+    private FloatingActionButton create;
+
     private Case_Request case_request;
     private AdapterFireRequest adapterFireRequest;
 
@@ -53,6 +60,8 @@ public class RequestFragment extends Fragment{
         // Inflate the layout for this fragment
         case_request= new Case_Request(getActivity());
         view = inflater.inflate(R.layout.fragment_request, container, false);
+        collap=view.findViewById(R.id.collapsing_request);
+        create=view.findViewById(R.id.floating_add_request);
         recyclerView = view.findViewById(R.id.recycler_requests);
 
 
@@ -65,6 +74,37 @@ public class RequestFragment extends Fragment{
         adapterFireRequest = new AdapterFireRequest(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireRequest);
         adapterFireRequest.notifyDataSetChanged();
+
+        /** Mecanismo collapsing para fijar nombre en la toolbar**/
+
+        AppBarLayout appBarLayout = view.findViewById(R.id.appbar_request);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = true;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collap.setTitle("Solicitudes");
+                    collap.setCollapsedTitleTextAppearance(R.style.ExpandedAppBar);
+                    isShow = true;
+                } else if (isShow) {
+                    collap.setTitle(" ");
+
+                    isShow = false;
+                }
+            }
+        });
+
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                case_request.lanzarCreateRequest();
+            }
+        });
         return view;
 
     }

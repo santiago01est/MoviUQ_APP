@@ -102,6 +102,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_offer);
 
+        /** Inicialiazar Datos**/
         case_offer = new Case_Offer(this);
         placeTo=new MyPlace();
         placeFrom=new MyPlace();

@@ -75,6 +75,7 @@
 
     <!-- Request -->
     <string name="Requests">Solicitudes</string>
+    <string name="Requests_title">Crea Solicitud</string>
 
     <!-- Profile -->
     <string name="Perfil">Perfil</string>
@@ -95,8 +96,6 @@
     <string name="creat_detail_offer_see_map">Visualiza el mapa</string>
     <string name="creat_detail_offer_bttn">Contratar</string>
     <string name="creat_detail_offer_no_conditions">No hay Condiciones de viaje</string>
-
-
 
 
     <string name="IdClient">718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com</string>
