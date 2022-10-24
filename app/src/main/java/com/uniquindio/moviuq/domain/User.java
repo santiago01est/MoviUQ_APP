@@ -12,12 +12,13 @@ public class User implements Serializable {
     private long phoneNumber;
     private int years;
     private String city;
+    private String token;
 
 
     public User() {
     }
 
-    public User(String name, String last_name, String photo, String mail, long phoneNumber, int years, String city) {
+    public User(String name, String last_name, String photo, String mail, long phoneNumber, int years, String city, String token) {
         this.name = name;
         this.last_name = last_name;
         this.photo = photo;
@@ -25,7 +26,16 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
         this.years = years;
         this.city = city;
+        this.token=token;
 
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getName() {

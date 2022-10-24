@@ -2,22 +2,43 @@ package com.uniquindio.moviuq.presentation.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
+import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
+import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Notification;
 
 
 public class HomeFragment extends Fragment {
 
+    /**
+     * Elementos UI
+     **/
     private ImageButton notification;
+    private ImageView imgv_photo_user;
+    private TextView txv_nameUser;
+
+    /**
+     * Casos de uso
+     **/
     private Case_Notification case_notification;
 
     public HomeFragment() {
@@ -43,10 +64,15 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root=inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        case_notification=new Case_Notification(getActivity());
-        notification=root.findViewById(R.id.imgbttn_notification);
+        /** Referencias **/
+        imgv_photo_user = root.findViewById(R.id.imageView_photoUser);
+        txv_nameUser = root.findViewById(R.id.txv_name_user);
+
+
+        case_notification = new Case_Notification(getActivity());
+        notification = root.findViewById(R.id.imgbttn_notification);
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,32 +80,39 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        /** Mecanismo del estado del appBar**/
-        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) root.findViewById(R.id.collapsingHome);
-        AppBarLayout appBarLayout = (AppBarLayout) root.findViewById(R.id.appbarHome);
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = true;
-            int scrollRange = -1;
 
+
+        /**  Load UI*/
+        loadData();
+
+        return root;
+    }
+
+    private void loadData() {
+
+        FirebaseUser usersesion = FirebaseAuthService.getAuth().getCurrentUser();
+        FirebaseCFDBService.getBD().collection("user").document(usersesion.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbarLayout.setTitle("Buenos dias, Santiago");
-                    collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.ExpandedAppBar);
-                    // toolbar.setBackgroundColor((Color.parseColor("#5F0F40")));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbarLayout.setTitle(" ");
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                if (documentSnapshot.exists()) {
 
-                    isShow = false;
+                    User user = documentSnapshot.toObject(User.class);
+                    //updateToken(user);
+                    DataLocal.setUser(user);
+                    txv_nameUser.setText(user.getName());
+                    /** Mediante glide se busca la photo de perfil
+                     * que esta subida en Cloud Store**/
+                    Glide.with(getActivity() )
+                            .load(DataLocal.getUser().getPhoto())
+                            .into(imgv_photo_user);
+
                 }
             }
         });
 
-        return root;
+
+
+
     }
 
 

@@ -1,5 +1,7 @@
 package com.uniquindio.moviuq.data;
 
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
@@ -16,8 +18,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.presentation.activity.MainActivity;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
+import com.uniquindio.moviuq.provider.notificacion.MyFirebaseMessagingService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
@@ -48,14 +55,15 @@ public class ProfileImpl implements ProfileService{
         //Se obtiene al usuario en sesion activa
         userSession= FirebaseAuthService.getAuth().getCurrentUser();
         String email= userSession.getEmail();
-        User user= new User(name, last_name, photo, email, phoneNumber, years, city);
+        User user= new User(name, last_name, photo, email, phoneNumber, years, city,"");
 
-        /*Se obtiene la coleccion del usuario con dicho email para setearle los datos ingresados en la creacion de perfil,
+        /**Se obtiene la coleccion del usuario con dicho email para setearle los datos ingresados en la creacion de perfil,
           ademas se utiliza un listener para comprobar si hubo algun error durante el proceso de creacion de perfil
          */
         FirebaseCFDBService.getBD().collection("user").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
+                obtenerToken(email);
                 case_createProfile.lanzarHome();
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -67,8 +75,41 @@ public class ProfileImpl implements ProfileService{
             }
         });
 
-
     }
+
+    /** Metodo de la documentación de google
+     * para obtener un token unico para cada usuario**/
+    private void obtenerToken(String email) {
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+                        DocumentReference userUpdate = FirebaseCFDBService.getBD().collection("user").document(email);
+                        userUpdate.update("token", token);
+                        // Log and toast
+
+                        Log.d(TAG, token);
+                        //Toast.makeText(HomeActivity.this, token, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+
+
+
+
+
+
+
 
     @Override
     public void logOutFromProfile(Activity activity) {

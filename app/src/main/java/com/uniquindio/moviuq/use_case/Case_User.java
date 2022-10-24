@@ -18,6 +18,10 @@ public class Case_User  {
         return userService.getEmailUser();
     }
 
+    public void getUser(){
+        userService.getUser();
+    }
+
 
 
 

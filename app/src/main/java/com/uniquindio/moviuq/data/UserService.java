@@ -11,6 +11,6 @@ public interface UserService {
 
     String getEmailUser();
 
-    void getUser(String email);
+    void getUser();
 
 }

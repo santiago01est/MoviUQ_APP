@@ -1,4 +1,4 @@
-package com.uniquindio.moviuq;
+package com.uniquindio.moviuq.presentation.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
+
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -18,10 +20,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Condition;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.Offer;
 import com.uniquindio.moviuq.domain.VehicleType;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.maps.myMapFragment;
 import com.uniquindio.moviuq.use_case.Case_User;
 
@@ -43,6 +47,7 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
     private LinearLayout contenedor_main_conditions;
     private ImageView photoUser;
     private Toolbar toolbar;
+    private ImageView imgv_photoUser;
 
 
     /** Objets**/
@@ -96,14 +101,17 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
     private void setupData(Offer offer) {
 
         txv_title.setText(offer.getTitle());
-        txv_nameUser.setText(emailUser);
-        //cargar photo user
+        txv_nameUser.setText(offer.getNameUser());
         txv_desc.setText(offer.getDescription());
         VehicleType vehicleType=offer.getVehicleType();
         txv_vehicle.setText("Vehículo: "+ vehicleType.tostring(vehicleType));
         txv_seats.setText("Cupos: "+offer.getSeats());
         txv_date.setText("Fecha: "+offer.getDateTravel());
         txv_hour.setText("Hora: "+offer.getHourTravel());
+        Glide.with(this )
+                .load(offer.getPhotoUser())
+                .into(imgv_photoUser);
+
         setupConditions(offer.getMyConditions());
         setupMap();
 
@@ -157,6 +165,7 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         contenedor_main_conditions=findViewById(R.id.contenedor_main_column);
         photoUser=findViewById(R.id.imageView_photo_user);
         toolbar=findViewById(R.id.toolbar_detail_offer);
+        imgv_photoUser=findViewById(R.id.imageView_photo_user);
     }
 
 

@@ -1,9 +1,13 @@
 package com.uniquindio.moviuq.data;
 
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
 import android.app.Activity;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -12,8 +16,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
+import com.uniquindio.moviuq.provider.notificacion.MyFirebaseMessagingService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Log;
@@ -27,15 +37,81 @@ public class UserImpl  implements UserService {
 
 
     @Override
-    public void getUser(String email) {
-        DocumentReference docRef = FirebaseCFDBService.getBD().collection("user").document(email);
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                User user = documentSnapshot.toObject(User.class);
+    public void getUser() {
 
-            }
-        });
+
+            FirebaseUser usersesion = FirebaseAuthService.getAuth().getCurrentUser();
+            FirebaseCFDBService.getBD().collection("user").document(usersesion.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                    if(documentSnapshot.exists()){
+
+                        User user = documentSnapshot.toObject(User.class);
+                        updateToken(user);
+                        DataLocal.setUser(user);
+
+                    }
+                }
+            });
+
+
+
+    }
+
+    private void updateToken(User user) {
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+                        DocumentReference userUpdate = FirebaseCFDBService.getBD().collection("users").document(user.getMail());
+                        userUpdate.update("token", token);
+                        // Log and toast
+
+                        user.setToken(token);
+                        DataLocal.setUser(user);
+                        DataLocal.setToken(token);
+                        Log.d("updatetokenhomeactivi",token);
+                        MyFirebaseMessagingService mfms=new MyFirebaseMessagingService();
+                        mfms.onNewToken(token);
+                        updateTokenGlobal(token, user);
+
+                    }
+                });
+    }
+
+
+
+    private void updateTokenGlobal(String token, User user) {
+
+        FirebaseCFDBService.getBD().collection("offers").whereEqualTo("idUser", user.getMail()).
+                get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            /** recolectar lista de ids*/
+                            for (QueryDocumentSnapshot query : task.getResult()) {
+
+                                DocumentReference offerUpdate = FirebaseCFDBService.getBD().collection("offers").document((String) query.get("id"));
+                                offerUpdate.update("token", token);
+
+                            }
+                        }
+
+
+                    }
+
+                });
+
+
     }
 
     @Override
