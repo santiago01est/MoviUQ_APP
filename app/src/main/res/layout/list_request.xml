@@ -63,9 +63,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
-                android:layout_toStartOf="@+id/imgbttn_three_point"
                 android:layout_toEndOf="@id/ly_photoName"
-                android:layout_alignBottom="@+id/contenedor_request"
                 android:layout_weight="1"
                 android:orientation="vertical">
 

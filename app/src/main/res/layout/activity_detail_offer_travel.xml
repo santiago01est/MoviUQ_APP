@@ -195,7 +195,7 @@
 
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_info"
                     style="@style/FontsMediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -294,7 +294,7 @@
 
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_condition"
                     style="@style/FontsMediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -308,7 +308,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_no_condi"
                     style="@style/FontsLittle_MediumText"
                     android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
@@ -319,7 +319,7 @@
             </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/contenedor_main_column"
+                    android:id="@+id/contenedor_main_column2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
@@ -420,7 +420,7 @@
 
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_see_map"
                     style="@style/FontsMediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
