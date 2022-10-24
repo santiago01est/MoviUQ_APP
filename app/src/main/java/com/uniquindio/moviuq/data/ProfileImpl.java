@@ -144,7 +144,7 @@ public class ProfileImpl implements ProfileService{
             userUpdate.update("phoneNumber", Long.parseLong(numberPhone));
             userUpdate.update("city", Integer.parseInt(city));
             userUpdate.update("years", Integer.parseInt(years));
-            obtenerToken(email);
+            //obtenerToken(email);
         }
 
 
