@@ -451,6 +451,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <Button
+        android:id="@+id/bttn_contratar"
         style="@style/Widget.Material3.Button.ElevatedButton.Icon"
         android:layout_width="match_parent"
         android:layout_height="70dp"

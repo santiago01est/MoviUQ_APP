@@ -5,6 +5,7 @@ import androidx.core.widget.NestedScrollView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,9 +25,11 @@ import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Condition;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.Offer;
+import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.maps.myMapFragment;
+import com.uniquindio.moviuq.use_case.Case_Notification;
 import com.uniquindio.moviuq.use_case.Case_User;
 
 import java.util.List;
@@ -48,17 +51,20 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
     private ImageView photoUser;
     private Toolbar toolbar;
     private ImageView imgv_photoUser;
+    private Button bttn_contratar;
 
 
     /** Objets**/
     private Offer offer;
     private String emailUser;
+    private User user;
     private GoogleMap mMap;
     private Marker mMarkerTo = null;
     private Marker mMarkerFrom = null;
 
     /** Case use**/
     Case_User case_user;
+    Case_Notification case_notification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +85,21 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
             }
         });
 
+        bttn_contratar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                case_notification.enviarNotificacionContratacion(offer.getToken(),user.getName()+" "+user.getLast_name(),offer.getNameUser());
+            }
+        });
+
     }
 
     private void init(){
         case_user= new Case_User(this);
+        case_notification=new Case_Notification(this);
         emailUser=case_user.getEmailUser();
+        user=DataLocal.getUser();
 
     }
 
@@ -166,6 +182,7 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         photoUser=findViewById(R.id.imageView_photo_user);
         toolbar=findViewById(R.id.toolbar_detail_offer);
         imgv_photoUser=findViewById(R.id.imageView_photo_user);
+        bttn_contratar=findViewById(R.id.bttn_contratar);
     }
 
 
