@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "718670393638-qm3j5271uq2a446tfjmeubtn9nvgm4fd.apps.googleusercontent.com",
+          "client_id": "718670393638-rqlbu93nj6da86mvqvkoqh41ro6cs5oh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.uniquindio.moviuq",
@@ -35,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com",
+              "client_id": "718670393638-rqlbu93nj6da86mvqvkoqh41ro6cs5oh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
