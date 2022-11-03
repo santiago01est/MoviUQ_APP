@@ -29,7 +29,7 @@
             android:layout_width="86dp"
             android:layout_height="86dp"
             android:layout_marginTop="47dp"
-            android:src="@drawable/ic_user"
+            app:srcCompat="@drawable/ic_user"
             app:strokeWidth="1dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:alpha="0.5"
                 android:scaleType="centerCrop"
-                android:src="@drawable/contenedor_gradient"
+                app:srcCompat="@drawable/contenedor_gradient"
                 app:shapeAppearanceOverlay="@style/roundedImageViewRounded2"
                 tools:ignore="ImageContrastCheck"
                 />
@@ -94,7 +94,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_list"
+                                app:srcCompat="@drawable/ic_list"
                                 android:layout_gravity="center" />
 
                         </FrameLayout>
@@ -116,7 +116,7 @@
                             android:layout_marginLeft="78dp"
                             android:layout_marginRight="49dp"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/ic_arrow_next"
+                            app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     </LinearLayout>
@@ -138,7 +138,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_list" />
+                                app:srcCompat="@drawable/ic_list" />
 
                         </FrameLayout>
 
@@ -159,7 +159,7 @@
                             android:layout_marginLeft="78dp"
                             android:layout_marginRight="49dp"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/ic_arrow_next"
+                            app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     </LinearLayout>
@@ -181,7 +181,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_edit_some"
+                                app:srcCompat="@drawable/ic_edit_some"
                                 tools:ignore="ImageContrastCheck" />
 
                         </FrameLayout>
@@ -203,7 +203,7 @@
                             android:layout_marginLeft="78dp"
                             android:layout_marginRight="49dp"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/ic_arrow_next"
+                            app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     </LinearLayout>
@@ -211,7 +211,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/line_color_u"
+                        app:srcCompat="@drawable/line_color_u"
                         android:layout_margin="34dp"/>
 
                     <LinearLayout
@@ -229,7 +229,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_contact_us"
+                                app:srcCompat="@drawable/ic_contact_us"
                                 android:layout_gravity="center" />
 
                         </FrameLayout>
@@ -251,7 +251,7 @@
                             android:layout_marginLeft="78dp"
                             android:layout_marginRight="49dp"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/ic_arrow_next"
+                            app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     </LinearLayout>
@@ -272,7 +272,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_exit"
+                                app:srcCompat="@drawable/ic_exit"
                                 android:layout_gravity="center" />
 
                         </FrameLayout>
@@ -294,7 +294,7 @@
                             android:layout_marginLeft="78dp"
                             android:layout_marginRight="49dp"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/ic_arrow_next"
+                            app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                     </LinearLayout>

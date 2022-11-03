@@ -68,7 +68,7 @@
                         android:layout_height="50dp"
                         android:layout_margin="20dp"
                         android:background="@android:color/transparent"
-                        android:src="@drawable/ic_notification"
+                        app:srcCompat="@drawable/ic_notification"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="SpeakableTextPresentCheck" />
@@ -139,7 +139,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:contentDescription="@string/MoviUQ"
-        android:src="@drawable/ic_add"
+        app:srcCompat="@drawable/ic_add"
         app:elevation="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -30,7 +30,7 @@
                 android:layout_height="70dp"
                 android:background="@drawable/circle_drawable"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_user"
+                app:srcCompat="@drawable/ic_user"
                 app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
                 app:strokeColor="@color/green_main" />
 
@@ -72,7 +72,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_points_edit"
+                app:srcCompat="@drawable/ic_points_edit"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </RelativeLayout>

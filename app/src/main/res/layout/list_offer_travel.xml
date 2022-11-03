@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_place01" />
+                    app:srcCompat="@drawable/img_place01" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -110,7 +110,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_motor"
+                app:srcCompat="@drawable/ic_motor"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/contenedor_log"
+        app:srcCompat="@drawable/contenedor_log"
         android:scaleType="centerCrop"
         tools:ignore="ImageContrastCheck">
 
@@ -18,7 +18,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/back_login"
+        app:srcCompat="@drawable/back_login"
         android:scaleType="centerCrop"
         android:alpha="0.5"
         tools:ignore="ImageContrastCheck">

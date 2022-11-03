@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/back_login"
+        app:srcCompat="@drawable/back_login"
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:alpha="0.5"
         android:scaleType="centerCrop"
-        android:src="@drawable/contenedor_gradient"
+        app:srcCompat="@drawable/contenedor_gradient"
         tools:ignore="ImageContrastCheck"/>
 
     <androidx.core.widget.NestedScrollView
@@ -36,7 +36,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_arrow_back"
+                app:srcCompat="@drawable/ic_arrow_back"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
