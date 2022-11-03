@@ -32,6 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/back_img_home">
 
                 </ImageView>
@@ -102,12 +103,12 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mis viajes" />
+                android:text="@string/mis_viajes" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mis ofertas" />
+                android:text="@string/mis_ofertas" />
 
 
         </com.google.android.material.tabs.TabLayout>
@@ -116,7 +117,7 @@
             android:id="@+id/viewPage_MyOfferList_MyTravelList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="No se que es esto"
+            android:contentDescription="@string/todo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tab_info" />

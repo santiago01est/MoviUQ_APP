@@ -36,7 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/img_place01" />
+                    app:srcCompat="@drawable/img_place01"
+                    android:contentDescription="@string/todo"/>
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -58,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:text="DE - A"
+                    android:text="@string/de_a"
                     android:textAlignment="inherit"
                     android:textColor="@color/white" />
 
@@ -69,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="Date"
+                    android:text="@string/date"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_calendar" />
 
@@ -80,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="Hour"
+                    android:text="@string/hour"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_hour" />
 
@@ -91,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="Seats"
+                    android:text="@string/seats"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_seat" />
 
@@ -111,6 +112,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_motor"
+                android:contentDescription="@string/todo"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>

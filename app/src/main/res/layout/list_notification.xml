@@ -50,7 +50,7 @@
                     style="@style/FontsLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Modificar texto"
+                    android:text="@string/modificar_texto"
                     android:textAlignment="gravity" />
 
                 <TextView
@@ -59,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Fecha" />
+                    android:text="@string/fecha" />
 
 
             </LinearLayout>
@@ -73,7 +73,8 @@
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_points_edit"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                android:contentDescription="@string/todo"/>
         </RelativeLayout>
     </LinearLayout>
 

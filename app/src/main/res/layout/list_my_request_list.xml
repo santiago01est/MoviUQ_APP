@@ -50,7 +50,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:text="DE - A"
+                    android:text="@string/de_a"
                     android:textAlignment="inherit"
                     android:textColor="@color/white" />
 
@@ -84,7 +84,7 @@
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
                     android:gravity="center"
-                    android:text="Date"
+                    android:text="@string/date"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_calendar" />
 
@@ -96,7 +96,7 @@
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
                     android:gravity="center"
-                    android:text="Hour"
+                    android:text="@string/hour"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_hour" />
 
@@ -108,7 +108,7 @@
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
                     android:gravity="center"
-                    android:text="Seats"
+                    android:text="@string/seats"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_seat" />
 
@@ -124,7 +124,8 @@
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/ic_points_edit"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                android:contentDescription="@string/todo"/>
 
             <TextView
                 android:id="@+id/txv_mrl_status"
@@ -136,7 +137,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Estado"
+                android:text="@string/estado"
                 app:drawableRightCompat="@drawable/ic_status" />
 
 

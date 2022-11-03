@@ -11,7 +11,8 @@
         android:layout_height="match_parent"
         app:srcCompat="@drawable/contenedor_log"
         android:scaleType="centerCrop"
-        tools:ignore="ImageContrastCheck">
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo">
 
     </ImageView>
 
@@ -21,7 +22,8 @@
         app:srcCompat="@drawable/back_login"
         android:scaleType="centerCrop"
         android:alpha="0.5"
-        tools:ignore="ImageContrastCheck">
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo">
 
     </ImageView>
 
@@ -180,7 +182,6 @@
                     android:fontFamily="@font/berlin_sans_demi_bold"
                     android:text="@string/sig_btn_registrar"
                     android:textColor="@color/white"
-                    android:onClick="signUser"
                     android:textSize="18sp"
                     app:backgroundTint="@color/bttn_02"
                     app:cornerRadius="22dp"

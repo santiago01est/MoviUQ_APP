@@ -26,7 +26,8 @@
                 app:srcCompat="@drawable/ic_arrow_back"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:contentDescription="@string/todo"/>
 
             <TextView
                 android:id="@+id/txv_MyRequestLists"

@@ -39,8 +39,8 @@
                     android:layout_gravity="center"
                     android:background="@drawable/circle_drawable"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/ic_user"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    app:srcCompat="@drawable/ic_user"
                     app:strokeColor="@color/green_main" />
 
                 <TextView
@@ -51,7 +51,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -71,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:text="DE - A"
+                    android:text="@string/de_a"
                     android:textAlignment="inherit"
                     android:textColor="@color/white" />
 
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="Date"
+                    android:text="@string/date"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_calendar" />
 
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="Hour"
+                    android:text="@string/hour"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_hour" />
 
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="Seats"
+                    android:text="@string/seats"
                     android:textColor="@color/white"
                     app:drawableLeftCompat="@drawable/ic_seat" />
 
@@ -118,8 +118,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_points_edit"
+                android:contentDescription="@string/todo"
                 app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_points_edit"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </LinearLayout>

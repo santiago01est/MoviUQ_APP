@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class SignActivity extends AppCompatActivity {
     Case_Sign case_sign;
     TextInputEditText sign_email, sign_pass, sign_pass_confirmar;
     private ProgressBar progressBar;
+    private Button sign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +34,26 @@ public class SignActivity extends AppCompatActivity {
         sign_pass=findViewById(R.id.sign_password);
         sign_pass_confirmar=findViewById(R.id.sign_confirm_password);
         progressBar = findViewById(R.id.progressBar_sign);
-    }
+        sign = findViewById(R.id.btn_login_iniciar);
+        sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(sign_pass.getText().toString().equals(sign_pass_confirmar.getText().toString())){
+                    if(sign_pass.getText().toString().length()<6){
+                        Toast.makeText(SignActivity.this, "La contraseña debe tener minimo 8 caracteres", Toast.LENGTH_SHORT).show();
+                    }else{
+                        case_sign.sign_user(sign_email.getText().toString(), sign_pass.getText().toString());
+                        progressBar.setVisibility(View.VISIBLE);
+                    }
 
-
-
-    public void signUser(View view){
-
-
-        if(sign_pass.getText().toString().equals(sign_pass_confirmar.getText().toString())){
-            if(sign_pass.getText().toString().length()<6){
-                Toast.makeText(this, "La contraseña debe tener minimo 8 caracteres", Toast.LENGTH_SHORT).show();
-            }else{
-                case_sign.sign_user(sign_email.getText().toString(), sign_pass.getText().toString());
-                progressBar.setVisibility(View.VISIBLE);
+                }else{
+                    Toast.makeText(SignActivity.this, "Vuelve a escribir tu contraseña", Toast.LENGTH_SHORT).show();
+                }
             }
-
-        }else{
-            Toast.makeText(this, "Vuelve a escribir tu contraseña", Toast.LENGTH_SHORT).show();
-        }
-
+        });
     }
+
+
+
+
 }

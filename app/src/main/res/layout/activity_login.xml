@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:src="@drawable/contenedor_log"
         android:scaleType="centerCrop"
-        tools:ignore="ImageContrastCheck">
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo">
 
     </ImageView>
 
@@ -22,7 +23,8 @@
         android:src="@drawable/back_login"
         android:scaleType="centerCrop"
         android:alpha="0.5"
-        tools:ignore="ImageContrastCheck">
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo">
 
     </ImageView>
 
@@ -169,7 +171,6 @@
                     android:fontFamily="@font/berlin_sans_demi_bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:onClick="loginUser"
                     app:cornerRadius="22dp"
                     app:elevation="50dp"
                     app:rippleColor="@color/green_main"
@@ -209,7 +210,6 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/MoviUQ"
                 android:elevation="35dp"
-                android:onClick="googleIniciarSesionUsuario"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
