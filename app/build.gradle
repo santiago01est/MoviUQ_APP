@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdk 32
 
-        lintOptions {
+    lintOptions {
             baseline file("lint-baseline.xml")
         }
 

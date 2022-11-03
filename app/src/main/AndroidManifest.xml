@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoviUq"
-        tools:targetApi="s">
+        tools:targetApi="s_v2">
         <activity
             android:name=".CreateRequestActivity"
             android:exported="false" />
