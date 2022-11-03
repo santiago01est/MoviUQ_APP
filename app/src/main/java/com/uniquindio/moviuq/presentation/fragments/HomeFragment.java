@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -89,8 +90,9 @@ public class HomeFragment extends Fragment {
         txv_nameUser = root.findViewById(R.id.txv_name_user);
         searchView= root.findViewById(R.id.search_travel);
         search_offer=root.findViewById(R.id.recycler_search_travel);
-        search_offer.setLayoutManager(new GridLayoutManager(getContext(),3));
+        search_offer.setLayoutManager(new LinearLayoutManager(getContext()));
         search_offer.getItemAnimator().setChangeDuration(0);
+
 
         case_notification = new Case_Notification(getActivity());
         case_user=new Case_User(getActivity());
@@ -131,7 +133,7 @@ public class HomeFragment extends Fragment {
 
     private void textSearch(String s) {
         Query query= FirebaseCFDBService.getBD().collection("offers");
-        FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query.orderBy("title").startAt(s).endAt(s+"~"), Offer.class).build();
+        FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
         adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions,getContext());
         search_offer.setAdapter(adapterFireOffer);
         adapterFireOffer.notifyDataSetChanged();
