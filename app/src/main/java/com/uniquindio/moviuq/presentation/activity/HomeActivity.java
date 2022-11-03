@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         getUserGlobal();
 
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
-        BottomNavigationView menu=findViewById(R.id.bottomNavigationView);
+
 
         replaceFragments(new HomeFragment().newInstance());
         bottomNavigationView.setOnItemSelectedListener(item -> {
