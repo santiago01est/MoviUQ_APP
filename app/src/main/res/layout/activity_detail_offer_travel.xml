@@ -224,7 +224,6 @@
                             android:layout_marginTop="8dp"
                             android:drawableLeft="@drawable/ic_car"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
                             android:text="@string/creat_detail_offer_type_vehicle"
                             android:textAlignment="textStart" />
 
@@ -236,9 +235,8 @@
                             android:layout_marginTop="12dp"
                             android:drawableLeft="@drawable/ic_seat"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
-                            android:text="@string/creat_detail_offer_seats"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            android:text="@string/creat_detail_offer_seats" />
 
 
                     </LinearLayout>
@@ -259,7 +257,6 @@
                             android:layout_marginTop="8dp"
                             android:drawableLeft="@drawable/ic_calendar"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
                             android:text="@string/creat_detail_offer_date"
                             android:textAlignment="textStart" />
 
@@ -271,7 +268,6 @@
                             android:layout_marginTop="12dp"
                             android:drawableLeft="@drawable/ic_hour"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
                             android:text="@string/creat_detail_offer_hour"
                             android:textAlignment="textStart" />
 
