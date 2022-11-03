@@ -90,10 +90,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/ic_seat"
                     android:drawablePadding="20dp"
                     android:text="Seats"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    app:drawableLeftCompat="@drawable/ic_seat" />
 
 
             </LinearLayout>
