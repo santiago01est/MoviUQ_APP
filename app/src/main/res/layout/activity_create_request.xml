@@ -136,7 +136,6 @@
                             android:cursorVisible="false"
                             android:hint="@string/creat_offer_number_hint_seats"
                             android:inputType="number"
-                            android:outlineAmbientShadowColor="@color/green"
                             android:textAlignment="center"
                             android:textColor="@color/letra_02"
                             android:textColorHint="@color/letra_02"
