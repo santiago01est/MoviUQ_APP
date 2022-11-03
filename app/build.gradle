@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     lintOptions {
             baseline file("lint-baseline.xml")
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "com.uniquindio.moviuq"
         minSdk 19
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
