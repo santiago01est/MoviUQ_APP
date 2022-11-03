@@ -44,7 +44,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|left"
+                        android:layout_gravity="bottom|start"
                         android:layout_margin="14dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,7 +55,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
-                            android:textSize="42dp"
+                            android:textSize="42sp"
                             android:text="@string/MyOfferList"
                             android:textColor="@color/letra_02" />
 

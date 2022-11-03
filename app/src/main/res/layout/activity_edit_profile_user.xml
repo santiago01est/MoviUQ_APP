@@ -101,7 +101,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="text"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,7 +125,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="text"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -149,7 +149,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="number"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -173,7 +173,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="number"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -197,7 +197,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="number"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -211,7 +211,7 @@
                         android:fontFamily="@font/berlin_sans_regular"
                         android:text="Actualizar Datos"
                         android:textColor="@color/white"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         app:backgroundTint="@color/green_main"
                         app:cornerRadius="22dp"
                         app:rippleColor="@color/green_main" />

@@ -133,7 +133,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:gravity="left"
+                    android:gravity="start"
                     android:text="@string/detail_offer_title" />
 
 
@@ -145,7 +145,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
-                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
                 android:elevation="80dp"
                 app:srcCompat="@drawable/ic_chat"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -222,10 +222,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:drawableLeft="@drawable/ic_car"
                             android:drawablePadding="14dp"
                             android:text="@string/creat_detail_offer_type_vehicle"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            app:drawableLeftCompat="@drawable/ic_car" />
 
                         <TextView
                             android:id="@+id/txv_detail_offer_seats"
@@ -233,10 +233,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:drawableLeft="@drawable/ic_seat"
                             android:drawablePadding="14dp"
                             android:textAlignment="textStart"
-                            android:text="@string/creat_detail_offer_seats" />
+                            android:text="@string/creat_detail_offer_seats"
+                            app:drawableLeftCompat="@drawable/ic_seat" />
 
 
                     </LinearLayout>
@@ -255,10 +255,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:drawableLeft="@drawable/ic_calendar"
                             android:drawablePadding="14dp"
                             android:text="@string/creat_detail_offer_date"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            app:drawableLeftCompat="@drawable/ic_calendar" />
 
                         <TextView
                             android:id="@+id/txv_detail_offer_hour"
@@ -266,10 +266,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:drawableLeft="@drawable/ic_hour"
                             android:drawablePadding="14dp"
                             android:text="@string/creat_detail_offer_hour"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            app:drawableLeftCompat="@drawable/ic_hour" />
 
                     </LinearLayout>
 

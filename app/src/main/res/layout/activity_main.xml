@@ -40,7 +40,6 @@
         android:gravity="center"
         android:text="@string/lema"
         android:textColor="@color/letra_02"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +54,7 @@
         android:gravity="center"
         android:textColor="@color/letra_03"
         android:text="@string/lemasub"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txv_bienvenido" />

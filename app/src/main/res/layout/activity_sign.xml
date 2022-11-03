@@ -89,7 +89,7 @@
                     android:fontFamily="@font/berlin_sans_regular"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/letra_02"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,7 +121,7 @@
                     android:fontFamily="@font/berlin_sans_regular"
                     android:inputType="textPassword"
                     android:textColor="@color/letra_02"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,7 +153,7 @@
                     android:fontFamily="@font/berlin_sans_regular"
                     android:inputType="textPassword"
                     android:textColor="@color/letra_02"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 

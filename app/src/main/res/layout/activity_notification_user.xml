@@ -24,8 +24,6 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout

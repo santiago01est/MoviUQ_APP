@@ -100,21 +100,21 @@
                         </FrameLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginLeft="24dp"
+                            android:layout_marginStart="24dp"
                             style="@style/FontsMediumText"
                             android:textColor="#707070"
-                            android:textSize="18dp"
+                            android:textSize="18sp"
                             android:text="@string/prof_mis_solicitudes"/>
 
                         <ImageButton
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="78dp"
-                            android:layout_marginRight="49dp"
+                            android:layout_marginStart="78dp"
+                            android:layout_marginEnd="49dp"
                             android:background="@android:color/transparent"
                             app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -131,7 +131,7 @@
                         <FrameLayout
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:layout_marginLeft="49dp"
+                            android:layout_marginStart="49dp"
                             android:background="@drawable/circle_drawable3">
 
                             <ImageView
@@ -143,21 +143,21 @@
                         </FrameLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginLeft="24dp"
+                            android:layout_marginStart="24dp"
                             style="@style/FontsMediumText"
                             android:textColor="#707070"
-                            android:textSize="18dp"
+                            android:textSize="18sp"
                             android:text="@string/prof_mis_viajes"/>
 
                         <ImageButton
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="78dp"
-                            android:layout_marginRight="49dp"
+                            android:layout_marginStart="78dp"
+                            android:layout_marginEnd="49dp"
                             android:background="@android:color/transparent"
                             app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -174,7 +174,7 @@
                         <FrameLayout
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:layout_marginLeft="49dp"
+                            android:layout_marginStart="49dp"
                             android:background="@drawable/circle_drawable3">
 
                             <ImageView
@@ -187,21 +187,21 @@
                         </FrameLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginLeft="24dp"
+                            android:layout_marginStart="24dp"
                             style="@style/FontsMediumText"
                             android:textColor="#707070"
-                            android:textSize="18dp"
+                            android:textSize="18sp"
                             android:text="@string/prof_editar_perfil"/>
 
                         <ImageButton
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="78dp"
-                            android:layout_marginRight="49dp"
+                            android:layout_marginStart="78dp"
+                            android:layout_marginEnd="49dp"
                             android:background="@android:color/transparent"
                             app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -223,7 +223,7 @@
                         <FrameLayout
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:layout_marginLeft="49dp"
+                            android:layout_marginStart="49dp"
                             android:background="@drawable/circle_drawable3">
 
                             <ImageView
@@ -235,21 +235,21 @@
                         </FrameLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginLeft="24dp"
+                            android:layout_marginStart="24dp"
                             style="@style/FontsMediumText"
                             android:textColor="#707070"
-                            android:textSize="18dp"
+                            android:textSize="18sp"
                             android:text="@string/prof_contactenos"/>
 
                         <ImageButton
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="78dp"
-                            android:layout_marginRight="49dp"
+                            android:layout_marginStart="78dp"
+                            android:layout_marginEnd="49dp"
                             android:background="@android:color/transparent"
                             app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -266,7 +266,7 @@
                         <FrameLayout
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:layout_marginLeft="49dp"
+                            android:layout_marginStart="49dp"
                             android:background="@drawable/circle_drawable3">
 
                             <ImageView
@@ -278,21 +278,21 @@
                         </FrameLayout>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginLeft="24dp"
+                            android:layout_marginStart="24dp"
                             style="@style/FontsMediumText"
                             android:textColor="#707070"
-                            android:textSize="18dp"
+                            android:textSize="18sp"
                             android:text="@string/prof_cerrar_sesion"/>
 
                         <ImageButton
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="78dp"
-                            android:layout_marginRight="49dp"
+                            android:layout_marginStart="78dp"
+                            android:layout_marginEnd="49dp"
                             android:background="@android:color/transparent"
                             app:srcCompat="@drawable/ic_arrow_next"
                             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
