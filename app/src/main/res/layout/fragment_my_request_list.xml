@@ -30,10 +30,10 @@ tools:context=".presentation.fragments.MyRequestListFragment">
         <TextView
             android:id="@+id/txv_MyRequestLists"
             style="@style/FontsMainTitleRT"
-            android:textSize="48dp"
+            android:textSize="48sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/MyRequestsList"
