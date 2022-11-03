@@ -44,7 +44,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/back_master">
 
 
@@ -155,7 +155,7 @@
                     app:cardCornerRadius="20dp"
                     app:strokeColor="@color/green_main">
 
-                    <fragment
+                    <androidx.fragment.app.FragmentContainerView
 
                         android:id="@+id/fragment_map"
                         android:name="com.uniquindio.moviuq.provider.services.maps.myMapFragment"
@@ -203,7 +203,7 @@
                             style="@style/FontsLittleText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="24dp"
+                            android:layout_marginStart="24dp"
                             android:text="@string/creat_offer_type_vehicle_moto"
                             android:textColor="@color/letra_02"
                             android:textColorLink="@color/green_main"
@@ -236,9 +236,9 @@
                             android:id="@+id/imv_seat"
                             android:layout_width="32dp"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="10dp"
-                            android:contentDescription="TODO"
-                            app:srcCompat="@drawable/ic_seat" />
+                            android:layout_marginStart="10dp"
+                            app:srcCompat="@drawable/ic_seat"
+                            android:contentDescription="TODO" />
 
                         <EditText
                             android:id="@+id/edtText_seat"
