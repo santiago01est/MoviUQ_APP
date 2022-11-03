@@ -8,6 +8,9 @@ plugins {
 android {
     compileSdk 32
 
+        lintOptions {
+            baseline file("lint-baseline.xml")
+        }
     defaultConfig {
         applicationId "com.uniquindio.moviuq"
         minSdk 19
