@@ -1,5 +1,7 @@
 package com.uniquindio.moviuq.presentation.activity;
 
+import static com.uniquindio.moviuq.R.id.inicio;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -38,26 +40,21 @@ public class HomeActivity extends AppCompatActivity {
         replaceFragments(new HomeFragment().newInstance());
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
+            int id= item.getItemId();
+            if(id== R.id.inicio){
+                replaceFragments(new HomeFragment().newInstance());
+            }else if(id == R.id.viajes){
+                replaceFragments(new OfferTravelFragment().newInstance());
+            }else if(id == R.id.solicitud){
+                replaceFragments(new RequestFragment().newInstance());
+            }else if(id == R.id.chats){
 
-            switch (item.getItemId()){
-
-                case R.id.inicio:
-                    replaceFragments(new HomeFragment().newInstance());
-                    break;
-                case R.id.viajes:
-                    replaceFragments(new OfferTravelFragment().newInstance());
-                    break;
-                case R.id.solicitud:
-                    replaceFragments(new RequestFragment().newInstance());
-                    break;
-                case R.id.chats:
-                   // replaceFragments(new SocialFragment().newInstance(toobar,bottomNavigationView,user.getEmail()));
-                    break;
-                case R.id.perfil:
-                    replaceFragments(new ProfileUserFragment().newInstance());
-                    break;
+            }else if(id == R.id.perfil){
+                replaceFragments(new ProfileUserFragment().newInstance());
+            }else{
 
             }
+
 
             return true;
         });
