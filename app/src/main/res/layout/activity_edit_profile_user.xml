@@ -35,10 +35,9 @@
             android:id="@+id/shiv_photoProfileUser"
             android:layout_width="86dp"
             android:layout_height="86dp"
-            app:srcCompat="@drawable/ic_user"
             app:strokeWidth="1dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_user"
+            app:srcCompat="@drawable/ic_user"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
             app:strokeColor="@color/green_main" />
 
@@ -64,7 +63,7 @@
             android:layout_height="match_parent"
             android:alpha="0.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/contenedor_gradient"
+            app:srcCompat="@drawable/contenedor_gradient"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded2"
             tools:ignore="ImageContrastCheck" />
 
