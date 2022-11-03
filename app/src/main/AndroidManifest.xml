@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="CoarseFineLocation">
 
-    <uses-sdk android:targetSdkVersion="32"
-        tools:ignore="GradleOverrides" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 
@@ -17,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoviUq"
-        tools:targetApi="32">
+        tools:targetApi="s">
         <activity
             android:name=".CreateRequestActivity"
             android:exported="false" />
