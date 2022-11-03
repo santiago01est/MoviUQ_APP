@@ -1,6 +1,5 @@
 package com.uniquindio.moviuq.data;
 
-import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
 import android.app.Activity;
 import android.util.Log;
@@ -66,7 +65,7 @@ public class UserImpl  implements UserService {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+
                             return;
                         }
 

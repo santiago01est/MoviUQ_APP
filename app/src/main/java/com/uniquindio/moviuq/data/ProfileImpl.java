@@ -1,6 +1,5 @@
 package com.uniquindio.moviuq.data;
 
-import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -83,7 +82,7 @@ public class ProfileImpl implements ProfileService{
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+
                             return;
                         }
 
@@ -93,7 +92,7 @@ public class ProfileImpl implements ProfileService{
                         userUpdate.update("token", token);
                         // Log and toast
 
-                        Log.d(TAG, token);
+
                         //Toast.makeText(HomeActivity.this, token, Toast.LENGTH_SHORT).show();
                     }
                 });
