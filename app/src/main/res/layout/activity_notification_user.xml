@@ -57,13 +57,7 @@
 
             </TextView>
 
-            <ImageView
-                android:id="@+id/lineNotifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/txv_notifications"
-                app:srcCompat="@drawable/line_color_u"
-                tools:layout_editor_absoluteX="0dp" />
+
 
             <androidx.recyclerview.widget.RecyclerView
 
@@ -73,7 +67,7 @@
                 android:layout_marginTop="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lineNotifications" />
+                app:layout_constraintTop_toBottomOf="@+id/txv_notifications" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
