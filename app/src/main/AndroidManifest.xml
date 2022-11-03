@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="CoarseFineLocation">
 
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-sdk android:targetSdkVersion="31"/>
 
     <application
         android:allowBackup="true"
@@ -60,8 +63,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
-                tools:ignore="WrongManifestParent" />
+
         </activity>
 
 
