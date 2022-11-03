@@ -62,7 +62,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage'
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.1'
     implementation 'com.google.firebase:firebase-firestore'
-    implementation 'com.google.firebase:firebase-messaging:23.0.6'
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
 
     //Dependenica de Google Maps
     implementation 'com.google.android.libraries.places:places:2.6.0'
