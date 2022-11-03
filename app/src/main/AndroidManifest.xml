@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="CoarseFineLocation">
 
-
+    <uses-sdk android:targetSdkVersion="32"
+        tools:ignore="GradleOverrides" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 
