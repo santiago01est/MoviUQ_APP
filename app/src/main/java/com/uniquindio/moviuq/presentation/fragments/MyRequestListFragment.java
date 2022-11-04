@@ -69,7 +69,7 @@ public class MyRequestListFragment extends Fragment {
         FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
         adapterFireMyRequestList = new AdapterFireMyRequestList(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireMyRequestList);
-        adapterFireMyRequestList.notifyDataSetChanged();
+       // adapterFireMyRequestList.notifyDataSetChanged();
 
 
 
