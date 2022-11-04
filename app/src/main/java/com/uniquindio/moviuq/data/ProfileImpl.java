@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.presentation.activity.MainActivity;
@@ -49,14 +50,14 @@ public class ProfileImpl implements ProfileService{
         case_createProfile= new Case_Profile(activity);
 
         //Se obtiene al usuario en sesion activa
-        userSession= FirebaseAuthService.getAuth().getCurrentUser();
+        userSession= FirebaseAuth.getInstance().getCurrentUser();
         String email= userSession.getEmail();
         User user= new User(name, last_name, photo, email, phoneNumber, years, city,"");
 
         /**Se obtiene la coleccion del usuario con dicho email para setearle los datos ingresados en la creacion de perfil,
           ademas se utiliza un listener para comprobar si hubo algun error durante el proceso de creacion de perfil
          */
-        FirebaseCFDBService.getBD().collection("user").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseFirestore.getInstance().collection("user").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 obtenerToken(email);
@@ -88,7 +89,7 @@ public class ProfileImpl implements ProfileService{
 
                         // Get new FCM registration token
                         String token = task.getResult();
-                        DocumentReference userUpdate = FirebaseCFDBService.getBD().collection("user").document(email);
+                        DocumentReference userUpdate = FirebaseFirestore.getInstance().collection("user").document(email);
                         userUpdate.update("token", token);
                         // Log and toast
 
@@ -135,9 +136,9 @@ public class ProfileImpl implements ProfileService{
         if(name.isEmpty()||lastName.isEmpty()||numberPhone.isEmpty()||city.isEmpty()||years.isEmpty()){
             Toast.makeText(activity, "No puedes actualizar con campos vacios", Toast.LENGTH_SHORT).show();
         } else{
-            userSession= FirebaseAuthService.getAuth().getCurrentUser();
+            userSession= FirebaseAuth.getInstance().getCurrentUser();
             String email= DataLocal.getUser().getMail();
-            DocumentReference userUpdate = FirebaseCFDBService.getBD().collection("user").document(email);
+            DocumentReference userUpdate = FirebaseFirestore.getInstance().collection("user").document(email);
             userUpdate.update("name", name);
             userUpdate.update("last_name", lastName);
             userUpdate.update("phoneNumber", Long.parseLong(numberPhone));

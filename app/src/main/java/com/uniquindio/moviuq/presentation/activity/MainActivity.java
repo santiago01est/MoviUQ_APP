@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         case_user=new Case_User(this);
-        FirebaseUser user = FirebaseAuthService.getAuth().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         login=findViewById(R.id.bttn_iniciar);
         sign=findViewById(R.id.bttn_registrar);
 

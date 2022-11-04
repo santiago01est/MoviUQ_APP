@@ -5,12 +5,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class FirebaseAuthService {
 
-    public static FirebaseAuth mAuth;
+    public  FirebaseAuth MAUTH;
 
-    public static FirebaseAuth getAuth(){
-        if(mAuth==null){
-            mAuth = FirebaseAuth.getInstance();
+    public  FirebaseAuth getAuth(){
+        if(MAUTH==null){
+            MAUTH = FirebaseAuth.getInstance();
         }
-        return mAuth;
+        return MAUTH;
     }
 }

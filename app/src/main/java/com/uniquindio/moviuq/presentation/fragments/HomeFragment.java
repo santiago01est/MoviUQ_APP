@@ -15,9 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
@@ -122,7 +124,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void textSearch(String s) {
-        Query query= FirebaseCFDBService.getBD().collection("offers");
+        Query query= FirebaseFirestore.getInstance().collection("offers");
         FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
         AdapterFireOffer adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions, getContext());
         search_offer.setAdapter(adapterFireOffer);
@@ -132,8 +134,8 @@ public class HomeFragment extends Fragment {
 
     private void loadData() {
 
-        FirebaseUser usersesion = FirebaseAuthService.getAuth().getCurrentUser();
-        FirebaseCFDBService.getBD().collection("user").document(usersesion.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        FirebaseUser usersesion = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore.getInstance().collection("user").document(usersesion.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 if (documentSnapshot.exists()) {
