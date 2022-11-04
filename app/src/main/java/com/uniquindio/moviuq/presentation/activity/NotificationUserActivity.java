@@ -57,7 +57,7 @@ public class NotificationUserActivity extends AppCompatActivity {
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireNotification.notifyDataSetChanged();
+        //adapterFireNotification.notifyDataSetChanged();
         adapterFireNotification.startListening();
     }
 

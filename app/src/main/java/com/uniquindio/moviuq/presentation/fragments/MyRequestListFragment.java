@@ -81,7 +81,7 @@ public class MyRequestListFragment extends Fragment {
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireMyRequestList.notifyDataSetChanged();
+        //adapterFireMyRequestList.notifyDataSetChanged();
         adapterFireMyRequestList.startListening();
     }
 
