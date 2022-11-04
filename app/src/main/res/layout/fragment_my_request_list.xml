@@ -22,18 +22,19 @@ tools:context=".presentation.fragments.MyRequestListFragment">
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_arrow_back"
+            app:srcCompat="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="@string/todo"/>
 
         <TextView
             android:id="@+id/txv_MyRequestLists"
             style="@style/FontsMainTitleRT"
-            android:textSize="48dp"
+            android:textSize="48sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/MyRequestsList"

@@ -5,12 +5,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class FirebaseCFDBService {
 
-    private static FirebaseFirestore db;
 
-    public static FirebaseFirestore getBD(){
-        if(db==null){
-            db = FirebaseFirestore.getInstance();
+    private FirebaseFirestore DB;
+
+    public  FirebaseFirestore getBD(){
+        if(DB==null){
+            DB = FirebaseFirestore.getInstance();
         }
-        return db;
+        return DB;
     }
 }

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.MoviUq" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -6,6 +6,8 @@
         <item name="colorPrimaryDark">@color/green_main</item>
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" >@color/bttn_01</item>
+        <item name="android:navigationBarColor">@color/white</item>
 
     </style>
 
@@ -16,7 +18,7 @@
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/bttn_01</item>
         <item name="colorAccent">@color/teal_200</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/bttn_01</item>
+        <item name="android:statusBarColor" >@color/bttn_01</item>
     </style>
 
     <!-- Create Profile Activity -->
@@ -41,7 +43,7 @@
     <!-- MenuBar -->
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <!-- Bottom Bar Navigation -->
@@ -61,13 +63,13 @@
         <item name="colorPrimaryDark">@color/green_main</item>
         <item name="colorAccent">@color/bttn_01</item>
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/green_black</item>
     </style>
 
     <style name="ExpandedAppBar">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">26dp</item>
+        <item name="android:textSize">26sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/green_main</item>
 
@@ -79,49 +81,49 @@
     <!-- Font Main request and travel-->
     <style name="FontsMainTitleRT">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">38dp</item>
+        <item name="android:textSize">38sp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
     <!-- Fonts Main Title-->
     <style name="FontsMainTitle">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">28dp</item>
+        <item name="android:textSize">28sp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
     <!-- Fonts Medium text-->
     <style name="FontsMediumText">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
     <!-- Fonts little medium text-->
     <style name="FontsLittle_MediumText">
         <item name="fontFamily">@font/berlin_sans_regular</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
     <!-- Fonts little text-->
     <style name="FontsMediumLittleText">
         <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
     <!-- Fonts little text-->
     <style name="FontsLittleText">
         <item name="fontFamily">@font/berlin_sans_regular</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
     <!-- Fonts Very little text-->
     <style name="FontsVeryLittleText">
         <item name="fontFamily">@font/berlin_sans_regular</item>
-        <item name="android:textSize">15dp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/letra_02</item>
     </style>
 
@@ -144,7 +146,6 @@
         <item name="colorContainer">@color/green</item>
         <item name="colorOnContainer">@color/green_main</item>
         <item name="strokeColor">@color/green_black</item>
-        <item name="elevation">@dimen/design_bottom_navigation_elevation</item>
     </style>
 
     <!-- shape button-->

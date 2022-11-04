@@ -48,7 +48,6 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
     private CheckBox cbx_fumar,cbx_hablar,cbx_comida,cbx_musica,cbx_mascota;
     private LinearLayout contenedor_noconditions;
     private LinearLayout contenedor_main_conditions;
-    private ImageView photoUser;
     private Toolbar toolbar;
     private ImageView imgv_photoUser;
     private Button bttn_contratar;
@@ -179,7 +178,6 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         cbx_musica=findViewById(R.id.cbx_detail_offer_musica);
         contenedor_noconditions=findViewById(R.id.contenedor_no_conditions);
         contenedor_main_conditions=findViewById(R.id.contenedor_main_column);
-        photoUser=findViewById(R.id.imageView_photo_user);
         toolbar=findViewById(R.id.toolbar_detail_offer);
         imgv_photoUser=findViewById(R.id.imageView_photo_user);
         bttn_contratar=findViewById(R.id.bttn_contratar);

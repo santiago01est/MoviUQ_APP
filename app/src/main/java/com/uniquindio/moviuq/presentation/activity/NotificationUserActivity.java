@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Notification;
@@ -40,11 +41,11 @@ public class NotificationUserActivity extends AppCompatActivity {
 
         /** Consulta para fijar Adaptador**/
         //Query query=case_notification.getNotificationUser(emailUser);
-        Query query= FirebaseCFDBService.getBD().collection("notification").whereEqualTo("emailUserReceiver",emailUser);
+        Query query= FirebaseFirestore.getInstance().collection("notification").whereEqualTo("emailUserReceiver",emailUser);
         FirestoreRecyclerOptions<Notification> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Notification>().setQuery(query, Notification.class).build();
         adapterFireNotification = new AdapterFireNotification(firestoreRecyclerOptions,this);
         recyclerView.setAdapter(adapterFireNotification);
-        adapterFireNotification.notifyDataSetChanged();
+      //  adapterFireNotification.notifyDataSetChanged();
     }
 
     /** onStart
@@ -57,7 +58,7 @@ public class NotificationUserActivity extends AppCompatActivity {
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireNotification.notifyDataSetChanged();
+        //adapterFireNotification.notifyDataSetChanged();
         adapterFireNotification.startListening();
     }
 

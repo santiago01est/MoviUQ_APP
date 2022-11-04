@@ -32,7 +32,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_place01">
+                    app:srcCompat="@drawable/img_place01"
+                    android:contentDescription="@string/todo">
 
                 </ImageView>
 
@@ -40,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="150dp"
+                    android:contentDescription="@string/todo"
                     android:background="@drawable/degradado_detail_offer">
 
                 </ImageView>
@@ -132,8 +134,8 @@
                     style="@style/FontsLittleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="left"
+                    android:layout_marginStart="10dp"
+                    android:gravity="start"
                     android:text="@string/detail_offer_title" />
 
 
@@ -145,10 +147,11 @@
                 android:layout_height="40dp"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
-                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
                 android:elevation="80dp"
-                android:src="@drawable/ic_chat"
+                app:srcCompat="@drawable/ic_chat"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/todo"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
             <LinearLayout
@@ -195,7 +198,7 @@
 
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_info"
                     style="@style/FontsMediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -205,7 +208,8 @@
                     android:id="@+id/contenedor_main_column"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
 
                     <LinearLayout
@@ -222,11 +226,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:drawableLeft="@drawable/ic_car"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
                             android:text="@string/creat_detail_offer_type_vehicle"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            app:drawableLeftCompat="@drawable/ic_car" />
 
                         <TextView
                             android:id="@+id/txv_detail_offer_seats"
@@ -234,11 +237,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:drawableLeft="@drawable/ic_seat"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
+                            android:textAlignment="textStart"
                             android:text="@string/creat_detail_offer_seats"
-                            android:textAlignment="textStart" />
+                            app:drawableLeftCompat="@drawable/ic_seat" />
 
 
                     </LinearLayout>
@@ -257,11 +259,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:drawableLeft="@drawable/ic_calendar"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
                             android:text="@string/creat_detail_offer_date"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            app:drawableLeftCompat="@drawable/ic_calendar" />
 
                         <TextView
                             android:id="@+id/txv_detail_offer_hour"
@@ -269,11 +270,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:drawableLeft="@drawable/ic_hour"
                             android:drawablePadding="14dp"
-                            android:gravity="center"
                             android:text="@string/creat_detail_offer_hour"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            app:drawableLeftCompat="@drawable/ic_hour" />
 
                     </LinearLayout>
 
@@ -294,7 +294,7 @@
 
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_condition"
                     style="@style/FontsMediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -308,7 +308,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_no_condi"
                     style="@style/FontsLittle_MediumText"
                     android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
@@ -319,11 +319,12 @@
             </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/contenedor_main_column"
+                    android:id="@+id/contenedor_main_column2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
 
                     <LinearLayout
@@ -420,7 +421,7 @@
 
 
                 <TextView
-                    android:id="@+id/txv_offer_subtitle_desc"
+                    android:id="@+id/txv_offer_subtitle_see_map"
                     style="@style/FontsMediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -434,7 +435,7 @@
                     app:cardCornerRadius="20dp"
                     app:strokeColor="@color/green_main">
 
-                    <fragment
+                    <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/fragment_map_detail_offer"
                         android:name="com.uniquindio.moviuq.provider.services.maps.myMapFragment"
                         android:layout_width="match_parent"

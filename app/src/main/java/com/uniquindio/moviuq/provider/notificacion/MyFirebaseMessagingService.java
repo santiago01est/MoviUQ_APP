@@ -2,18 +2,13 @@ package com.uniquindio.moviuq.provider.notificacion;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.uniquindio.moviuq.R;
-import com.uniquindio.moviuq.presentation.activity.MainActivity;
 
 import java.util.Random;
 
@@ -29,20 +24,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        String from =remoteMessage.getFrom();
+
 
         if (remoteMessage.getData().size()>0){
             String titulo=remoteMessage.getData().get("titulo");
 
             String detalle=remoteMessage.getData().get("detalle");
-            String foto=remoteMessage.getData().get("foto");
 
-            mayorqueoreo(titulo,detalle,foto);
+
+            mayorqueoreo(titulo,detalle);
 
         }
     }
 
-    private void mayorqueoreo(String titulo, String detalle, String foto) {
+    private void mayorqueoreo(String titulo, String detalle) {
         String id="mensaje";
         NotificationManager nm=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder builder=new NotificationCompat.Builder(this,id);
@@ -77,9 +72,5 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         nm.notify(idNotity,builder.build());
 
     }
-    public PendingIntent clicknoti(){
-        Intent nf=new Intent(getApplicationContext(), MainActivity.class);
-      //  nf.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        return PendingIntent.getActivity(this,0,nf,0);
-    }
+
 }

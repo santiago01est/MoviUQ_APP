@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Editar Perfil"
+        android:text="@string/editar_perfil"
         android:textColor="#707070"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +35,9 @@
             android:id="@+id/shiv_photoProfileUser"
             android:layout_width="86dp"
             android:layout_height="86dp"
-            app:srcCompat="@drawable/ic_user"
             app:strokeWidth="1dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_user"
+            app:srcCompat="@drawable/ic_user"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
             app:strokeColor="@color/green_main" />
 
@@ -48,7 +47,8 @@
             android:layout_height="30dp"
             android:layout_gravity="bottom|end"
             android:background="@drawable/circle_drawable"
-            android:src="@drawable/ic_edit" />
+            app:srcCompat="@drawable/ic_edit"
+            android:contentDescription="@string/todo"/>
     </FrameLayout>
 
 
@@ -64,7 +64,7 @@
             android:layout_height="match_parent"
             android:alpha="0.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/contenedor_gradient"
+            app:srcCompat="@drawable/contenedor_gradient"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded2"
             tools:ignore="ImageContrastCheck" />
 
@@ -102,7 +102,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="text"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +126,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="text"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,7 +150,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="number"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,7 +174,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="number"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -198,7 +198,7 @@
                             android:fontFamily="@font/berlin_sans_regular"
                             android:inputType="number"
                             android:textColor="@color/letra_02"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -210,9 +210,9 @@
                         android:layout_marginTop="27dp"
                         android:layout_marginBottom="27dp"
                         android:fontFamily="@font/berlin_sans_regular"
-                        android:text="Actualizar Datos"
+                        android:text="@string/actualizar_datos"
                         android:textColor="@color/white"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         app:backgroundTint="@color/green_main"
                         app:cornerRadius="22dp"
                         app:rippleColor="@color/green_main" />

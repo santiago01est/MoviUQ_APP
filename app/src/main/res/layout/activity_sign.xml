@@ -9,19 +9,21 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/contenedor_log"
+        app:srcCompat="@drawable/contenedor_log"
         android:scaleType="centerCrop"
-        tools:ignore="ImageContrastCheck">
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo">
 
     </ImageView>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/back_login"
+        app:srcCompat="@drawable/back_login"
         android:scaleType="centerCrop"
         android:alpha="0.5"
-        tools:ignore="ImageContrastCheck">
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo">
 
     </ImageView>
 
@@ -89,7 +91,7 @@
                     android:fontFamily="@font/berlin_sans_regular"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/letra_02"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,7 +123,7 @@
                     android:fontFamily="@font/berlin_sans_regular"
                     android:inputType="textPassword"
                     android:textColor="@color/letra_02"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,7 +155,7 @@
                     android:fontFamily="@font/berlin_sans_regular"
                     android:inputType="textPassword"
                     android:textColor="@color/letra_02"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -180,7 +182,6 @@
                     android:fontFamily="@font/berlin_sans_demi_bold"
                     android:text="@string/sig_btn_registrar"
                     android:textColor="@color/white"
-                    android:onClick="signUser"
                     android:textSize="18sp"
                     app:backgroundTint="@color/bttn_02"
                     app:cornerRadius="22dp"

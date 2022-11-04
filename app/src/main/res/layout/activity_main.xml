@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icono" />
+        app:srcCompat="@drawable/icono"
+        android:contentDescription="@string/todo"/>
 
     <ImageView
         android:id="@+id/imgv_img_main"
@@ -28,7 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgv_icono_main"
-        app:srcCompat="@drawable/icono" />
+        app:srcCompat="@drawable/icono"
+        android:contentDescription="@string/todo"/>
 
 
     <TextView
@@ -40,7 +42,6 @@
         android:gravity="center"
         android:text="@string/lema"
         android:textColor="@color/letra_02"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +56,7 @@
         android:gravity="center"
         android:textColor="@color/letra_03"
         android:text="@string/lemasub"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txv_bienvenido" />
@@ -83,7 +84,6 @@
             android:textSize="18sp"
             app:cornerRadius="22dp"
             app:elevation="50dp"
-            android:onClick="lanzarSign"
             app:rippleColor="@color/green_main"
             app:backgroundTint="@color/bttn_02"
             android:text="@string/btn_registrar" />
@@ -96,7 +96,6 @@
             android:fontFamily="@font/berlin_sans_demi_bold"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:onClick="lanzarLogin"
             android:layout_marginTop="8dp"
             app:cornerRadius="22dp"
             app:elevation="50dp"
@@ -114,7 +113,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgv_img_main"
-        app:srcCompat="@drawable/line_color_u" />
+        app:srcCompat="@drawable/line_color_u"
+        android:contentDescription="@string/todo" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_main"

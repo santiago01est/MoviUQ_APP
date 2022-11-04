@@ -39,8 +39,8 @@
                     android:layout_gravity="center"
                     android:background="@drawable/circle_drawable"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_user"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    app:srcCompat="@drawable/ic_user"
                     app:strokeColor="@color/green_main" />
 
                 <TextView
@@ -48,11 +48,10 @@
                     style="@style/FontsMediumLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/imageView_user_profile"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="Name"
+                    android:text="@string/name"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -60,13 +59,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:layout_toStartOf="@+id/imgbttn_three_point"
                 android:layout_toEndOf="@id/ly_photoName"
-                android:layout_alignBottom="@+id/contenedor_request"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -75,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:text="DE - A"
+                    android:text="@string/de_a"
                     android:textAlignment="inherit"
                     android:textColor="@color/white" />
 
@@ -85,10 +81,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/ic_calendar"
                     android:drawablePadding="20dp"
-                    android:text="Date"
-                    android:textColor="@color/white" />
+                    android:text="@string/date"
+                    android:textColor="@color/white"
+                    app:drawableLeftCompat="@drawable/ic_calendar" />
 
                 <TextView
                     android:id="@+id/txv_request_hour"
@@ -96,10 +92,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/ic_hour"
                     android:drawablePadding="20dp"
-                    android:text="Hour"
-                    android:textColor="@color/white" />
+                    android:text="@string/hour"
+                    android:textColor="@color/white"
+                    app:drawableLeftCompat="@drawable/ic_hour" />
 
                 <TextView
                     android:id="@+id/txv_request_seats"
@@ -107,10 +103,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/ic_seat"
                     android:drawablePadding="20dp"
-                    android:text="Seats"
-                    android:textColor="@color/white" />
+                    android:text="@string/seats"
+                    android:textColor="@color/white"
+                    app:drawableLeftCompat="@drawable/ic_seat" />
 
 
             </LinearLayout>
@@ -120,10 +116,11 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_points_edit"
+                android:contentDescription="@string/todo"
                 app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_points_edit"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </LinearLayout>

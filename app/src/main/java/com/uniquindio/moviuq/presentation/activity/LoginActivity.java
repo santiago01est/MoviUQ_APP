@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.uniquindio.moviuq.R;
@@ -36,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     private Case_Log case_log;
     TextInputEditText log_email, log_pass;
     private ProgressBar progressBar;
+    private Button login;
+    private ImageButton logingoogle;
     private static final int REQ_ONE_TAP = 235;
 
 
@@ -55,21 +60,34 @@ public class LoginActivity extends AppCompatActivity {
         log_email =findViewById(R.id.login_correo);
         log_pass =findViewById(R.id.login_password);
         progressBar = findViewById(R.id.progressBar_login);
+        login=findViewById(R.id.btn_login_iniciar);
+        logingoogle=findViewById(R.id.imgbttn_google);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!log_email.getText().toString().isEmpty() && !log_pass.getText().toString().isEmpty()) {
+                    case_log.login_user(log_email.getText().toString().trim(), log_pass.getText().toString());
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        logingoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                GoogleSignInOptions googleSignInOptions= new GoogleSignInOptions.
+                        Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.IdClient)).requestEmail().build();
+                        googleIniciarSesionUsuario(googleSignInOptions);
+            }
+        });
+
     }
 
-    public void loginUser(View view){
 
-        if (!log_email.getText().toString().isEmpty() && !log_pass.getText().toString().isEmpty()) {
-            case_log.login_user(log_email.getText().toString().trim(), log_pass.getText().toString());
-            progressBar.setVisibility(View.VISIBLE);
-        }
-    }
 
-    public void googleIniciarSesionUsuario(View view) {
-        FirebaseAuth.getInstance().signOut();
-        GoogleSignInOptions googleSignInOptions= new GoogleSignInOptions.
-                Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.IdClient)).requestEmail().build();
-
+    public void googleIniciarSesionUsuario(GoogleSignInOptions googleSignInOptions) {
         GoogleSignInClient googleSignInClient= GoogleSignIn.getClient(this,googleSignInOptions);
         googleSignInClient.signOut();
         startActivityForResult(googleSignInClient.getSignInIntent(),REQ_ONE_TAP);
@@ -98,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 //hacer consulta
 
-                                FirebaseCFDBService.getBD().collection("user").
+                                FirebaseFirestore.getInstance().collection("user").
                                         whereEqualTo("email",account.getEmail()).get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override

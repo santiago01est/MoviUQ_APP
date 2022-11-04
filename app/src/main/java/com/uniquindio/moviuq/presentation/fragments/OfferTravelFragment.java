@@ -14,6 +14,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Offer;
@@ -69,11 +70,11 @@ public class OfferTravelFragment extends Fragment {
         recyclerView.getItemAnimator().setChangeDuration(0);
 
         /** Consulta para fijar Adaptador**/
-        Query query= FirebaseCFDBService.getBD().collection("offers");
+        Query query= FirebaseFirestore.getInstance().collection("offers");
         FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
         adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireOffer);
-        adapterFireOffer.notifyDataSetChanged();
+       // adapterFireOffer.notifyDataSetChanged();
 
         /** Click para el boton flotante de crear oferta*/
         addOffer.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +115,7 @@ public class OfferTravelFragment extends Fragment {
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireOffer.notifyDataSetChanged();
+       // adapterFireOffer.notifyDataSetChanged();
         adapterFireOffer.startListening();
     }
 

@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/back_login"
-        tools:ignore="ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -20,15 +21,14 @@
         android:alpha="0.5"
         android:scaleType="centerCrop"
         android:src="@drawable/contenedor_gradient"
-        tools:ignore="ImageContrastCheck">
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo">
 
     </ImageView>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,7 +109,8 @@
                     android:layout_height="30dp"
                     android:layout_gravity="bottom|end"
                     android:background="@drawable/circle_drawable"
-                    android:src="@drawable/ic_baseline_photo_camera_24"
+                    app:srcCompat="@drawable/ic_baseline_photo_camera_24"
+                    android:contentDescription="@string/todo"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </FrameLayout>
 
@@ -145,7 +146,7 @@
                         android:fontFamily="@font/berlin_sans_regular"
                         android:inputType="text"
                         android:textColor="@color/letra_02"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,7 +170,7 @@
                         android:fontFamily="@font/berlin_sans_regular"
                         android:inputType="text"
                         android:textColor="@color/letra_02"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -194,7 +195,7 @@
                         android:fontFamily="@font/berlin_sans_regular"
                         android:inputType="number"
                         android:textColor="@color/letra_02"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -219,7 +220,7 @@
                         android:fontFamily="@font/berlin_sans_regular"
                         android:inputType="phone"
                         android:textColor="@color/letra_02"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -243,14 +244,13 @@
                         android:fontFamily="@font/berlin_sans_regular"
                         android:inputType="text"
                         android:textColor="@color/letra_02"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ProgressBar
                     android:id="@+id/progressBar_create_user"
                     style="?android:attr/progressBarStyle"
-                    android:indeterminateTint="@color/green_main"
                     android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -264,7 +264,7 @@
                 android:fontFamily="@font/berlin_sans_regular"
                 android:text="@string/creat_prof_btn_continuar"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:backgroundTint="@color/green_main"
                 app:cornerRadius="22dp"
                 app:elevation="50dp"

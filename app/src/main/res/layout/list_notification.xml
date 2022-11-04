@@ -30,7 +30,7 @@
                 android:layout_height="70dp"
                 android:background="@drawable/circle_drawable"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_user"
+                app:srcCompat="@drawable/ic_user"
                 app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
                 app:strokeColor="@color/green_main" />
 
@@ -43,7 +43,6 @@
                 android:layout_marginEnd="0dp"
                 android:layout_toStartOf="@+id/imgbttn_three_point"
                 android:layout_toEndOf="@id/imageView_user_profile"
-                android:layout_toRightOf="@+id/imageView_user_profile"
                 android:orientation="vertical">
 
                 <TextView
@@ -51,7 +50,7 @@
                     style="@style/FontsLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Modificar texto"
+                    android:text="@string/modificar_texto"
                     android:textAlignment="gravity" />
 
                 <TextView
@@ -60,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Fecha" />
+                    android:text="@string/fecha" />
 
 
             </LinearLayout>
@@ -70,11 +69,12 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_points_edit"
+                app:srcCompat="@drawable/ic_points_edit"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                android:contentDescription="@string/todo"/>
         </RelativeLayout>
     </LinearLayout>
 

@@ -1,6 +1,5 @@
 package com.uniquindio.moviuq.presentation.activity;
 
-import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

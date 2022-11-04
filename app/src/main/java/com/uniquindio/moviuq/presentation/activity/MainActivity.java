@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Casos de uso**/
     private Case_User case_user;
+    private Button login,sign;
 
     LottieAnimationView animation;
 
@@ -23,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         case_user=new Case_User(this);
-        FirebaseUser user = FirebaseAuthService.getAuth().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        login=findViewById(R.id.bttn_iniciar);
+        sign=findViewById(R.id.bttn_registrar);
 
         if(user!=null){
             case_user.getUser();
@@ -31,6 +36,22 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+        sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, SignActivity.class);
+                startActivity(i);
+            }
+        });
 
 
     }
@@ -45,16 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void lanzarLogin(View view) {
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
 
-     //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-    }
 
-    public void lanzarSign(View view) {
-        Intent i = new Intent(this, SignActivity.class);
-        startActivity(i);
-        //   overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-    }
+
 }

@@ -31,7 +31,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/back_img_home">
+                    app:srcCompat="@drawable/back_img_home"
+                    android:contentDescription="@string/todo">
 
                 </ImageView>
 
@@ -55,8 +56,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center|left"
-                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center|start"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:orientation="vertical"
                         app:layout_constraintStart_toStartOf="parent"
@@ -87,11 +88,10 @@
                         android:layout_height="50dp"
                         android:layout_margin="20dp"
                         android:background="@android:color/transparent"
-                        android:src="@drawable/ic_notification"
+                        app:srcCompat="@drawable/ic_notification"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-
-                        />
+                        android:contentDescription="@string/todo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -141,7 +141,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="?attr/actionBarSize"
                     android:layout_marginRight="10dp"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -153,8 +153,9 @@
                     android:layout_height="230dp"
                     android:layout_marginTop="82dp"
                     android:alpha="0.9"
-                    android:src="@drawable/img_search_home"
-                    android:visibility="visible" />
+                    app:srcCompat="@drawable/img_search_home"
+                    android:visibility="gone"
+                    android:contentDescription="@string/todo"/>
 
             </LinearLayout>
 

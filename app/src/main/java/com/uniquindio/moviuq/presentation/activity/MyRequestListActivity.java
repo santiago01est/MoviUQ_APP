@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Request;
@@ -39,11 +40,11 @@ public class MyRequestListActivity extends AppCompatActivity {
         recyclerView.getItemAnimator().setChangeDuration(0);
 
         /** Consulta para fijar Adaptador**/
-        Query query = FirebaseCFDBService.getBD().collection("request").whereEqualTo("idUser", case_user.getEmailUser());
+        Query query = FirebaseFirestore.getInstance().collection("request").whereEqualTo("idUser", case_user.getEmailUser());
         FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
         adapterFireMyRequestList = new AdapterFireMyRequestList(firestoreRecyclerOptions, this);
         recyclerView.setAdapter(adapterFireMyRequestList);
-        adapterFireMyRequestList.notifyDataSetChanged();
+       // adapterFireMyRequestList.notifyDataSetChanged();
         back = findViewById(R.id.imageButton_back);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +59,7 @@ public class MyRequestListActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireMyRequestList.notifyDataSetChanged();
+       // adapterFireMyRequestList.notifyDataSetChanged();
         adapterFireMyRequestList.startListening();
     }
 
