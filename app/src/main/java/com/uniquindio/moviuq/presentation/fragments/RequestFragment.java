@@ -15,6 +15,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Notification;
@@ -72,7 +73,7 @@ public class RequestFragment extends Fragment{
         recyclerView.getItemAnimator().setChangeDuration(0);
 
         /** Consulta para fijar Adaptador**/
-        Query query= FirebaseCFDBService.getBD().collection("request");
+        Query query= FirebaseFirestore.getInstance().collection("request");
         FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
         adapterFireRequest = new AdapterFireRequest(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireRequest);

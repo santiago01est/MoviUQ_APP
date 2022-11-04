@@ -26,6 +26,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.uniquindio.moviuq.R;
@@ -115,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 //hacer consulta
 
-                                FirebaseCFDBService.getBD().collection("user").
+                                FirebaseFirestore.getInstance().collection("user").
                                         whereEqualTo("email",account.getEmail()).get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
