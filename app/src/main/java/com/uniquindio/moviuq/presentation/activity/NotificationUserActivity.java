@@ -44,7 +44,7 @@ public class NotificationUserActivity extends AppCompatActivity {
         FirestoreRecyclerOptions<Notification> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Notification>().setQuery(query, Notification.class).build();
         adapterFireNotification = new AdapterFireNotification(firestoreRecyclerOptions,this);
         recyclerView.setAdapter(adapterFireNotification);
-        adapterFireNotification.notifyDataSetChanged();
+      //  adapterFireNotification.notifyDataSetChanged();
     }
 
     /** onStart
