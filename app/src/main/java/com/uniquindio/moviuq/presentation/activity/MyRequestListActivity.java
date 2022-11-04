@@ -43,7 +43,7 @@ public class MyRequestListActivity extends AppCompatActivity {
         FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
         adapterFireMyRequestList = new AdapterFireMyRequestList(firestoreRecyclerOptions, this);
         recyclerView.setAdapter(adapterFireMyRequestList);
-        adapterFireMyRequestList.notifyDataSetChanged();
+       // adapterFireMyRequestList.notifyDataSetChanged();
         back = findViewById(R.id.imageButton_back);
 
         back.setOnClickListener(new View.OnClickListener() {

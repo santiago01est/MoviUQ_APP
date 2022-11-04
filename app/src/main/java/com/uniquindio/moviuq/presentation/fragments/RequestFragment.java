@@ -76,7 +76,7 @@ public class RequestFragment extends Fragment{
         FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
         adapterFireRequest = new AdapterFireRequest(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireRequest);
-        adapterFireRequest.notifyDataSetChanged();
+        //adapterFireRequest.notifyDataSetChanged();
 
         /** Mecanismo collapsing para fijar nombre en la toolbar**/
 

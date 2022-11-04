@@ -73,7 +73,7 @@ public class OfferTravelFragment extends Fragment {
         FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
         adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireOffer);
-        adapterFireOffer.notifyDataSetChanged();
+       // adapterFireOffer.notifyDataSetChanged();
 
         /** Click para el boton flotante de crear oferta*/
         addOffer.setOnClickListener(new View.OnClickListener() {
