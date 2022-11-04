@@ -105,7 +105,8 @@
 
     <string name="IdClient">718670393638-rqlbu93nj6da86mvqvkoqh41ro6cs5oh.apps.googleusercontent.com</string>
     <string name="mapsApi">AIzaSyB5VehnIt36BvcXO4VuFCAIUMxKq4MdoRU</string>
-    <string name="keyMessag">AAAAp1QX8SY:APA91bEaBh3YUYLtyPjwABa37KFomH2_nMNM6ny3PuJkVBfhqxdrp1bsCg4HZlB7SS3kMTu1jDA_st_k2R9F41h_XVTe9Xy0EcUIeso3gHyiL9szZkb652quMbWhQkjTw0GvtblZONw-</string>
+    <string name="keyMessag2">AAAAp!QX8SY:APA91bEaBh3YUYLtyPjwABa37KFomH2_nMNM6ny3PuJkVBfhqxdrp1bsCg4HZlB7SS3kMTu1jDA_st_k2R9F41h_XVTe9Xy0EcUIeso3gHyiL9szZkb652quMbWhQkjTw0GvtblZONw-</string>
+    <string name="keyMessag">AIzaSyCPX_cbwOc6WH7Er_RgzSZ9brwAY3X2uBQ</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
