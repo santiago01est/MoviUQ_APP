@@ -9,9 +9,10 @@ android {
     compileSdk 33
 
     lintOptions {
-            baseline file("lint-baseline.xml")
+        baseline file("lint-baseline.xml")
+        abortOnError false
 
-        }
+    }
 
     defaultConfig {
         applicationId "com.uniquindio.moviuq"
