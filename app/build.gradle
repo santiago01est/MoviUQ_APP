@@ -10,6 +10,7 @@ android {
 
     lintOptions {
             baseline file("lint-baseline.xml")
+
         }
 
     defaultConfig {
