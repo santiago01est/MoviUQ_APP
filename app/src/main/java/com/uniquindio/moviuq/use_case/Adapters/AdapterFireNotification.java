@@ -28,6 +28,10 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
         this.context=context;
     }
 
+    /**
+     * Se carga la infomacion consultada desde la base de datos a los campos enlazados del card
+     */
+
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Notification model) {
 
@@ -84,6 +88,9 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
         this.onClickListener=onClickListener;
     }
 
+    /**
+     * Crea las variables del diseño del card para luego enlazarlos mediante el id respectivo en el xml
+     */
     public static  class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView photoUser;
@@ -107,6 +114,9 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
 
     }
 
+    /**
+     * Enlaza el adaptador con el card de notification (list_notification)
+     */
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_notification,viewGroup,false);

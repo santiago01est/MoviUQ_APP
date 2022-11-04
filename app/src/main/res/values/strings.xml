@@ -72,9 +72,12 @@
     <!-- OFFER TRAVEL-->
     <string name="offerTravel_title">Viajes</string>
 
+    <!-- My Offer list-->
+    <string name="MyOfferList">Mis Viajes</string>
 
     <!-- Request -->
     <string name="Requests">Solicitudes</string>
+    <string name="Requests_title">Crea Solicitud</string>
 
     <!-- Profile -->
     <string name="Perfil">Perfil</string>
@@ -83,6 +86,9 @@
     <string name="prof_editar_perfil">Editar perfil</string>
     <string name="prof_contactenos">Contactenos</string>
     <string name="prof_cerrar_sesion">Cerrar sesion</string>
+
+    <!-- My Request list -->
+    <string name="MyRequestsList">Mis Solicitudes</string>
 
     <!-- DETAIL OFFER -->
     <string name="detail_offer_title">De - A</string>
@@ -97,13 +103,13 @@
     <string name="creat_detail_offer_no_conditions">No hay Condiciones de viaje</string>
 
 
-
-
     <string name="IdClient">718670393638-hg3lth4n172hkbrsvsv5tmfk6gaid8hq.apps.googleusercontent.com</string>
     <string name="mapsApi">AIzaSyB2kesCG1Vhjcv35rT5dObdlRpoqZq9jkM</string>
+    <string name="keyMessag">AAAAp1QX8SY:APA91bEaBh3YUYLtyPjwABa37KFomH2_nMNM6ny3PuJkVBfhqxdrp1bsCg4HZlB7SS3kMTu1jDA_st_k2R9F41h_XVTe9Xy0EcUIeso3gHyiL9szZkb652quMbWhQkjTw0GvtblZONw-</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bienvenida">Hola, Bienvenido!</string>
 
 
 </resources>

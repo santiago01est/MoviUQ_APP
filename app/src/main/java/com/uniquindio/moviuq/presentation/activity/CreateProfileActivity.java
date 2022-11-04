@@ -1,5 +1,7 @@
 package com.uniquindio.moviuq.presentation.activity;
 
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,11 +23,14 @@ import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
 import com.uniquindio.moviuq.use_case.Case_User;
 
@@ -182,9 +188,6 @@ public class CreateProfileActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     downloadUri = task.getResult();
                     case_createProfile.create_profile(downloadUri+"", name, last_name, years, phoneNumber, city);
-
-
-                    //obtenerToken(user.getEmail());
                     cargando.setVisibility(View.GONE);
 
                 } else {
@@ -194,5 +197,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 }

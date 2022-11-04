@@ -12,15 +12,25 @@ import com.uniquindio.moviuq.presentation.fragments.HomeFragment;
 import com.uniquindio.moviuq.presentation.fragments.OfferTravelFragment;
 import com.uniquindio.moviuq.presentation.fragments.RequestFragment;
 import com.uniquindio.moviuq.presentation.fragments.ProfileUserFragment;
+import com.uniquindio.moviuq.use_case.Case_User;
 
 public class HomeActivity extends AppCompatActivity {
 
+    /** Casos de uso**/
+    private Case_User case_user;
+
+    /** Elementos UI**/
     BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        /** Iniciacion de variables**/
+        case_user=new Case_User(this);
+        /**Obtener usuario en sesion para ser guardado localmente **/
+        getUserGlobal();
 
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
         BottomNavigationView menu=findViewById(R.id.bottomNavigationView);
@@ -51,6 +61,12 @@ public class HomeActivity extends AppCompatActivity {
 
             return true;
         });
+    }
+
+
+    private void getUserGlobal(){
+
+        case_user.getUser();
     }
 
     /** Metodo encargado de inflar el fragment correspondiente al boton indicado del menu

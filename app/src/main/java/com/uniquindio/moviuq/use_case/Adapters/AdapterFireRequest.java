@@ -11,12 +11,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.uniquindio.moviuq.R;
 
 import com.uniquindio.moviuq.domain.Request;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
 
 public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, AdapterFireRequest.ViewHolder> {
 
@@ -29,6 +31,10 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
         super(options);
         this.context=context;
     }
+
+    /**
+     * Se carga la infomacion consultada desde la base de datos a los campos enlazados del card
+     */
 
     @Override
     protected void onBindViewHolder(@NonNull AdapterFireRequest.ViewHolder holder, int position, @NonNull Request model) {
@@ -46,39 +52,9 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
 
 
 
-        /** Clic button three_Points */
-        /*holder.like.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(model.getIslike()==true){
-
-                    /* actualiza no like en review/
-                    //model.setIslike(false);
-
-                    /* MODIFICAR ID DOCUMENTO POR ID REVIEW/
-                    DocumentReference commentsUpdate = FirebaseCFDBService.getBD().collection("comments_gallery").document(model.getId());
-                    commentsUpdate.update("islike", false);
-                    commentsUpdate.update("numLike", model.getNumLike()-1);
-                    holder.like.setImageResource(R.drawable.ic_likecero);
-
-                }else
-                if (model.getIslike()==false){
-
-
-                    //model.setIslike(true);
-                    DocumentReference commentsUpdate = FirebaseCFDBService.getBD().collection("comments_gallery").document(model.getId());
-                    commentsUpdate.update("islike", true);
-                    commentsUpdate.update("numLike", model.getNumLike()+1);
-
-                    holder.like.setImageResource(R.drawable.ic_likeone);
-
-
-
-                }
-            }
-        });
-
-*/
+        Glide.with(context )
+                .load(model.getPhotoUser())
+                .into(holder.photoUser);
 
 
 
@@ -90,6 +66,9 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
         this.onClickListener=onClickListener;
     }
 
+    /**
+     * Crea las variables del diseño del card para luego enlazarlos mediante el id respectivo en el xml
+     */
     public static  class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView photoUser;
@@ -119,6 +98,9 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
 
     }
 
+    /**
+     * Enlaza el adaptador con el card del request (list_request)
+     */
     @Override
     public AdapterFireRequest.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_request,viewGroup,false);

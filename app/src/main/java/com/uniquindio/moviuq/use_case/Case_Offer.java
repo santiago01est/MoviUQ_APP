@@ -17,9 +17,11 @@ import com.uniquindio.moviuq.domain.EstadoPost;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.Offer;
 import com.uniquindio.moviuq.domain.Rute;
+import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.presentation.activity.CreateOfferActivity;
 import com.uniquindio.moviuq.presentation.activity.LoginActivity;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.date.DateCalculator;
 
 import java.util.Calendar;
@@ -43,13 +45,13 @@ public class Case_Offer {
         case_user=new Case_User(activity);
         String emailUser=case_user.getEmailUser();
         Offer offer;
-        // user Local
+        User user= DataLocal.getUser();
         Rute rute;
         Date date = new Date();
         DateCalculator dateCalculator = new DateCalculator(date);
         String idViaje="OV"+emailUser+dateCalculator.getCompleteHourId();
         rute=new Rute("R"+emailUser+dateCalculator.getCompleteHourId(),idViaje,placeFrom,placeTo);
-        offer=new Offer(idViaje,emailUser,"",dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats, EstadoPost.DISPONIBLE,myCondition);
+        offer=new Offer(idViaje,emailUser,user.getName(),user.getPhoto(),dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats, EstadoPost.DISPONIBLE,myCondition,user.getToken());
         offerService.createOffer(offer, emailUser, activity);
     }
 

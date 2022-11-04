@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.uniquindio.moviuq.DetailOfferTravelActivity;
+import com.uniquindio.moviuq.presentation.activity.DetailOfferTravelActivity;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Offer;
-import com.uniquindio.moviuq.domain.Request;
 import com.uniquindio.moviuq.domain.VehicleType;
 
 public class AdapterFireOffer extends FirestoreRecyclerAdapter<Offer, AdapterFireOffer.ViewHolder> {

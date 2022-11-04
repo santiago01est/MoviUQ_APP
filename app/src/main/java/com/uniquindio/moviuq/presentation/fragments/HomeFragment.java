@@ -2,23 +2,62 @@ package com.uniquindio.moviuq.presentation.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.bumptech.glide.Glide;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.domain.Offer;
+import com.uniquindio.moviuq.domain.User;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
+import com.uniquindio.moviuq.provider.services.firebase.FirebaseAuthService;
+import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
+import com.uniquindio.moviuq.use_case.Adapters.AdapterFireOffer;
+import com.uniquindio.moviuq.use_case.Adapters.Adapter_Search;
 import com.uniquindio.moviuq.use_case.Case_Notification;
+import com.uniquindio.moviuq.use_case.Case_User;
+
+import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
 
+    /**
+     * Elementos UI
+     **/
     private ImageButton notification;
+    private ImageView imgv_photo_user;
+    private TextView txv_nameUser;
+    private RecyclerView search_offer;
+    private Adapter_Search adapter_search;
+    private SearchView searchView;
+    private AdapterFireOffer adapterFireOffer;
+
+    /**
+     * Casos de uso
+     **/
     private Case_Notification case_notification;
+    private Case_User case_user;
+    private ArrayList<Offer> myOffer=new ArrayList<>();
+
+    DatabaseReference ref;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -43,10 +82,19 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root=inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        case_notification=new Case_Notification(getActivity());
-        notification=root.findViewById(R.id.imgbttn_notification);
+        /** Referencias **/
+        imgv_photo_user = root.findViewById(R.id.imageView_photoUser);
+        txv_nameUser = root.findViewById(R.id.txv_name_user);
+        searchView= root.findViewById(R.id.search_travel);
+        search_offer=root.findViewById(R.id.recycler_search_travel);
+        search_offer.setLayoutManager(new GridLayoutManager(getContext(),3));
+        search_offer.getItemAnimator().setChangeDuration(0);
+
+        case_notification = new Case_Notification(getActivity());
+        case_user=new Case_User(getActivity());
+        notification = root.findViewById(R.id.imgbttn_notification);
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,33 +102,68 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        /** Mecanismo del estado del appBar**/
-        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) root.findViewById(R.id.collapsingHome);
-        AppBarLayout appBarLayout = (AppBarLayout) root.findViewById(R.id.appbarHome);
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = true;
-            int scrollRange = -1;
+
+
+        /**  Load UI*/
+        loadData();
+
+        /** Logica para la busquedad**/
+        search_view();
+
+        return root;
+    }
+
+    private void search_view() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                textSearch(s);
+                return false;
+            }
 
             @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbarLayout.setTitle("Buenos dias, Santiago");
-                    collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.ExpandedAppBar);
-                    // toolbar.setBackgroundColor((Color.parseColor("#5F0F40")));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbarLayout.setTitle(" ");
+            public boolean onQueryTextChange(String s) {
+                textSearch(s);
+                return false;
+            }
+        });
+    }
 
-                    isShow = false;
+    private void textSearch(String s) {
+        Query query= FirebaseCFDBService.getBD().collection("offers");
+        FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query.orderBy("title").startAt(s).endAt(s+"~"), Offer.class).build();
+        adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions,getContext());
+        search_offer.setAdapter(adapterFireOffer);
+        adapterFireOffer.notifyDataSetChanged();
+
+    }
+
+    private void loadData() {
+
+        FirebaseUser usersesion = FirebaseAuthService.getAuth().getCurrentUser();
+        FirebaseCFDBService.getBD().collection("user").document(usersesion.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                if (documentSnapshot.exists()) {
+
+                    User user = documentSnapshot.toObject(User.class);
+                    DataLocal.setUser(user);
+                    txv_nameUser.setText(user.getName());
+                    /** Mediante glide se busca la photo de perfil
+                     * que esta subida en Cloud Store**/
+                    Glide.with(getActivity() )
+                            .load(DataLocal.getUser().getPhoto())
+                            .into(imgv_photo_user);
+
+                    case_user.updateToken();
+
                 }
             }
         });
 
-        return root;
     }
+
+
 
 
 }
