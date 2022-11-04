@@ -122,7 +122,7 @@ public class RequestFragment extends Fragment{
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireRequest.notifyDataSetChanged();
+       // adapterFireRequest.notifyDataSetChanged();
         adapterFireRequest.startListening();
     }
 

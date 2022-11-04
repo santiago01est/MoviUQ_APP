@@ -114,7 +114,7 @@ public class OfferTravelFragment extends Fragment {
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireOffer.notifyDataSetChanged();
+       // adapterFireOffer.notifyDataSetChanged();
         adapterFireOffer.startListening();
     }
 

@@ -58,7 +58,7 @@ public class MyRequestListActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        adapterFireMyRequestList.notifyDataSetChanged();
+       // adapterFireMyRequestList.notifyDataSetChanged();
         adapterFireMyRequestList.startListening();
     }
 
