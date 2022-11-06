@@ -23,6 +23,12 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
    
+    - name: Make Gradle executable
+      run: chmod +x ./gradlew
+      
+    - name: Build with Gradle
+      run: ./gradlew build
+      
     - name: Build Debug APK
       run: ./gradlew assembleRelease
       
@@ -32,11 +38,11 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: app-debug.apk
-        path: ./app/build/outputs
+        path: ./app/build/outputs/apk/release
       
     - uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: ./app/build/outputs
+        releaseDirectory: ./app/build/outputs/apk/release
         signingKeyBase64: ${{ secrets.KEYSTORE }}
         alias: ${{ secrets.SIGNING_KEY_ALIAS }}
         keyStorePassword: ${{ secrets.SIGNING_STORE_PASSWORD }}
