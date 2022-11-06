@@ -23,21 +23,19 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
    
-    - name: Build with Gradle
-      run: ./gradlew build
-
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
     - name: build prod
       run: ./gradlew app:bundleRelease
       env:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-       
-    - name: Upload APK
-      uses: actions/upload-artifact@v3.1.1
+    - name: Upload
+      uses: actions/upload-artifact@v2
       with:
-        name: Build Artifacts
-        path: app/build/outputs/
+          name: Build Artifacts
+          path: app/build/outputs/
         
     
       
