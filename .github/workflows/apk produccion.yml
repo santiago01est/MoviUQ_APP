@@ -26,7 +26,7 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x ./gradlew
     - name: build prod
-      run: ./gradlew assembleRelease
+      run: ./gradlew app:bundleRelease
       env:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
@@ -35,8 +35,8 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v3.1.1
       with:
-        name: app.apk
-        path: ./app/build/outputs/apk/release
+        name: Build Artifacts
+        path: app/build/outputs/
         
     
       
