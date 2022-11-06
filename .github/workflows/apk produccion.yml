@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Decode Keystore
+      id: decode_keystore
+      uses: timheuer/base64-to-file@v1
+      with:
+          fileName: 'keystore/your_signing_keystore.jks'
+          encodedString: ${{ secrets.KEYSTORE }}
+          
     - name: Checkout
       uses: actions/checkout@v2.5.0
     - name: Setup Java JDK
@@ -15,12 +22,23 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+   
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: build prod
+      run: ./gradlew app:bundleRelease
+      env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+       
     - name: Upload APK
       uses: actions/upload-artifact@v3.1.1
       with:
-        name: app
-        path: app/build/outputs/apk/release
+        name: Build Artifacts
+        path: app/build/outputs/
+        
+    
       
    
