@@ -1,5 +1,6 @@
 package com.uniquindio.moviuq.presentation.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
      **/
     private Case_Notification case_notification;
     private Case_User case_user;
+    private static Context context;
   //  private ArrayList<Offer> myOffer=new ArrayList<>();
 
 
@@ -54,10 +56,10 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public static HomeFragment newInstance() {
+    public static HomeFragment newInstance(Context contexto) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
-
+        context=contexto;
         fragment.setArguments(args);
         return fragment;
     }
@@ -145,8 +147,9 @@ public class HomeFragment extends Fragment {
                     txv_nameUser.setText(user.getName());
                     /** Mediante glide se busca la photo de perfil
                      * que esta subida en Cloud Store**/
-                    Glide.with(getActivity() )
-                            .load(DataLocal.getUser().getPhoto())
+
+                    Glide.with(context)
+                            .load(user.getPhoto())
                             .into(imgv_photo_user);
 
                     case_user.updateToken();

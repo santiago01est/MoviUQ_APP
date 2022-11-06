@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
     id 'com.google.gms.google-services'
+    id 'org.sonarqube'
+    id 'jacoco'
 
 }
 
@@ -85,4 +87,32 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
 
+
+
+
+}
+sonarqube {
+    properties {
+        property "sonar.projectName", "moviuq"
+        property "sonar.projectKey", "moviuq"
+        property "sonar.projectVersion", "1.0"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.language", "java"
+        property "sonar.sources", "src/main/java"
+        property "sonar.java.source", "src/main/java"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.login", "admin"
+        property "sonar.password", "tutu2021"
+        // property "sonar.tests", "src/test/java"
+        //property "sonar.java.coveragePlugin", "jacoco"
+        // property "sonar.jacoco.reportPath", "${buildDir}/jacoco/testDevelopmentDebugUnitTest.exec"
+        // property "sonar.test.inclusions", "**/*Test*/**"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.exclusions", '**/*Test*/**,' +
+                '*.json,' +
+                '**/*test*/**,' +
+                '**/.gradle/**,' +
+                '**/R.class,' +
+                '**/R$*.class'
+    }
 }

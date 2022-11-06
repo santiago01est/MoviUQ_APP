@@ -133,6 +133,8 @@ public class ProfileImpl implements ProfileService{
     @Override
     public void updateInformation(String name, String lastName, String numberPhone, String city, String years, Activity activity) {
 
+        //Se crea el caso de uso para tener acceso al metodo de lanzarHome (Entrar a la siguiente ventana de la app)
+        case_createProfile= new Case_Profile(activity);
         if(name.isEmpty()||lastName.isEmpty()||numberPhone.isEmpty()||city.isEmpty()||years.isEmpty()){
             Toast.makeText(activity, "No puedes actualizar con campos vacios", Toast.LENGTH_SHORT).show();
         } else{
@@ -142,8 +144,9 @@ public class ProfileImpl implements ProfileService{
             userUpdate.update("name", name);
             userUpdate.update("last_name", lastName);
             userUpdate.update("phoneNumber", Long.parseLong(numberPhone));
-            userUpdate.update("city", Integer.parseInt(city));
+            userUpdate.update("city", city);
             userUpdate.update("years", Integer.parseInt(years));
+            case_createProfile.lanzarHome();
             //obtenerToken(email);
         }
 

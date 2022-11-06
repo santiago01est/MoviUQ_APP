@@ -37,12 +37,12 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
 
 
-        replaceFragments(new HomeFragment().newInstance());
+        replaceFragments(new HomeFragment().newInstance(this));
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             int id= item.getItemId();
             if(id== R.id.inicio){
-                replaceFragments(new HomeFragment().newInstance());
+                replaceFragments(new HomeFragment().newInstance(this));
             }else if(id == R.id.viajes){
                 replaceFragments(new OfferTravelFragment().newInstance());
             }else if(id == R.id.solicitud){
