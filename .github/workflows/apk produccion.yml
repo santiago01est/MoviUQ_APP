@@ -17,15 +17,22 @@ jobs:
         distribution: 'temurin'
     - name: Build with Gradle
       run: ./gradlew build
+      
+    - name: Build Debug APK
+      run: ./gradlew assembleRelease
+      
+    - name: List artifact APK
+      run: ls -la
+      
     - name: Upload APK
       uses: actions/upload-artifact@v3.1.1
       with:
-        name: app
-        path: app/build/outputs/apk/release
+        name: app-debug.apk
+        path: ./app/build/outputs/apk/release
      
     - uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: app/build/outputs/apk/release
+        releaseDirectory: ./app/build/outputs/apk/release
         signingKeyBase64: ${{ secrets.SIGNING_KEY }}
         alias: ${{ secrets.ALIAS }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
