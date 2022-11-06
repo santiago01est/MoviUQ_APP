@@ -32,11 +32,11 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: app-debug.apk
-        path: ./app/build/outputs/apk/release
+        path: ./app/build/outputs/apk/debug
       
     - uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: ./app/build/outputs/apk/release
+        releaseDirectory: ./app/build/outputs/apk/debug
         signingKeyBase64: ${{ secrets.KEYSTORE }}
         alias: ${{ secrets.SIGNING_KEY_ALIAS }}
         keyStorePassword: ${{ secrets.SIGNING_STORE_PASSWORD }}
