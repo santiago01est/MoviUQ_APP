@@ -23,13 +23,7 @@ jobs:
       
     - name: List artifact APK
       run: ls -la
-      
-    - name: Upload APK
-      uses: actions/upload-artifact@v3.1.1
-      with:
-        name: app-debug.apk
-        path: ./app/build/outputs/apk/release
-        
+     
     - name: Build Signed APK
       uses: victorbnl/build-signed-apk@v1.0.0
       with:
@@ -40,5 +34,13 @@ jobs:
        key_alias: keymoviuq
     # Key password
        key_password: moviuq2022
+       
+    - name: Upload APK
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: app
+        path: ./app/build/outputs/apk/release
+        
+    
       
    
