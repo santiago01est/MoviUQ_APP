@@ -1,5 +1,4 @@
-package com.uniquindio.moviuq;
-
+package com.uniquindio.moviuq.presentation.activity;
 import static com.android.volley.VolleyLog.TAG;
 
 import androidx.annotation.Nullable;

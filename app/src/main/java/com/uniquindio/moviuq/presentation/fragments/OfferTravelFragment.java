@@ -69,6 +69,7 @@ public class OfferTravelFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.getItemAnimator().setChangeDuration(0);
 
+
         /** Consulta para fijar Adaptador**/
         Query query= FirebaseFirestore.getInstance().collection("offers");
         FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();

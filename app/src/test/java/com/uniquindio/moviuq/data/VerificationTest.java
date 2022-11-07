@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import android.util.Log;
 
+import com.uniquindio.moviuq.domain.VehicleType;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -72,5 +74,12 @@ public class VerificationTest {
         String email= "nikorodriguez@hotmail.com";
         boolean verificarCorreo=verificationService.verificarCorreo(email);
         assertFalse(verificarCorreo);
+    }
+    @Test
+    public void verificarMaxAsientosMoto(){
+
+        String seats= "1";
+        boolean verificarMaxAsientos= verificationService.verificarMaxAsientosMoto(seats);
+        assertTrue(verificarMaxAsientos);
     }
 }

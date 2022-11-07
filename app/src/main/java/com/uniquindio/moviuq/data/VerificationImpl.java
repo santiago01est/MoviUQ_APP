@@ -51,11 +51,10 @@ public class VerificationImpl implements VerificationService {
     }
 
     @Override
-    public boolean verificarVehiculo(VehicleType vehicleType) {
-        boolean esMoto=false;
-        if(vehicleType==VehicleType.MOTO){
-            esMoto=true;
+    public boolean verificarMaxAsientosMoto(String seats) {
+        if(Integer.parseInt(seats)>1){
+            return false;
         }
-        return esMoto;
+        return true;
     }
 }

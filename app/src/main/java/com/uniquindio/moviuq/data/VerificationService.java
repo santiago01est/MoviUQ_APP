@@ -10,5 +10,5 @@ public interface VerificationService {
     boolean verificarContraseñaSignIn(String pass, String pass_confirmar);
     boolean contraseñaMinima(String pass);
     boolean verificarCorreo(String email);
-    boolean verificarVehiculo(VehicleType vehicleType);
+    boolean verificarMaxAsientosMoto(String seats);
 }

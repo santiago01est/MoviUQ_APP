@@ -96,6 +96,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Marker mMarkerTo = null;
     private Marker mMarkerFrom = null;
     private List<Condition> myCondition=new ArrayList<>();
+    private VerificationService verificationService= new VerificationImpl();
 
 
 
@@ -221,42 +222,29 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
                     /** Asigna vehiculo segun lo seleccionado */
                     VehicleType vehicleType=VehicleType.CARRO;
                     if(rdb_moto.isChecked() ) {
-                        if (verificarMaxAsientosMoto()){
+                        if (verificationService.verificarMaxAsientosMoto(seatsString)){
                             vehicleType = VehicleType.MOTO;
-                            enviarInfoOffer(title,vehicleType);
+                            enviarInfoOffer(title,vehicleType, descString, txv_dateString,seatsString);
                         }else{
-                            Toast.makeText(CreateOfferActivity.this, "Con el Vehiculo Moto no puedes superar a un cupo", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateOfferActivity.this, "Con el Vehiculo Moto no puedes superar 1 cupo", Toast.LENGTH_SHORT).show();
                         }
 
                     }else{
-                        enviarInfoOffer(title,vehicleType);
+                        enviarInfoOffer(title,vehicleType,descString, txv_dateString,seatsString);
                     }
-
-
-                }else{
-                    Toast.makeText(CreateOfferActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void enviarInfoOffer(String title, VehicleType vehicleType) {
+    private void enviarInfoOffer(String title, VehicleType vehicleType, String description, String date, String seats) {
         /** recolectar condiciones seleccionadas*/
         setupConditions();
         /** Envia datos para procesarlos a la BD**/
 
-                    case_offer.createOffer(title, descString,txv_dateString, txv_hour.getText().toString(),vehicleType, Integer.parseInt(seatsString) , myCondition,mMarkerFrom, mMarkerTo,placeTo,placeFrom);
+                    case_offer.createOffer(title, description,date, txv_hour.getText().toString(),vehicleType, Integer.parseInt(seats) , myCondition,mMarkerFrom, mMarkerTo,placeTo,placeFrom);
                 }
-
-
-    private boolean verificarMaxAsientosMoto() {
-        if(Integer.parseInt(seats.getText().toString())>1){
-            return false;
-        }
-        return true;
-
-    }
 
     /** DATE **/
 
