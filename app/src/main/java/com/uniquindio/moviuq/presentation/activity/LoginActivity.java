@@ -30,8 +30,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.data.VerificationImpl;
+import com.uniquindio.moviuq.data.VerificationService;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Log;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Button login;
     private ImageButton logingoogle;
+    private VerificationService verificationService= new VerificationImpl();
     private static final int REQ_ONE_TAP = 235;
 
 
@@ -66,7 +73,12 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!log_email.getText().toString().isEmpty() && !log_pass.getText().toString().isEmpty()) {
+                String email = log_email.getText().toString();
+                String pass = log_pass.getText().toString();
+                List<String> campos = new ArrayList<>(Arrays.asList(email, pass));
+                if (verificationService.camposVacios(campos)) {
+                    Toast.makeText(LoginActivity.this, "Hay campos vacios, porfavor llene todos los campos", Toast.LENGTH_SHORT).show();
+                }else{
                     case_log.login_user(log_email.getText().toString().trim(), log_pass.getText().toString());
                     progressBar.setVisibility(View.VISIBLE);
                 }

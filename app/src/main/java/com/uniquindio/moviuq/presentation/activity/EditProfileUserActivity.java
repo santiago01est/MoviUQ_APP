@@ -78,6 +78,7 @@ public class EditProfileUserActivity extends AppCompatActivity {
                 String numberPhone=txil_numberPhone_editProfileUser.getText().toString();
                 String city=txil_city_editProfileUser.getText().toString();
                 String years=txil_years_editProfileUser.getText().toString();
+
                 case_profile.updateInformation(name, lastName, numberPhone, city, years);
 
 
@@ -104,4 +105,6 @@ public class EditProfileUserActivity extends AppCompatActivity {
                         .into(photoUser);
 
     }
+
+
 }
