@@ -54,6 +54,7 @@ public class Case_Profile {
     public void lanzarHome() {
         Intent i = new Intent(activity, HomeActivity.class);
         activity.startActivity(i);
+        activity.finish();
 
     }
 

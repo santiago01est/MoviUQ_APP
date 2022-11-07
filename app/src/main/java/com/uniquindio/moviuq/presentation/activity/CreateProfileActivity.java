@@ -3,36 +3,28 @@ package com.uniquindio.moviuq.presentation.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.uniquindio.moviuq.R;
-import com.uniquindio.moviuq.domain.User;
-import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
 import com.uniquindio.moviuq.use_case.Case_User;
-
 import java.io.ByteArrayOutputStream;
 
 public class CreateProfileActivity extends AppCompatActivity {
