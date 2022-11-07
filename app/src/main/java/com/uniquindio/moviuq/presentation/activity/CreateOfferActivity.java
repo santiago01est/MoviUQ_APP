@@ -97,8 +97,6 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Marker mMarkerFrom = null;
     private List<Condition> myCondition=new ArrayList<>();
 
-    private VerificationService verificationService = new VerificationImpl();
-
 
 
     @Override
@@ -221,19 +219,43 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
                     /** se crea titulo con el nombre de los 2 lugares seleccionados*/
                     String title=placeFrom.getName()+" - " +placeTo.getName();
                     /** Asigna vehiculo segun lo seleccionado */
-                    VehicleType vehicleType=VehicleType.MOTO;
-                    if(rdb_car.isChecked()) {
-                        vehicleType = VehicleType.CARRO;
-                    }
-                    /** recolectar condiciones seleccionadas*/
-                    setupConditions();
-                    /** Envia datos para procesarlos a la BD**/
+                    VehicleType vehicleType=VehicleType.CARRO;
+                    if(rdb_moto.isChecked() ) {
+                        if (verificarMaxAsientosMoto()){
+                            vehicleType = VehicleType.MOTO;
+                            enviarInfoOffer(title,vehicleType);
+                        }else{
+                            Toast.makeText(CreateOfferActivity.this, "Con el Vehiculo Moto no puedes superar a un cupo", Toast.LENGTH_SHORT).show();
+                        }
 
-                    case_offer.createOffer(title, descString,txv_dateString, txv_hour.getText().toString(),vehicleType, Integer.parseInt(seatsString) , myCondition,mMarkerFrom, mMarkerTo,placeTo,placeFrom);
+                    }else{
+                        enviarInfoOffer(title,vehicleType);
+                    }
+
+
+                }else{
+                    Toast.makeText(CreateOfferActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void enviarInfoOffer(String title, VehicleType vehicleType) {
+        /** recolectar condiciones seleccionadas*/
+        setupConditions();
+        /** Envia datos para procesarlos a la BD**/
+
+                    case_offer.createOffer(title, descString,txv_dateString, txv_hour.getText().toString(),vehicleType, Integer.parseInt(seatsString) , myCondition,mMarkerFrom, mMarkerTo,placeTo,placeFrom);
+                }
+
+
+    private boolean verificarMaxAsientosMoto() {
+        if(Integer.parseInt(seats.getText().toString())>1){
+            return false;
+        }
+        return true;
+
     }
 
     /** DATE **/

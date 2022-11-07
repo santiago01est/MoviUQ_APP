@@ -17,7 +17,7 @@
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="33">
         <activity
-            android:name=".CreateRequestActivity"
+            android:name=".presentation.activity.CreateRequestActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.MyOfferListActivity"
