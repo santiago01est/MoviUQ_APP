@@ -6,14 +6,13 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.uniquindio.moviuq.CreateRequestActivity;
+import com.uniquindio.moviuq.presentation.activity.CreateRequestActivity;
 import com.uniquindio.moviuq.data.RequestImpl;
 import com.uniquindio.moviuq.data.RequestService;
 import com.uniquindio.moviuq.domain.EstadoPost;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.Request;
 import com.uniquindio.moviuq.domain.User;
-import com.uniquindio.moviuq.presentation.activity.CreateOfferActivity;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.date.DateCalculator;
 
