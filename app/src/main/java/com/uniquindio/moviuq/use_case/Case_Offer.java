@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.widget.DatePicker;
 
+import androidx.annotation.IntRange;
 import androidx.annotation.RequiresApi;
 
 import com.google.android.gms.maps.model.Marker;
@@ -41,7 +42,7 @@ public class Case_Offer {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void createOffer(String title, String desc, String dateTravel, String hourTravel, VehicleType vehicleType, int seats, List<Condition> myCondition, Marker mMarkerFrom, Marker mMarkerTo, MyPlace placeTo, MyPlace placeFrom) {
+    public void createOffer(String title, String desc, String dateTravel, String hourTravel, VehicleType vehicleType, @IntRange(from=0,to=6) int seats, List<Condition> myCondition, Marker mMarkerFrom, Marker mMarkerTo, MyPlace placeTo, MyPlace placeFrom) {
         case_user=new Case_User(activity);
         String emailUser=case_user.getEmailUser();
         Offer offer;
