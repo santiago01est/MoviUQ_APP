@@ -31,12 +31,15 @@ import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.uniquindio.moviuq.data.VerificationImpl;
+import com.uniquindio.moviuq.data.VerificationService;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.presentation.activity.CreateOfferActivity;
 import com.uniquindio.moviuq.use_case.Case_Offer;
 import com.uniquindio.moviuq.use_case.Case_Request;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -69,6 +72,7 @@ public class CreateRequestActivity extends AppCompatActivity {
     private MyPlace placeTo;
     private LatLng mToLatLng=null;
     private LatLng mFromLatLng=null;
+    private VerificationService verificationService = new VerificationImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,13 +128,29 @@ public class CreateRequestActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                if(verificarCampos()){
+                String from_travelString;
+                if(from_travel.getText().toString().equals("De")){
+                    from_travelString= "";
+                }else{
+                    from_travelString=from_travel.getText().toString();
+                }
+                String to_travelString;
+                if(to_travel.getText().toString().equals("A")){
+                    to_travelString= "";
+                }else{
+                    to_travelString=to_travel.getText().toString();
+                }
+                String seatsString= seats.getText().toString();
+                String txv_dateString= txv_date.getText().toString();
+                List<String> campos = new ArrayList<>(Arrays.asList(from_travelString,to_travelString,seatsString,txv_dateString));
+                if(verificationService.camposVacios(campos, -2)){
+                    Toast.makeText(CreateRequestActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
+
+                }else{
                     /** se crea titulo con el nombre de los 2 lugares seleccionados*/
                     String title=placeFrom.getName()+" - " +placeTo.getName();
 
-                    case_request.createRequest(title,txv_date.getText().toString(), txv_hour.getText().toString(), Integer.parseInt(seats.getText().toString()) ,placeTo,placeFrom);
-                }else{
-                    Toast.makeText(CreateRequestActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
+                    case_request.createRequest(title,txv_dateString, txv_hour.getText().toString(), Integer.parseInt(seatsString) ,placeTo,placeFrom);
                 }
 
             }

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,11 +22,17 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.data.VerificationImpl;
+import com.uniquindio.moviuq.data.VerificationService;
 import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.firebase.FirebaseCFDBService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
 import com.uniquindio.moviuq.use_case.Case_User;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class EditProfileUserActivity extends AppCompatActivity {
 
@@ -36,6 +43,7 @@ public class EditProfileUserActivity extends AppCompatActivity {
     private Button btn_actualizarPerfil;
     private ImageView photoUser;
     private User user;
+    private VerificationService verificationService = new VerificationImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +86,13 @@ public class EditProfileUserActivity extends AppCompatActivity {
                 String numberPhone=txil_numberPhone_editProfileUser.getText().toString();
                 String city=txil_city_editProfileUser.getText().toString();
                 String years=txil_years_editProfileUser.getText().toString();
+                List<String> campos = new ArrayList<>(Arrays.asList(name, lastName, numberPhone, city, years));
+                if(verificationService.camposVacios(campos, -2)){
+                    Toast.makeText(EditProfileUserActivity.this, "Hay campos vacios, porfavor llene todos los campos", Toast.LENGTH_SHORT).show();
+                }else{
+                    case_profile.updateInformation(name, lastName, numberPhone, city, years);
 
-                case_profile.updateInformation(name, lastName, numberPhone, city, years);
-
-
+                }
             }
         });
 

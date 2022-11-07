@@ -50,7 +50,7 @@ public class SignActivity extends AppCompatActivity {
                 String email = sign_email.getText().toString();
                 List<String> campos = new ArrayList<>(Arrays.asList(pass, passConfirm));
 
-                if (verificationService.camposVacios(campos)) {
+                if (verificationService.camposVacios(campos, -2)) {
                     Toast.makeText(SignActivity.this, "Hay campos vacios, porfavor llene todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
                     if (verificationService.verificarContraseñaSignIn(pass, passConfirm)) {

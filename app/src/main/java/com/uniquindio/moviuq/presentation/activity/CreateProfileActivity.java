@@ -23,9 +23,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.data.VerificationImpl;
+import com.uniquindio.moviuq.data.VerificationService;
 import com.uniquindio.moviuq.use_case.Case_Profile;
 import com.uniquindio.moviuq.use_case.Case_User;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CreateProfileActivity extends AppCompatActivity {
 
@@ -45,6 +50,8 @@ public class CreateProfileActivity extends AppCompatActivity {
     private Uri downloadUri;
     /** Codigo de respuesta**/
     private static final int PICK_IMAGE = 100;
+    /** Servicio de verificacion**/
+    private VerificationService verificationService = new VerificationImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,22 +125,22 @@ public class CreateProfileActivity extends AppCompatActivity {
      *  para ser direccionadas a la capa de casos de usos de createProfile.
      **/
     public void createProfile(){
-        if(crProf_name.getText().toString().isEmpty() || crProf_lastName.getText().toString().isEmpty()
-            || crProf_years.getText().toString().isEmpty() || crProf_phoneNumber.getText().toString().isEmpty()
-            || crProf_city.getText().toString().isEmpty()){
+        String name=crProf_name.getText().toString();
+        String lastName=crProf_lastName.getText().toString();
+        String numberPhone=crProf_phoneNumber.getText().toString();
+        String city=crProf_city.getText().toString();
+        String years=crProf_years.getText().toString();
+        List<String> campos = new ArrayList<>(Arrays.asList(name, lastName, numberPhone, city, years));
+        if(verificationService.camposVacios(campos, -2)){
 
             Toast.makeText(this, "Ningun campo puede estar vacio, llena los campos porfavor", Toast.LENGTH_SHORT).show();
 
         }else{
             cargando.setVisibility(View.VISIBLE);
-            String name= crProf_name.getText().toString();
-            String last_name= crProf_lastName.getText().toString();
-            int years = Integer.parseInt(crProf_years.getText().toString());
-            long phoneNumber= Long.parseLong(crProf_years.getText().toString());
-            String city= crProf_city.getText().toString();
+            int yearsInt = Integer.parseInt(years);
+            long phoneNumberLong= Long.parseLong(numberPhone);
 
-
-            upData(emailUser,name,last_name,years,phoneNumber,city);
+            upData(emailUser,name,lastName,yearsInt,phoneNumberLong,city);
 
         }
 
@@ -180,8 +187,6 @@ public class CreateProfileActivity extends AppCompatActivity {
                     downloadUri = task.getResult();
                     case_createProfile.create_profile(downloadUri+"", name, last_name, years, phoneNumber, city);
                     cargando.setVisibility(View.GONE);
-
-                } else {
 
                 }
             }

@@ -4,13 +4,16 @@ import java.util.List;
 
 public class VerificationImpl implements VerificationService {
     @Override
-    public boolean camposVacios(List<String> campos) {
+    public boolean camposVacios(List<String> campos, int radioButtom) {
         int count=0;
         boolean camposVacios= false;
         for (String campo: campos) {
             if(campo.isEmpty()){
                 count++;
             }
+        }
+        if(radioButtom==-1){
+            count++;
         }
         if(count>=1){
             camposVacios=true;

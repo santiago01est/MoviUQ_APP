@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = log_email.getText().toString();
                 String pass = log_pass.getText().toString();
                 List<String> campos = new ArrayList<>(Arrays.asList(email, pass));
-                if (verificationService.camposVacios(campos)) {
+                if (verificationService.camposVacios(campos, -2)) {
                     Toast.makeText(LoginActivity.this, "Hay campos vacios, porfavor llene todos los campos", Toast.LENGTH_SHORT).show();
                 }else{
                     case_log.login_user(log_email.getText().toString().trim(), log_pass.getText().toString());
