@@ -1,5 +1,7 @@
 package com.uniquindio.moviuq.data;
 
+import com.uniquindio.moviuq.domain.VehicleType;
+
 import java.util.List;
 
 public class VerificationImpl implements VerificationService {
@@ -46,5 +48,14 @@ public class VerificationImpl implements VerificationService {
             esValido=true;
         }
         return esValido;
+    }
+
+    @Override
+    public boolean verificarVehiculo(VehicleType vehicleType) {
+        boolean esMoto=false;
+        if(vehicleType==VehicleType.MOTO){
+            esMoto=true;
+        }
+        return esMoto;
     }
 }
