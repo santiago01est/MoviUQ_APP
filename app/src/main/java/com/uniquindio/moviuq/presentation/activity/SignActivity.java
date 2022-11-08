@@ -19,7 +19,6 @@ public class SignActivity extends AppCompatActivity {
     Case_Sign case_sign;
     TextInputEditText sign_email, sign_pass, sign_pass_confirmar;
     private ProgressBar progressBar;
-    private Button sign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class SignActivity extends AppCompatActivity {
         sign_pass=findViewById(R.id.sign_password);
         sign_pass_confirmar=findViewById(R.id.sign_confirm_password);
         progressBar = findViewById(R.id.progressBar_sign);
-        sign = findViewById(R.id.btn_login_iniciar);
+        Button sign = findViewById(R.id.btn_login_iniciar);
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
