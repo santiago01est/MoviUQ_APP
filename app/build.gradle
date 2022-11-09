@@ -13,6 +13,8 @@ android {
         baseline file("lint-baseline.xml")
         abortOnError false
         checkReleaseBuilds false
+        disable 'TypographyFractions','TypographyQuotes'
+        checkDependencies=true
 
     }
 

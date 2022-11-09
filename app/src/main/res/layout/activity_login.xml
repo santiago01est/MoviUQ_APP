@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,21 +10,21 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/contenedor_log"
+        android:contentDescription="@string/todo"
         android:scaleType="centerCrop"
-        tools:ignore="ImageContrastCheck"
-        android:contentDescription="@string/todo">
+        android:src="@drawable/contenedor_log"
+        tools:ignore="ImageContrastCheck">
 
     </ImageView>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/back_login"
-        android:scaleType="centerCrop"
         android:alpha="0.5"
-        tools:ignore="ImageContrastCheck"
-        android:contentDescription="@string/todo">
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_login"
+        tools:ignore="ImageContrastCheck">
 
     </ImageView>
 
@@ -41,8 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lottie_login"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_login"
             app:layout_constraintVertical_bias="1">
 
             <TextView
@@ -138,9 +138,9 @@
                     android:id="@+id/login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/berlin_sans_regular"
                     android:inputType="textPassword"
                     android:textColor="@color/letra_02"
-                    android:fontFamily="@font/berlin_sans_regular"
                     android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -150,12 +150,12 @@
                 android:id="@+id/btns_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="179dp"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -169,13 +169,13 @@
                     android:layout_height="63dp"
                     android:layout_margin="10dp"
                     android:fontFamily="@font/berlin_sans_demi_bold"
+                    android:text="@string/log_btn_iniciar"
                     android:textColor="@color/white"
                     android:textSize="18sp"
+                    app:backgroundTint="@color/bttn_01"
                     app:cornerRadius="22dp"
                     app:elevation="50dp"
-                    app:rippleColor="@color/green_main"
-                    app:backgroundTint="@color/bttn_01"
-                    android:text="@string/log_btn_iniciar" />
+                    app:rippleColor="@color/green_main" />
             </LinearLayout>
 
             <TextView
@@ -237,4 +237,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</merge>
