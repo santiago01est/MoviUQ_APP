@@ -47,7 +47,6 @@ public class HomeFragment extends Fragment {
      **/
     private Case_Notification case_notification;
     private Case_User case_user;
-    private static Context context;
   //  private ArrayList<Offer> myOffer=new ArrayList<>();
 
 
@@ -56,10 +55,9 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public static HomeFragment newInstance(Context contexto) {
+    public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
-        context=contexto;
         fragment.setArguments(args);
         return fragment;
     }
@@ -148,7 +146,7 @@ public class HomeFragment extends Fragment {
                     /** Mediante glide se busca la photo de perfil
                      * que esta subida en Cloud Store**/
 
-                    Glide.with(context)
+                    Glide.with(HomeFragment.this)
                             .load(user.getPhoto())
                             .into(imgv_photo_user);
 
