@@ -40,6 +40,8 @@ import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.data.VerificationImpl;
+import com.uniquindio.moviuq.data.VerificationService;
 import com.uniquindio.moviuq.domain.Condition;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.VehicleType;
@@ -94,6 +96,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
     private Marker mMarkerTo = null;
     private Marker mMarkerFrom = null;
     private List<Condition> myCondition=new ArrayList<>();
+    private VerificationService verificationService= new VerificationImpl();
 
 
 
@@ -193,61 +196,55 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                if(verificarCampos()){
+                String descString = desc.getText().toString();
+                String from_travelString;
+                if(from_travel.getText().toString().equals("De")){
+                    from_travelString= "";
+                }else{
+                    from_travelString=from_travel.getText().toString();
+                }
+                String to_travelString;
+                if(to_travel.getText().toString().equals("A")){
+                    to_travelString= "";
+                }else{
+                    to_travelString=to_travel.getText().toString();
+                }
+                int radioGroupInt= radioGroup.getCheckedRadioButtonId();
+                String seatsString= seats.getText().toString();
+                String txv_dateString= txv_date.getText().toString();
+                List<String> campos = new ArrayList<>(Arrays.asList(descString, from_travelString,to_travelString,seatsString,txv_dateString));
+                if(verificationService.camposVacios(campos,radioGroupInt)){
+                    Toast.makeText(CreateOfferActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
+
+                }else{
                     /** se crea titulo con el nombre de los 2 lugares seleccionados*/
                     String title=placeFrom.getName()+" - " +placeTo.getName();
                     /** Asigna vehiculo segun lo seleccionado */
                     VehicleType vehicleType=VehicleType.CARRO;
                     if(rdb_moto.isChecked() ) {
-                        if (verificarMaxAsientosMoto()){
+                        if (verificationService.verificarMaxAsientosMoto(seatsString)){
                             vehicleType = VehicleType.MOTO;
-                            enviarInfoOffer(title,vehicleType);
+                            enviarInfoOffer(title,vehicleType, descString, txv_dateString,seatsString);
                         }else{
-                            Toast.makeText(CreateOfferActivity.this, "Con el Vehiculo Moto no puedes superar a un cupo", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateOfferActivity.this, "Con el Vehiculo Moto no puedes superar 1 cupo", Toast.LENGTH_SHORT).show();
                         }
 
                     }else{
-                        enviarInfoOffer(title,vehicleType);
+                        enviarInfoOffer(title,vehicleType,descString, txv_dateString,seatsString);
                     }
-
-
-                }else{
-                    Toast.makeText(CreateOfferActivity.this, "Ingresa los campos obligatorios (*)", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void enviarInfoOffer(String title, VehicleType vehicleType) {
+    private void enviarInfoOffer(String title, VehicleType vehicleType, String description, String date, String seats) {
         /** recolectar condiciones seleccionadas*/
         setupConditions();
         /** Envia datos para procesarlos a la BD**/
 
-        case_offer.createOffer(title, desc.getText().toString(),txv_date.getText().toString(), txv_hour.getText().toString(),vehicleType, Integer.parseInt(seats.getText().toString()) , myCondition,mMarkerFrom, mMarkerTo,placeTo,placeFrom);
-    }
-
-
-    private boolean verificarMaxAsientosMoto() {
-        if(Integer.parseInt(seats.getText().toString())>1){
-            return false;
-        }
-        return true;
-
-    }
-
-    private boolean verificarCampos() {
-        boolean centinela=true;
-
-        if(desc.getText().toString().isEmpty() || from_travel.getText()=="De" ||
-                to_travel.getText()=="A"  || radioGroup.getCheckedRadioButtonId() == -1 ||
-                seats.getText().toString().isEmpty() || txv_date.getText().toString().isEmpty()){
-            centinela=false;
-
-        }
-
-        return  centinela;
-    }
+                    case_offer.createOffer(title, description,date, txv_hour.getText().toString(),vehicleType, Integer.parseInt(seats) , myCondition,mMarkerFrom, mMarkerTo,placeTo,placeFrom);
+                }
 
     /** DATE **/
 

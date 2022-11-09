@@ -144,7 +144,7 @@ public class ProfileImpl implements ProfileService{
             userUpdate.update("name", name);
             userUpdate.update("last_name", lastName);
             userUpdate.update("phoneNumber", Long.parseLong(numberPhone));
-            userUpdate.update("city", city);
+            userUpdate.update("city", ""+city);
             userUpdate.update("years", Integer.parseInt(years));
             case_createProfile.lanzarHome();
             //obtenerToken(email);
