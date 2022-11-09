@@ -37,7 +37,7 @@ public class AdapterFireOffer extends FirestoreRecyclerAdapter<Offer, AdapterFir
         holder.title.setText(model.getTitle());
         holder.date.setText(model.getDateTravel());
         holder.hour.setText(model.getHourTravel());
-        holder.seats.setText(""+model.getSeats());
+        holder.seats.setText(String.valueOf(model.getSeats()));
 
         if(model.getVehicleType()== VehicleType.CARRO){
             holder.vehicle.setImageResource(R.drawable.ic_car);

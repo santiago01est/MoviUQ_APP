@@ -40,15 +40,13 @@ public class AdapterFireMyRequestList extends FirestoreRecyclerAdapter<Request, 
         holder.startArriveP.setText(model.getTitle());
         holder.date.setText(model.getDateTravel());
         holder.hour.setText(model.getHourTravel());
-        holder.seats.setText(""+model.getSeats());
-
-        //Glide.with(context)
-        //      .load(model.getPerfil())
-        //    .into(holder.avatar);
+        holder.seats.setText(String.valueOf(model.getSeats()));
 
 
 
-        /** Clic button three_Points */
+
+
+        /* Clic button three_Points */
         /*holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,6 +127,7 @@ public class AdapterFireMyRequestList extends FirestoreRecyclerAdapter<Request, 
     /**
      * Enlaza el adaptador con el card de my request list (list_my_request_list)
      */
+    @NonNull
     @Override
     public AdapterFireMyRequestList.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_my_request_list,viewGroup,false);

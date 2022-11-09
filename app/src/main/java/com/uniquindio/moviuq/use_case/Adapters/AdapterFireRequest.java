@@ -44,7 +44,7 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
         holder.startArriveP.setText(model.getTitle());
         holder.date.setText(model.getDateTravel());
         holder.hour.setText(model.getHourTravel());
-        holder.seats.setText(""+model.getSeats());
+        holder.seats.setText(String.valueOf(model.getSeats()));
 
         //Glide.with(context)
         //      .load(model.getPerfil())

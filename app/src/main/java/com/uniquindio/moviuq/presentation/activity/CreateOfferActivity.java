@@ -437,7 +437,7 @@ public class CreateOfferActivity extends AppCompatActivity implements OnMapReady
      * @param place
      */
     private void updatePlaceUi(Place place, TextView txv_travel) {
-        txv_travel.setText("" + place.getName());
+        txv_travel.setText(place.getName());
     }
 
 

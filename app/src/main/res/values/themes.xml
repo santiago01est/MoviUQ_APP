@@ -41,10 +41,7 @@
     <!-- Home Activity -->
 
     <!-- MenuBar -->
-    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
-        <item name="fontFamily">@font/berlin_sans_demi_bold</item>
-        <item name="android:textSize">22sp</item>
-    </style>
+
 
     <!-- Bottom Bar Navigation -->
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
@@ -132,10 +129,7 @@
         <item name="colorAccent">@color/green</item>
     </style>
 
-    <!-- animation dialog zoom-->
-    <style name="PauseDialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
-    </style>
+
 
     <!-- Floating button -->
     <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
