@@ -257,7 +257,7 @@ public class CreateRequestActivity extends AppCompatActivity {
      * @param place
      */
     private void updatePlaceUi(Place place, TextView txv_travel) {
-        txv_travel.setText("" + place.getName());
+        txv_travel.setText(place.getName().toString());
     }
 
     /** DATE **/
