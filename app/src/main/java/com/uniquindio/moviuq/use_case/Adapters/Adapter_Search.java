@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.ViewHolder>{
 
-    private Context context;
+
     private ArrayList<Offer> listaOffer;
     protected View.OnClickListener onClickListener;
 
@@ -39,8 +39,8 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.ViewHold
      *
      * @param listaOffer
      */
-    public Adapter_Search(Context context, ArrayList<Offer> listaOffer){
-        this.context=context;
+    public Adapter_Search(ArrayList<Offer> listaOffer){
+
         this.listaOffer=listaOffer;
 
     }

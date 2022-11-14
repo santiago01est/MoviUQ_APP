@@ -3,6 +3,7 @@ package com.uniquindio.moviuq.presentation.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -113,6 +114,7 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void setupData(Offer offer) {
 
         txv_title.setText(offer.getTitle());
