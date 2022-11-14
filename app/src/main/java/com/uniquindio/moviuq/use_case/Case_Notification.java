@@ -4,10 +4,12 @@ import static com.android.volley.VolleyLog.TAG;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,11 +22,16 @@ import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.firebase.firestore.Query;
 import com.uniquindio.moviuq.data.NotificationImpl;
 import com.uniquindio.moviuq.data.NotificationService;
+import com.uniquindio.moviuq.domain.Notification;
+import com.uniquindio.moviuq.domain.TypeNotification;
 import com.uniquindio.moviuq.presentation.activity.NotificationUserActivity;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
+import com.uniquindio.moviuq.provider.services.date.DateCalculator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,9 +53,11 @@ public class Case_Notification {
         activity.finish();
     }
 
-    public void enviarNotificacionContratacion(String token,String nameUserMe,String nameUserTravel) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void enviarNotificacionContratacion(String token, String nameUserMe, String IduserTravel,String nameUserTravel) {
 
 
+        /** Enviar notificacion al otro usuario**/
         RequestQueue myrequest= Volley.newRequestQueue(activity);
         JSONObject json = new JSONObject();
 
@@ -80,7 +89,18 @@ public class Case_Notification {
         }catch (JSONException e){
             e.printStackTrace();
         }
-        //  }
+
+        /** Crear notificacion **/
+
+        Date date = new Date();
+        DateCalculator dateCalculator = new DateCalculator(date);
+        String id="NOTI"+nameUserMe+nameUserTravel;
+        String dateNoti=dateCalculator.getCompleteDay();
+        String descripcion="Hola! "+nameUserTravel+" , el usuario "+nameUserMe+" está interesado en tu oferta de viaje. \nConfirma el viaje!";
+        TypeNotification typeNotification= TypeNotification.ACUERDO_VIAJE;
+        Notification notification= new Notification(id,dateNoti,descripcion,typeNotification,IduserTravel);
+
+        notificationService.enviarNotificacion(notification,activity);
 
     }
 

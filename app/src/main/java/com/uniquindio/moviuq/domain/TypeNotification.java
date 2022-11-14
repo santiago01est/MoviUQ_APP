@@ -4,5 +4,5 @@ import java.io.Serializable;
 
 public enum TypeNotification  implements Serializable {
 
-    CALIFICACION, CONTRATO_VIAJE, RESPUESTA_VIAJE, CHAT
+    CALIFICACION, ACUERDO_VIAJE, ACUERDO_SOLICITUD_VIAJE, CHAT
 }

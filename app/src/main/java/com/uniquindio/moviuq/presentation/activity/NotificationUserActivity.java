@@ -41,7 +41,7 @@ public class NotificationUserActivity extends AppCompatActivity {
 
         /** Consulta para fijar Adaptador**/
         //Query query=case_notification.getNotificationUser(emailUser);
-        Query query= FirebaseFirestore.getInstance().collection("notification").whereEqualTo("emailUserReceiver",emailUser);
+        Query query= FirebaseFirestore.getInstance().collection("notifications").whereEqualTo("emailUserReceiver",emailUser);
         FirestoreRecyclerOptions<Notification> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Notification>().setQuery(query, Notification.class).build();
         adapterFireNotification = new AdapterFireNotification(firestoreRecyclerOptions,this);
         recyclerView.setAdapter(adapterFireNotification);

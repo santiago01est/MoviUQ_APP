@@ -62,6 +62,7 @@ public class ProfileImpl implements ProfileService{
             public void onSuccess(Void unused) {
                 obtenerToken(email);
                 case_createProfile.lanzarHome();
+                Toast.makeText(activity, "Bienvenido a MoviUQ!", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

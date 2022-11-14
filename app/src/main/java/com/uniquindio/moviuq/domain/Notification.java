@@ -9,18 +9,18 @@ public class Notification implements Serializable {
     private String date;
     private String description;
     //private User userTransmitter;
-    //private TypeNotification type;
+    private TypeNotification type;
     private String emailUserReceiver;
 
     public Notification() {
 
     }
 
-    public Notification(String id, String date, String description, String emailUserReceiver) {
+    public Notification(String id, String date, String description, TypeNotification type, String emailUserReceiver) {
         this.id = id;
         this.date = date;
         this.description = description;
-
+        this.type = type;
         this.emailUserReceiver = emailUserReceiver;
     }
 
@@ -54,5 +54,13 @@ public class Notification implements Serializable {
 
     public void setEmailUserReceiver(String emailUserReceiver) {
         this.emailUserReceiver = emailUserReceiver;
+    }
+
+    public TypeNotification getType() {
+        return type;
+    }
+
+    public void setType(TypeNotification type) {
+        this.type = type;
     }
 }

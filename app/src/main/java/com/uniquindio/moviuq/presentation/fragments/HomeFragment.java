@@ -51,7 +51,7 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
-    private ImageView imgv_photo_user;
+    private ImageView imgv_photo_user,imgview_search;
     private TextView txv_nameUser;
     private RecyclerView search_offer;
     private SearchView searchView;
@@ -90,6 +90,7 @@ public class HomeFragment extends Fragment {
 
         /** References **/
         imgv_photo_user = root.findViewById(R.id.imageView_photoUser);
+        imgview_search = root.findViewById(R.id.imgview_search);
         txv_nameUser = root.findViewById(R.id.txv_name_user);
 
         searchView = root.findViewById(R.id.search_travel);
@@ -136,7 +137,13 @@ public class HomeFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String s) {
                 search_offer.setVisibility(View.VISIBLE);
-                textSearch(s);
+                if (!s.isEmpty()){
+                    imgview_search.setVisibility(View.GONE);
+                }else{
+                    imgview_search.setVisibility(View.VISIBLE);
+                    search_offer.setVisibility(View.GONE);
+                }
+                imgview_search.setVisibility(View.GONE);
                 search_offer.setLayoutManager(new LinearLayoutManager(getContext()));
                 Query query = FirebaseFirestore.getInstance().collection("offers");
                 FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query.orderBy("title").startAt(s).endAt(s+"~"), Offer.class).build();
@@ -150,11 +157,7 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    private void textSearch(String s) {
 
-
-
-    }
 
     private void loadData() {
 

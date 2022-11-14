@@ -30,9 +30,9 @@
                     android:id="@+id/portada"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/todo"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/back_img_home"
-                    android:contentDescription="@string/todo">
+                    app:srcCompat="@drawable/back_img_home">
 
                 </ImageView>
 
@@ -44,14 +44,14 @@
                         android:id="@+id/imageView_photoUser"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="@drawable/circle_drawable"
                         android:layout_margin="20dp"
+                        android:background="@drawable/circle_drawable"
                         android:scaleType="centerCrop"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-                        app:strokeColor="@color/green_main"
-                        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+                        app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                        app:strokeColor="@color/green_main" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -88,10 +88,11 @@
                         android:layout_height="50dp"
                         android:layout_margin="20dp"
                         android:background="@android:color/transparent"
-                        app:srcCompat="@drawable/ic_notification"
+                        android:contentDescription="@string/todo"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:contentDescription="@string/todo" />
+                        app:srcCompat="@drawable/ic_notification"
+                        tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -125,19 +126,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_search_travel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="?attr/actionBarSize">
 
-                </androidx.recyclerview.widget.RecyclerView>
+            <ImageView
+                android:id="@+id/imgview_search"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:visibility="visible"
+                android:layout_marginTop="80dp"
+                android:contentDescription="@string/todo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/img_search_home">
+
+            </ImageView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_search_travel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

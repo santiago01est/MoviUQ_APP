@@ -1,9 +1,11 @@
 package com.uniquindio.moviuq.presentation.activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -86,10 +88,11 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         });
 
         bttn_contratar.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
 
-                case_notification.enviarNotificacionContratacion(offer.getToken(),user.getName()+" "+user.getLast_name(),offer.getNameUser());
+                case_notification.enviarNotificacionContratacion(offer.getToken(),user.getName()+" "+user.getLast_name(),offer.getIdUser(),offer.getNameUser());
             }
         });
 
