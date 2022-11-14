@@ -1,20 +1,37 @@
 package com.uniquindio.moviuq.use_case.Adapters;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Notification;
+import com.uniquindio.moviuq.provider.data_local.DataLocal;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notification, AdapterFireNotification.ViewHolder> {
 
@@ -38,47 +55,68 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
         holder.description.setText(model.getDescription());
         holder.date.setText(model.getDate());
 
-        //Glide.with(context)
-          //      .load(model.getPerfil())
-            //    .into(holder.avatar);
+        Glide.with(context).
+                load(model.getPhotouserTransmitter()).into(holder.photoUser);
 
 
 
         /** Clic button three_Points */
-        /*holder.like.setOnClickListener(new View.OnClickListener() {
+        holder.three_point.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(model.getIslike()==true){
 
-                    /* actualiza no like en review/
-                    //model.setIslike(false);
+                Dialog dialog=new Dialog(context,R.style.PauseDialog);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(
+                        Color.TRANSPARENT
+                ));
 
-                    /* MODIFICAR ID DOCUMENTO POR ID REVIEW/
-                    DocumentReference commentsUpdate = FirebaseCFDBService.getBD().collection("comments_gallery").document(model.getId());
-                    commentsUpdate.update("islike", false);
-                    commentsUpdate.update("numLike", model.getNumLike()-1);
-                    holder.like.setImageResource(R.drawable.ic_likecero);
+                /** Ventana dialogo mylist **/
+                dialog.setContentView(R.layout.dialog_notification);
+                dialog.show();
 
-                }else
-                if (model.getIslike()==false){
+                RadioButton rd_si=dialog.findViewById(R.id.rd_si);
+
+                rd_si.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(context, "Viaje Confirmado!", Toast.LENGTH_SHORT).show();
+                        /** Enviar notificacion al otro usuario**/
+                        RequestQueue myrequest= Volley.newRequestQueue(context);
+                        JSONObject json = new JSONObject();
+
+                        try {
+
+                            String url_foto="";
+
+                            json.put("to",model.getTokenRespuesta());
+                            JSONObject notificacion=new JSONObject();
+                            notificacion.put("titulo", "Confirmación");
+                            notificacion.put("detalle", DataLocal.getUser().getName() +" Ha confirmado el servicio de transporte");
+                            notificacion.put("foto",url_foto);
+
+                            json.put("data",notificacion);
+                            String URL="https://fcm.googleapis.com/fcm/send";
+                            JsonObjectRequest request=new JsonObjectRequest(Request.Method.POST,URL,json,null,null){
+                                @Override
+                                public Map<String, String> getHeaders() {
+                                    Map<String,String>header=new HashMap<>();
+                                    header.put("content-type","application/json");
+                                    header.put("authorization","key=AAAAp1QX8SY:APA91bEaBh3YUYLtyPjwABa37KFomH2_nMNM6ny3PuJkVBfhqxdrp1bsCg4HZlB7SS3kMTu1jDA_st_k2R9F41h_XVTe9Xy0EcUIeso3gHyiL9szZkb652quMbWhQkjTw0GvtblZONw-");
+                                    return header;
+
+                                }
+                            };
+                            myrequest.add(request);
 
 
-                    //model.setIslike(true);
-                    DocumentReference commentsUpdate = FirebaseCFDBService.getBD().collection("comments_gallery").document(model.getId());
-                    commentsUpdate.update("islike", true);
-                    commentsUpdate.update("numLike", model.getNumLike()+1);
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                });
 
-                    holder.like.setImageResource(R.drawable.ic_likeone);
-
-
-
-                }
             }
         });
-
-*/
-
-
 
 
     }

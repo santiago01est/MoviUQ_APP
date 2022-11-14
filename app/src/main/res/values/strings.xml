@@ -122,6 +122,8 @@
     <string name="estado">Estado</string>
     <string name="fecha">Fecha</string>
     <string name="modificar_texto">Modificar texto</string>
+    <string name="confirmar_viaje">Confirmar Viaje</string>
+    <string name="quieres_confirmar_el_viaje">¿Quieres confirmar el viaje?</string>
 
 
 </resources>

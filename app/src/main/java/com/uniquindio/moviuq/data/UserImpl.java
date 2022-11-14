@@ -102,6 +102,7 @@ public class UserImpl implements UserService {
                                 DocumentReference offerUpdate = FirebaseFirestore.getInstance().collection("offers").document((String) query.get("id"));
                                 offerUpdate.update("token", token);
 
+
                             }
                         }
 
@@ -109,6 +110,27 @@ public class UserImpl implements UserService {
                     }
 
                 });
+        FirebaseFirestore.getInstance().collection("notifications").whereEqualTo("emailUserReceiver", user.getMail()).
+                get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            /** recolectar lista de ids*/
+                            for (QueryDocumentSnapshot query : task.getResult()) {
+
+                                DocumentReference notiUpdate = FirebaseFirestore.getInstance().collection("notifications").document((String) query.get("id"));
+                                notiUpdate.update("tokenRespuesta", token);
+
+
+                            }
+                        }
+
+
+                    }
+
+                });
+
 
 
     }

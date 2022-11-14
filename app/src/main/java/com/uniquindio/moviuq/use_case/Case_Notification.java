@@ -50,7 +50,7 @@ public class Case_Notification {
     public void lanzarNotification(){
         Intent i = new Intent(activity, NotificationUserActivity.class);
         activity.startActivity(i);
-        activity.finish();
+       // activity.finish();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -98,7 +98,7 @@ public class Case_Notification {
         String dateNoti=dateCalculator.getCompleteDay();
         String descripcion="Hola! "+nameUserTravel+" , el usuario "+nameUserMe+" está interesado en tu oferta de viaje. \nConfirma el viaje!";
         TypeNotification typeNotification= TypeNotification.ACUERDO_VIAJE;
-        Notification notification= new Notification(id,dateNoti,descripcion,typeNotification,IduserTravel);
+        Notification notification= new Notification(id,dateNoti,descripcion,DataLocal.getUser().getPhoto(),typeNotification,IduserTravel,DataLocal.getToken());
 
         notificationService.enviarNotificacion(notification,activity);
 

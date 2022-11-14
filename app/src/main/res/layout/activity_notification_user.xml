@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activity.CreateProfileActivity">
+    tools:context=".presentation.activity.NotificationUserActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/todo"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/back_login"
-        tools:ignore="ImageContrastCheck"
-        android:contentDescription="@string/todo"/>
+        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.5"
+        android:contentDescription="@string/todo"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/contenedor_gradient"
-        tools:ignore="ImageContrastCheck"
-        android:contentDescription="@string/todo"/>
+        tools:ignore="ImageContrastCheck" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -33,14 +33,15 @@
             android:layout_height="match_parent">
 
             <ImageButton
+                android:id="@+id/bttn_back_noti"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_arrow_back"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:contentDescription="@string/todo"/>
+                app:srcCompat="@drawable/ic_arrow_back" />
+
             <TextView
                 android:id="@+id/txv_notifications"
                 style="@style/FontsMainTitle"
@@ -49,15 +50,14 @@
                 android:layout_margin="50dp"
                 android:layout_marginTop="44dp"
                 android:gravity="center"
-                android:textColor="@color/letra_01"
                 android:text="@string/Notificaciones"
+                android:textColor="@color/letra_01"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.064"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
             </TextView>
-
 
 
             <androidx.recyclerview.widget.RecyclerView

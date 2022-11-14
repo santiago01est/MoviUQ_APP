@@ -8,20 +8,32 @@ public class Notification implements Serializable {
     private String id;
     private String date;
     private String description;
-    //private User userTransmitter;
+    private String PhotouserTransmitter;
     private TypeNotification type;
     private String emailUserReceiver;
+    private String tokenRespuesta;
+
 
     public Notification() {
 
     }
 
-    public Notification(String id, String date, String description, TypeNotification type, String emailUserReceiver) {
+    public Notification(String id, String date, String description, String photouserTransmitter, TypeNotification type, String emailUserReceiver, String tokenRespuesta) {
         this.id = id;
         this.date = date;
         this.description = description;
+        PhotouserTransmitter = photouserTransmitter;
         this.type = type;
         this.emailUserReceiver = emailUserReceiver;
+        this.tokenRespuesta = tokenRespuesta;
+    }
+
+    public String getTokenRespuesta() {
+        return tokenRespuesta;
+    }
+
+    public void setTokenRespuesta(String tokenRespuesta) {
+        this.tokenRespuesta = tokenRespuesta;
     }
 
     public String getId() {
@@ -62,5 +74,13 @@ public class Notification implements Serializable {
 
     public void setType(TypeNotification type) {
         this.type = type;
+    }
+
+    public String getPhotouserTransmitter() {
+        return PhotouserTransmitter;
+    }
+
+    public void setPhotouserTransmitter(String photouserTransmitter) {
+        PhotouserTransmitter = photouserTransmitter;
     }
 }

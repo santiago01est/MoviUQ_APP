@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -17,6 +20,7 @@ import com.uniquindio.moviuq.use_case.Case_User;
 public class NotificationUserActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private ImageButton bttn_back_noti;
     private String emailUser;
     private Case_User case_user;
     private Case_Notification case_notification;
@@ -34,7 +38,9 @@ public class NotificationUserActivity extends AppCompatActivity {
         emailUser= case_user.getEmailUser();
 
         /** REFERENCE ELEMETS**/
+
         recyclerView= findViewById(R.id.recycler_notifications);
+        bttn_back_noti= findViewById(R.id.bttn_back_noti);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.getItemAnimator().setChangeDuration(0);
@@ -46,6 +52,8 @@ public class NotificationUserActivity extends AppCompatActivity {
         adapterFireNotification = new AdapterFireNotification(firestoreRecyclerOptions,this);
         recyclerView.setAdapter(adapterFireNotification);
       //  adapterFireNotification.notifyDataSetChanged();
+
+        bttn_back_noti.setOnClickListener(view -> finish());
     }
 
     /** onStart
@@ -58,7 +66,7 @@ public class NotificationUserActivity extends AppCompatActivity {
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-        //adapterFireNotification.notifyDataSetChanged();
+        adapterFireNotification.notifyDataSetChanged();
         adapterFireNotification.startListening();
     }
 
