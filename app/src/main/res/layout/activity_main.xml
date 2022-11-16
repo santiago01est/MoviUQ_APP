@@ -24,13 +24,13 @@
         android:id="@+id/imgv_img_main"
         android:layout_width="300dp"
         android:layout_height="220dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgv_icono_main"
-        app:srcCompat="@drawable/icono"
+        app:srcCompat="@drawable/welcome"
         android:contentDescription="@string/todo"/>
 
 
@@ -39,7 +39,7 @@
         style="@style/FontsMainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="@string/lema"
         android:textColor="@color/letra_02"
