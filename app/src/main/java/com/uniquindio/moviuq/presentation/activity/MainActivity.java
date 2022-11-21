@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.ThemeActivityWelcome);
         setContentView(R.layout.activity_main);
 
         animation=findViewById(R.id.lottie_main);
