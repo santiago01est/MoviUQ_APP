@@ -28,7 +28,7 @@ public class Case_Chat {
     }
 
 
-    public void lanzarChatActivity(Chat chat) {
+    public void lanzarChatActivity(String chat) {
 
         Intent i = new Intent(activity, ChatActivity.class);
         Bundle bundle = new Bundle();
@@ -37,4 +37,6 @@ public class Case_Chat {
         activity.startActivity(i);
 
     }
+
+
 }

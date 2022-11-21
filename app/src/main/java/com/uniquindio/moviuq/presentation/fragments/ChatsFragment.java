@@ -32,6 +32,8 @@ public class ChatsFragment extends Fragment {
     private CollapsingToolbarLayout collap;
     private RecyclerView recyclerView;
     private AdapterFireChats adapterFireChats;
+    private RecyclerView recyclerView2;
+    private AdapterFireChats adapterFireChats2;
 
     public ChatsFragment() {
         // Required empty public constructor
@@ -62,12 +64,22 @@ public class ChatsFragment extends Fragment {
         Objects.requireNonNull(recyclerView.getItemAnimator()).setChangeDuration(0);
 
         //Fijar recycler
-        Query query = FirebaseFirestore.getInstance().collection("chats").whereEqualTo("idMe", DataLocal.getUser().getMail()).whereLessThanOrEqualTo("idYou", DataLocal.getUser().getMail());
-
-        FirestoreRecyclerOptions<Chat> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Chat>().setQuery(query, Chat.class).build();
+        Query query1 = FirebaseFirestore.getInstance().collection("chats").whereEqualTo("idMe", DataLocal.getUser().getMail());
+        FirestoreRecyclerOptions<Chat> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Chat>().setQuery(query1, Chat.class).build();
         adapterFireChats = new AdapterFireChats(firestoreRecyclerOptions, getContext());
         recyclerView.setAdapter(adapterFireChats);
         adapterFireChats.notifyDataSetChanged();
+
+        recyclerView2 = root.findViewById(R.id.recycler_chats2);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
+        Objects.requireNonNull(recyclerView2.getItemAnimator()).setChangeDuration(0);
+
+        //Fijar recycler
+        Query query2 = FirebaseFirestore.getInstance().collection("chats").whereEqualTo("idYou", DataLocal.getUser().getMail());
+        FirestoreRecyclerOptions<Chat> firestoreRecyclerOptions2 = new FirestoreRecyclerOptions.Builder<Chat>().setQuery(query2, Chat.class).build();
+        adapterFireChats2 = new AdapterFireChats(firestoreRecyclerOptions2, getContext());
+        recyclerView2.setAdapter(adapterFireChats2);
+        adapterFireChats2.notifyDataSetChanged();
 
 
         /* Mecanismo collapsing para fijar nombre en la toolbar**/
@@ -104,11 +116,17 @@ public class ChatsFragment extends Fragment {
         //noinspection NotifyDataSetChanged
         adapterFireChats.notifyDataSetChanged();
         adapterFireChats.startListening();
+
+        recyclerView2.getRecycledViewPool().clear();
+        //noinspection NotifyDataSetChanged
+        adapterFireChats2.notifyDataSetChanged();
+        adapterFireChats2.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
         adapterFireChats.stopListening();
+        adapterFireChats2.stopListening();
     }
 }

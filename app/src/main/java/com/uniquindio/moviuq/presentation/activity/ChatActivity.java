@@ -30,7 +30,7 @@ import java.util.Date;
 
 public class ChatActivity extends AppCompatActivity {
 
-    private Chat chat;
+    private String chat;
     private RecyclerView recyclerView;
     private AdapterFireMensajes adapterFireMensajes;
     private Case_Chat case_chat;
@@ -55,7 +55,7 @@ public class ChatActivity extends AppCompatActivity {
         mensajetext.requestFocus();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.getItemAnimator().setChangeDuration(0);
-        Query query= FirebaseFirestore.getInstance().collection("mensajes").whereEqualTo("idChat",chat.getId());
+        Query query= FirebaseFirestore.getInstance().collection("mensajes").whereEqualTo("idChat",chat);
         FirestoreRecyclerOptions<Mensaje> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Mensaje>().setQuery(query, Mensaje.class).build();
         adapterFireMensajes = new AdapterFireMensajes(firestoreRecyclerOptions,this);
         recyclerView.setAdapter(adapterFireMensajes);
@@ -68,7 +68,7 @@ public class ChatActivity extends AppCompatActivity {
                 if(!mensajetext.getText().toString().isEmpty()){
                     Date date= new Date();
                     DateCalculator dateCalculator=new DateCalculator(date);
-                    Mensaje mensaje=new Mensaje(dateCalculator.getCompleteHourId(), chat.getId(), DataLocal.getUser().getName(), DataLocal.getUser().getPhoto(),dateCalculator.getCompleteDay(),mensajetext.getText().toString());
+                    Mensaje mensaje=new Mensaje(dateCalculator.getCompleteHourId(), chat, DataLocal.getUser().getName(), DataLocal.getUser().getPhoto(),dateCalculator.getCompleteDay(),mensajetext.getText().toString());
                     FirebaseFirestore.getInstance().collection("mensajes").document(mensaje.getId()).set(mensaje);
                     mensajetext.setText("");
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -93,9 +93,9 @@ public class ChatActivity extends AppCompatActivity {
     private void getData() {
 
         Bundle objeto=getIntent().getExtras();
-        chat=new Chat();
+
         if(objeto!=null){
-            chat=(Chat) objeto.getSerializable("chat");
+            chat=(String) objeto.getSerializable("chat");
         }
     }
 

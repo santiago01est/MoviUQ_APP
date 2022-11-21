@@ -65,7 +65,7 @@ public class AdapterFireChats extends FirestoreRecyclerAdapter<Chat, AdapterFire
             public void onClick(View view) {
                 Intent i = new Intent(holder.itemView.getContext(), ChatActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("chat", model);
+                bundle.putSerializable("chat", model.getId());
                 i.putExtras(bundle);
                 holder.itemView.getContext().startActivity(i);
 
