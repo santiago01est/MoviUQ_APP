@@ -39,7 +39,7 @@ public class Case_Request {
         Date date = new Date();
         DateCalculator dateCalculator = new DateCalculator(date);
         String idViaje="OR"+emailUser+dateCalculator.getCompleteHourId();
-        request=new Request(idViaje,user.getMail(),user.getName(),user.getPhoto(),dateCalculator.getCompleteDay(),title,"",dateTravel,hour,null,null,seats, EstadoPost.DISPONIBLE);
+        request=new Request(idViaje,user.getMail(),user.getName(),user.getPhoto(),dateCalculator.getCompleteDay(),title,"",dateTravel,hour,null,null,seats, EstadoPost.DISPONIBLE,dateCalculator.getIdFechaOrder());
         requestService.createRequest(request,emailUser,activity);
     }
 

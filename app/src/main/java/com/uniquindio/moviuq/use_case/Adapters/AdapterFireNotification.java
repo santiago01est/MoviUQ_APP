@@ -1,9 +1,11 @@
 package com.uniquindio.moviuq.use_case.Adapters;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -24,12 +27,17 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.domain.Chat;
 import com.uniquindio.moviuq.domain.Notification;
+import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
+import com.uniquindio.moviuq.provider.services.date.DateCalculator;
+import com.uniquindio.moviuq.use_case.Case_Chat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,10 +83,12 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
                 dialog.show();
 
                 RadioButton rd_si=dialog.findViewById(R.id.rd_si);
+                RadioButton rd_hablar=dialog.findViewById(R.id.rd_hablar);
 
                 rd_si.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        //dialog.hide();
                         Toast.makeText(context, "Viaje Confirmado!", Toast.LENGTH_SHORT).show();
                         /** Enviar notificacion al otro usuario**/
                         RequestQueue myrequest= Volley.newRequestQueue(context);
@@ -113,10 +123,30 @@ public class AdapterFireNotification extends FirestoreRecyclerAdapter<Notificati
                             e.printStackTrace();
                         }
                     }
+
                 });
+
+                rd_hablar.setOnClickListener(new View.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    @Override
+                    public void onClick(View v) {
+                       // dialog.hide();
+                        User user=DataLocal.getUser();
+                        Date date = new Date();
+                        Case_Chat case_chat=new Case_Chat((Activity) context);
+                        DateCalculator dateCalculator = new DateCalculator(date);
+                        String dateFormat= dateCalculator.getCompleteDay();
+
+                        Chat chat=new Chat(model.getEmailuseremisor()+ user.getMail(), model.getNameuserreceiver(),user.getName(),user.getMail(), model.getEmailuseremisor(),model.getPhotouserTransmitter(),user.getPhoto(),dateFormat,"");
+                        case_chat.iniciarChat(user.getMail(),model.getEmailuseremisor(),chat);
+                    }
+                });
+
+
 
             }
         });
+
 
 
     }

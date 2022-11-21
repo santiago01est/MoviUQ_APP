@@ -124,7 +124,7 @@ public class DateCalculator {
         int año = fecha.get(Calendar.YEAR);
         int mes = fecha.get(Calendar.MONTH) + 1;
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
-        String s=dia+""+mes+""+año;
+        String s=dia+""+mes+""+año+this.Hours;
         return Integer.parseInt(s);
     }
 

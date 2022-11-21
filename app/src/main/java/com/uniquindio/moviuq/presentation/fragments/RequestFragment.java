@@ -74,7 +74,7 @@ public class RequestFragment extends Fragment{
 
         /** Consulta para fijar Adaptador**/
         Query query= FirebaseFirestore.getInstance().collection("request");
-        FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query, Request.class).build();
+        FirestoreRecyclerOptions<Request> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Request>().setQuery(query.orderBy("date",Query.Direction.DESCENDING), Request.class).build();
         adapterFireRequest = new AdapterFireRequest(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireRequest);
 

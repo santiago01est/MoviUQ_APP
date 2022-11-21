@@ -53,7 +53,7 @@ public class Case_Offer {
         DateCalculator dateCalculator = new DateCalculator(date);
         String idViaje="OV"+emailUser+dateCalculator.getCompleteHourId();
         rute=new Rute("R"+emailUser+dateCalculator.getCompleteHourId(),idViaje,placeFrom,placeTo);
-        offer=new Offer(idViaje,emailUser,user.getName(),user.getPhoto(),dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats, EstadoPost.DISPONIBLE,myCondition,user.getToken());
+        offer=new Offer(idViaje,emailUser,user.getName(),user.getPhoto(),dateCalculator.getCompleteDay(),title,desc,dateTravel,hourTravel,rute,vehicleType,seats, EstadoPost.DISPONIBLE,myCondition,user.getToken(),dateCalculator.getIdFechaOrder());
         offerService.createOffer(offer, emailUser, activity);
     }
 

@@ -83,10 +83,12 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
 
         /** Inicializar objetos**/
         init();
-        referencesElementsUI();
-
         /** metodo que recibe la informacion del adapter */
         getData();
+
+
+
+
 
         imgv_chat=findViewById(R.id.imgv_chat_offer);
 
@@ -119,6 +121,10 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
                 case_chat.iniciarChat(user.getMail(),offer.getIdUser(),chat);
             }
         });
+        if(user.getMail().equals(offer.getIdUser())){
+            bttn_contratar.setVisibility(View.GONE);
+        }
+
 
     }
 
@@ -128,6 +134,7 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         case_notification=new Case_Notification(this);
         emailUser=case_user.getEmailUser();
         user=DataLocal.getUser();
+        referencesElementsUI();
 
     }
 
@@ -211,6 +218,9 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         toolbar=findViewById(R.id.toolbar_detail_offer);
         imgv_photoUser=findViewById(R.id.imageView_photo_user);
         bttn_contratar=findViewById(R.id.bttn_contratar);
+
+
+
     }
 
 

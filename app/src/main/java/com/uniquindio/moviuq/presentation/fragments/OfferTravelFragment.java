@@ -68,7 +68,7 @@ public class OfferTravelFragment extends Fragment {
 
         /** Consulta para fijar Adaptador**/
         Query query= FirebaseFirestore.getInstance().collection("offers");
-        FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
+        FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query.orderBy("date",Query.Direction.DESCENDING), Offer.class).build();
         adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireOffer);
         //noinspection NotifyDataSetChanged

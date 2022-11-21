@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.uniquindio.moviuq.DetalleTravelPlacePopolarActivity;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Offer;
 import com.uniquindio.moviuq.domain.PlaceMain;
@@ -51,9 +52,9 @@ public class AdapterFirePlaces extends FirestoreRecyclerAdapter<PlaceMain, Adapt
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(holder.itemView.getContext(), DetailOfferTravelActivity.class);
+                Intent i = new Intent(holder.itemView.getContext(), DetalleTravelPlacePopolarActivity.class);
                 Bundle bundle = new Bundle();
-               // bundle.putSerializable("offer", model);
+                bundle.putSerializable("place", model);
                 i.putExtras(bundle);
                 holder.itemView.getContext().startActivity(i);
             }

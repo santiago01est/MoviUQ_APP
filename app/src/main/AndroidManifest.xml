@@ -16,6 +16,13 @@
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="33">
         <activity
+            android:name=".DetalleTravelPlacePopolarActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".presentation.activity.ChatActivity"
             android:exported="false">
             <meta-data

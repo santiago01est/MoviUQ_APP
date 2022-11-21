@@ -39,6 +39,15 @@
                     android:button="@drawable/ic_car"
                     android:text="@string/confirmar_viaje" />
 
+                <RadioButton
+                    android:id="@+id/rd_hablar"
+                    style="@style/FontsLittleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/ic_chat"
+                    android:padding="20dp"
+                    android:text="@string/enviar_un_mensaje" />
+
 
             </RadioGroup>
 

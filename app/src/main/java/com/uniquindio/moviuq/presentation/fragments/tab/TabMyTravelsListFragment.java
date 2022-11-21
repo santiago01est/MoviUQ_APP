@@ -66,7 +66,7 @@ public class TabMyTravelsListFragment extends Fragment {
         FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
         adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions,getContext());
         recyclerView.setAdapter(adapterFireOffer);
-       // adapterFireOffer.notifyDataSetChanged();
+        adapterFireOffer.notifyDataSetChanged();
         return root;
     }
 
@@ -74,7 +74,7 @@ public class TabMyTravelsListFragment extends Fragment {
     public void onStart(){
         super.onStart();
         recyclerView.getRecycledViewPool().clear();
-       // adapterFireOffer.notifyDataSetChanged();
+        adapterFireOffer.notifyDataSetChanged();
         adapterFireOffer.startListening();
     }
 

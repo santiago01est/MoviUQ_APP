@@ -1,6 +1,8 @@
 package com.uniquindio.moviuq.domain;
 
-public class PlaceMain {
+import java.io.Serializable;
+
+public class PlaceMain implements Serializable {
 
     private String nombre;
     private String foto;

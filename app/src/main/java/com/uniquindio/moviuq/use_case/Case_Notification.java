@@ -98,7 +98,7 @@ public class Case_Notification {
         String dateNoti=dateCalculator.getCompleteDay();
         String descripcion="Hola! "+nameUserTravel+" , el usuario "+nameUserMe+" está interesado en tu oferta de viaje. \nConfirma el viaje!";
         TypeNotification typeNotification= TypeNotification.ACUERDO_VIAJE;
-        Notification notification= new Notification(id,dateNoti,descripcion,DataLocal.getUser().getPhoto(),typeNotification,IduserTravel,DataLocal.getToken());
+        Notification notification= new Notification(id,dateNoti,descripcion,DataLocal.getUser().getPhoto(),typeNotification,IduserTravel,DataLocal.getToken(),nameUserMe,DataLocal.getUser().getMail());
 
         notificationService.enviarNotificacion(notification,activity);
 
