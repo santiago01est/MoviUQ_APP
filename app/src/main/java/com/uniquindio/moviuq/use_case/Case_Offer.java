@@ -22,6 +22,7 @@ import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.presentation.activity.CreateOfferActivity;
 import com.uniquindio.moviuq.presentation.activity.LoginActivity;
+import com.uniquindio.moviuq.presentation.activity.SearchTravelActivity;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.provider.services.date.DateCalculator;
 
@@ -63,6 +64,11 @@ public class Case_Offer {
 
     public void lanzarCreateOffer(){
         Intent i = new Intent(activity, CreateOfferActivity.class);
+        activity.startActivity(i);
+    }
+
+    public void lanzarSearchTravel(){
+        Intent i = new Intent(activity, SearchTravelActivity.class);
         activity.startActivity(i);
     }
 }

@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.presentation.fragments.ChatsFragment;
 import com.uniquindio.moviuq.presentation.fragments.HomeFragment;
 import com.uniquindio.moviuq.presentation.fragments.OfferTravelFragment;
 import com.uniquindio.moviuq.presentation.fragments.RequestFragment;
@@ -48,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
             }else if(id == R.id.solicitud){
                 replaceFragments(new RequestFragment().newInstance());
             }else if(id == R.id.chats){
-
+                replaceFragments(new ChatsFragment().newInstance());
             }else if(id == R.id.perfil){
                 replaceFragments(new ProfileUserFragment().newInstance());
             }else{

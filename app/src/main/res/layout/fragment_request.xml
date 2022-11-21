@@ -31,7 +31,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/back_img_home"
+                    app:srcCompat="@drawable/img_place07"
                     android:contentDescription="@string/todo">
 
 
@@ -42,25 +42,7 @@
                     android:layout_height="match_parent">
 
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|start"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent">
 
-                        <TextView
-                            style="@style/FontsMainTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:text="@string/Requests"
-                            android:textColor="@color/white"
-                            android:textSize="42sp" />
-
-                    </LinearLayout>
 
                     <ImageButton
                         android:id="@+id/imgbttn_notification"
@@ -78,11 +60,34 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="160dp"
+                    android:layout_marginTop="110dp"
                     android:background="@drawable/degradado_detail_offer"
                     android:contentDescription="@string/todo">
 
                 </ImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        style="@style/FontsMainTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="@string/Requests"
+                        android:textColor="@color/green_black"
+                        android:textSize="42sp" />
+
+                </LinearLayout>
+
+
+
 
 
             </FrameLayout>

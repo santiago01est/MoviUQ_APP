@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_notification"
-    android:layout_width="match_parent"
-    android:layout_height="140dp"
+    android:layout_width="250dp"
+    android:layout_height="110dp"
     android:layout_marginTop="12dp"
     android:layout_marginRight="6dp"
-    android:layout_marginLeft="6dp"
+    android:layout_marginLeft="12dp"
     android:layout_marginBottom="10dp"
     android:animateLayoutChanges="true"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/bttn_01"
     app:cardUseCompatPadding="false">
 
     <com.google.android.material.card.MaterialCardView
@@ -31,7 +32,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardview"
-                android:layout_width="140dp"
+                android:layout_width="110dp"
                 app:strokeColor="@color/bttn_01"
                 android:layout_height="match_parent">
 
@@ -58,66 +59,18 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txv_title_offer"
+                    android:id="@+id/txv_title_place"
                     style="@style/FontsLittleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:maxLines="2"
-                    android:text="@string/de_a"
+                    android:text=""
                     android:textAlignment="inherit"
                     android:textColor="@color/white" />
 
-                <TextView
-                    android:id="@+id/txv_offer_date"
-                    style="@style/FontsVeryLittleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:drawablePadding="20dp"
-                    android:text="@string/date"
-                    android:textColor="@color/white"
-                    app:drawableLeftCompat="@drawable/ic_calendar" />
-
-                <TextView
-                    android:id="@+id/txv_offer_hour"
-                    style="@style/FontsVeryLittleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:drawablePadding="20dp"
-                    android:text="@string/hour"
-                    android:textColor="@color/white"
-                    app:drawableLeftCompat="@drawable/ic_hour" />
-
-                <TextView
-                    android:id="@+id/txv_offer_seats"
-                    style="@style/FontsVeryLittleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:drawablePadding="20dp"
-                    android:text="@string/seats"
-                    android:textColor="@color/white"
-                    app:drawableLeftCompat="@drawable/ic_seat" />
 
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/img_vehicle"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="12dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_motor"
-                android:contentDescription="@string/todo"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 

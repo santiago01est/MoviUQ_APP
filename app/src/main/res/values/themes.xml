@@ -137,8 +137,8 @@
     </style>
 
     <style name="ThemeOverlay.App.FloatingActionButton" parent="">
-        <item name="colorContainer">@color/green</item>
-        <item name="colorOnContainer">@color/green_main</item>
+        <item name="colorContainer">@color/green_main</item>
+        <item name="colorOnContainer">@color/green</item>
         <item name="strokeColor">@color/green_black</item>
     </style>
 

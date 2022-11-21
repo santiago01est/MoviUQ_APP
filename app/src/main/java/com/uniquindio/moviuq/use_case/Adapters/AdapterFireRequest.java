@@ -40,7 +40,7 @@ public class AdapterFireRequest extends FirestoreRecyclerAdapter<Request, Adapte
     protected void onBindViewHolder(@NonNull AdapterFireRequest.ViewHolder holder, int position, @NonNull Request model) {
 
 
-        holder.name.setText(model.getDescription());
+        holder.name.setText(model.getNameUser());
         holder.startArriveP.setText(model.getTitle());
         holder.date.setText(model.getDateTravel());
         holder.hour.setText(model.getHourTravel());

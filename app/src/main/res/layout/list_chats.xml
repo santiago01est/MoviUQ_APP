@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_notification"
     android:layout_width="match_parent"
-    android:layout_height="140dp"
+    android:layout_height="110dp"
     android:layout_marginTop="12dp"
     android:layout_marginRight="6dp"
     android:layout_marginLeft="6dp"
     android:layout_marginBottom="10dp"
     android:animateLayoutChanges="true"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="30dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="false">
 
@@ -36,7 +36,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imageView_user_request_profile"
+                    android:id="@+id/imageView_user_chat_profile"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
@@ -46,16 +46,6 @@
                     app:srcCompat="@drawable/ic_user"
                     app:strokeColor="@color/green_main" />
 
-                <TextView
-                    android:id="@+id/request_name"
-                    style="@style/FontsMediumLittleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:text="@string/name"
-                    android:textColor="@color/white" />
             </LinearLayout>
 
             <LinearLayout
@@ -64,67 +54,46 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="0dp"
                 android:layout_toEndOf="@id/ly_photoName"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txv_request_startArriveP"
-                    style="@style/FontsLittleText"
+                    android:id="@+id/txv_username"
+                    style="@style/FontsMediumText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:maxLines="2"
-                    android:text="@string/de_a"
+                    android:maxLines="1"
+                    android:text="Nombre del usuario"
                     android:textAlignment="inherit"
                     android:textColor="@color/white" />
 
                 <TextView
-                    android:id="@+id/txv_request_date"
-                    style="@style/FontsVeryLittleText"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txv_mensaje"
+                    style="@style/FontsLittle_MediumText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="@string/date"
-                    android:textColor="@color/white"
-                    app:drawableLeftCompat="@drawable/ic_calendar" />
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/white" />
 
                 <TextView
-                    android:id="@+id/txv_request_hour"
-                    style="@style/FontsVeryLittleText"
+                    android:id="@+id/txv_date"
+                    style="@style/FontsLittle_MediumText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:drawablePadding="20dp"
-                    android:text="@string/hour"
-                    android:textColor="@color/white"
-                    app:drawableLeftCompat="@drawable/ic_hour" />
+                    android:maxLines="1"
+                    android:text="22:55 del 21-jul"
+                    android:textColor="@color/white" />
 
-                <TextView
-                    android:id="@+id/txv_request_seats"
-                    style="@style/FontsVeryLittleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:drawablePadding="20dp"
-                    android:text="@string/seats"
-                    android:textColor="@color/white"
-                    app:drawableLeftCompat="@drawable/ic_seat" />
 
 
             </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/imgbttn_request_three_point"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/todo"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_points_edit"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </LinearLayout>
 

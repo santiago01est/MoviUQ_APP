@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="CoarseFineLocation">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +15,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoviUq"
         tools:targetApi="33">
+        <activity
+            android:name=".presentation.activity.ChatActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".presentation.activity.SearchTravelActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".presentation.activity.CreateRequestActivity"
             android:exported="false" />
@@ -60,12 +73,10 @@
             android:theme="@style/ThemeActivityWelcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-
 
         <meta-data
             android:name="preloaded_fonts"

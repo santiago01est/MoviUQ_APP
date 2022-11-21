@@ -38,11 +38,14 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.uniquindio.moviuq.R;
 import com.uniquindio.moviuq.domain.Offer;
+import com.uniquindio.moviuq.domain.PlaceMain;
 import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
 import com.uniquindio.moviuq.use_case.Adapters.AdapterFireOffer;
+import com.uniquindio.moviuq.use_case.Adapters.AdapterFirePlaces;
 import com.uniquindio.moviuq.use_case.Adapters.Adapter_Search;
 import com.uniquindio.moviuq.use_case.Case_Notification;
+import com.uniquindio.moviuq.use_case.Case_Offer;
 import com.uniquindio.moviuq.use_case.Case_User;
 
 import java.util.ArrayList;
@@ -52,17 +55,20 @@ import java.util.Map;
 public class HomeFragment extends Fragment {
 
     private ImageView imgv_photo_user,imgview_search;
-    private TextView txv_nameUser;
-    private RecyclerView search_offer;
-    private SearchView searchView;
+    private TextView txv_nameUser,buscar_destino;
+
+    private RecyclerView recyclerViewPlaces;
+    private LinearLayoutManager linearLayoutManager;
+
 
     /**
      * Casos de uso
      **/
     private Case_Notification case_notification;
     private Case_User case_user;
+    private Case_Offer case_offer;
     private ArrayList<Offer> myOffer = new ArrayList<>();
-    AdapterFireOffer adapterFireOffer;
+    AdapterFirePlaces adapterFirePlaces;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -92,25 +98,21 @@ public class HomeFragment extends Fragment {
         imgv_photo_user = root.findViewById(R.id.imageView_photoUser);
         imgview_search = root.findViewById(R.id.imgview_search);
         txv_nameUser = root.findViewById(R.id.txv_name_user);
+        buscar_destino = root.findViewById(R.id.buscar_destino);
+        recyclerViewPlaces = root.findViewById(R.id.recycler__place);
 
-        searchView = root.findViewById(R.id.search_travel);
-        search_offer = root.findViewById(R.id.recycler_search_travel);
-
-        search_offer.setVisibility(View.GONE);
-        search_offer.setLayoutManager(new LinearLayoutManager(getContext()));
-        Query query = FirebaseFirestore.getInstance().collection("offers");
-        FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query, Offer.class).build();
-        adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions, getContext());
-        search_offer.setAdapter(adapterFireOffer);
-        //Adapter_Search adapter_search=new Adapter_Search(myOffer);
-        // search_offer.setAdapter(adapter_search);
-        search_offer.getItemAnimator().setChangeDuration(0);
-        searchView.setQueryHint("Buscar...");
-        searchView.setIconified(false);
+        linearLayoutManager= new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewPlaces.setLayoutManager(linearLayoutManager);
+        Query query= FirebaseFirestore.getInstance().collection("places_main");
+        FirestoreRecyclerOptions<PlaceMain> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<PlaceMain>().setQuery(query, PlaceMain.class).build();
+        adapterFirePlaces = new AdapterFirePlaces(firestoreRecyclerOptions,getContext());
+        adapterFirePlaces.notifyDataSetChanged();
+        recyclerViewPlaces.setAdapter(adapterFirePlaces);
 
 
         case_notification = new Case_Notification(getActivity());
         case_user = new Case_User(getActivity());
+        case_offer=new Case_Offer(getActivity());
         /**
          * Elementos UI
          **/
@@ -122,37 +124,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        buscar_destino.setOnClickListener(v -> case_offer.lanzarSearchTravel());
+
 
         /**  Load UI*/
         loadData();
 
-        /** Logica para la busquedad**/
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                search_offer.setVisibility(View.VISIBLE);
-                if (!s.isEmpty()){
-                    imgview_search.setVisibility(View.GONE);
-                }else{
-                    imgview_search.setVisibility(View.VISIBLE);
-                    search_offer.setVisibility(View.GONE);
-                }
-                imgview_search.setVisibility(View.GONE);
-                search_offer.setLayoutManager(new LinearLayoutManager(getContext()));
-                Query query = FirebaseFirestore.getInstance().collection("offers");
-                FirestoreRecyclerOptions<Offer> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Offer>().setQuery(query.orderBy("title").startAt(s).endAt(s+"~"), Offer.class).build();
-                adapterFireOffer = new AdapterFireOffer(firestoreRecyclerOptions, getContext());
-                adapterFireOffer.startListening();
-                search_offer.setAdapter(adapterFireOffer);
-                return true;
-            }
-        });
 
         return root;
     }
@@ -188,16 +165,15 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        search_offer.getRecycledViewPool().clear();
-        //noinspection NotifyDataSetChanged
-        adapterFireOffer.notifyDataSetChanged();
-        adapterFireOffer.startListening();
+        recyclerViewPlaces.getRecycledViewPool().clear();
+        adapterFirePlaces.notifyDataSetChanged();
+        adapterFirePlaces.startListening();
     }
 
     @Override
     public void onStop(){
         super.onStop();
-        adapterFireOffer.stopListening();
+        adapterFirePlaces.stopListening();
     }
 
 

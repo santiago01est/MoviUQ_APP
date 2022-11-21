@@ -7,6 +7,7 @@ import androidx.core.widget.NestedScrollView;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -25,16 +26,20 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.uniquindio.moviuq.R;
+import com.uniquindio.moviuq.domain.Chat;
 import com.uniquindio.moviuq.domain.Condition;
 import com.uniquindio.moviuq.domain.MyPlace;
 import com.uniquindio.moviuq.domain.Offer;
 import com.uniquindio.moviuq.domain.User;
 import com.uniquindio.moviuq.domain.VehicleType;
 import com.uniquindio.moviuq.provider.data_local.DataLocal;
+import com.uniquindio.moviuq.provider.services.date.DateCalculator;
 import com.uniquindio.moviuq.provider.services.maps.myMapFragment;
+import com.uniquindio.moviuq.use_case.Case_Chat;
 import com.uniquindio.moviuq.use_case.Case_Notification;
 import com.uniquindio.moviuq.use_case.Case_User;
 
+import java.util.Date;
 import java.util.List;
 
 public class DetailOfferTravelActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -53,7 +58,9 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
     private LinearLayout contenedor_main_conditions;
     private Toolbar toolbar;
     private ImageView imgv_photoUser;
+    private ImageView imgv_chat;
     private Button bttn_contratar;
+
 
 
     /** Objets**/
@@ -66,6 +73,7 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
 
     /** Case use**/
     Case_User case_user;
+    Case_Chat case_chat;
     Case_Notification case_notification;
 
     @Override
@@ -79,6 +87,8 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
 
         /** metodo que recibe la informacion del adapter */
         getData();
+
+        imgv_chat=findViewById(R.id.imgv_chat_offer);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,10 +106,25 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
             }
         });
 
+        imgv_chat.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+
+                Date date = new Date();
+                DateCalculator dateCalculator = new DateCalculator(date);
+                String dateFormat= dateCalculator.getCompleteDay();
+
+                Chat chat=new Chat(offer.getIdUser()+ user.getMail(), offer.getNameUser(),user.getName(),user.getMail(), offer.getIdUser(),offer.getPhotoUser(),user.getPhoto(),dateFormat,"");
+                case_chat.iniciarChat(user.getMail(),offer.getIdUser(),chat);
+            }
+        });
+
     }
 
     private void init(){
         case_user= new Case_User(this);
+        case_chat=new Case_Chat(this);
         case_notification=new Case_Notification(this);
         emailUser=case_user.getEmailUser();
         user=DataLocal.getUser();

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.fragments.OfferTravelFragment">
+    tools:context=".presentation.fragments.ChatsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbarOffer"
+        android:id="@+id/appbarChats"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@android:color/transparent"
@@ -15,7 +15,7 @@
         android:theme="@style/CollapsingTheme">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsingOffer"
+            android:id="@+id/collapsingChats"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -31,7 +31,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/back_img_home"
+                    app:srcCompat="@drawable/img_chat"
                     android:contentDescription="@string/todo"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,7 +54,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:textSize="42sp"
-                            android:text="@string/offerTravel_title"
+                            android:text="@string/chats"
                             android:textColor="@color/white" />
 
                     </LinearLayout>
@@ -84,7 +84,7 @@
 
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_request"
+                android:id="@+id/toolbar_Chats"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:layout_collapseMode="pin"
@@ -97,7 +97,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -108,40 +107,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_offer_travel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_chats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                </androidx.recyclerview.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
 
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_add_offer_travel"
-        style="@style/Widget.App.FloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:contentDescription="@string/MoviUQ"
-        app:srcCompat="@drawable/ic_add"
-        app:elevation="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="30dp"
-        app:rippleColor="@color/green"
-        app:shapeAppearanceOverlay="@style/shapeButtom"/>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
