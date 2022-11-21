@@ -123,6 +123,7 @@ public class DetailOfferTravelActivity extends AppCompatActivity implements OnMa
         });
         if(user.getMail().equals(offer.getIdUser())){
             bttn_contratar.setVisibility(View.GONE);
+            imgv_chat.setVisibility(View.GONE);
         }
 
 

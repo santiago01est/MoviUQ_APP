@@ -200,7 +200,7 @@
                     android:layout_height="63dp"
                     android:layout_margin="20dp"
                     android:fontFamily="@font/berlin_sans_demi_bold"
-                    android:text="@string/creat_offer_post_offer"
+                    android:text="@string/publicar_solicitud"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:backgroundTint="@color/bttn_01"
